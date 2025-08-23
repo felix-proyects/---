@@ -6,7 +6,7 @@
 
 > 🩵 Versión actual: 2.0.3
 
-<h1 align="center">INTRODUCCIÓN</p>
+<h1 align="center">SUPER WA - BOT</p>
 <p>
         <img src= "https://files.catbox.moe/petcot.jpg">
     </p>
