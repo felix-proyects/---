@@ -29,12 +29,6 @@ Este Bot es 100% funcional con super juegs RPG, sistema de gacha, administració
 
 ---
 
-## ESTE PROYECTO ES OFICIAL Y ESTÁ ALOJADO EN KURAYAMI HOSTING, UN HOSTING 100% CONFIABLE, ESTABLE Y ECONÓMICO.
-
-</details>
-
----
-
 ## **`KURAYAMI HOSTING`**
 <a href="https://dash.kurayamihost.dpdns.org/home"><img src="https://qu.ax/PdMmk.jpg" height="100px"></a>
 </details>
