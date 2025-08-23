@@ -26,12 +26,16 @@ Este Bot es 100% funcional con super juegs RPG, sistema de gacha, administració
 
 ## ESTE PROYECTO ES OFICIAL Y ESTÁ ALOJADO EN KURAYAMI HOSTING, UN HOSTING 100% CONFIABLE, ESTABLE Y ECONÓMICO.
 
-<h1 align="center">💙 ̸̷᮫໊᷐͢᷍ᰍ MAKIMA BOT MD</p>
+---
+
+<h1 align="center">KURAYAMI-HOST</p>
 <p>
-        <img src= "https://files.catbox.moe/petcot.jpg">
+        <img src= "https://qu.ax/PdMmk.jpg">
     </p>
 
+---
 
+- **LINKS IMPORTANTES**
 - **Dashboard:** [Aquí](https://dash.kurayamihost.dpdns.org/home)
 - **Panel de Servicios:** [Aquí](https://panel.kurayamihost.dpdns.org) 
 - **Grupo de soporte:** [entrar](https://chat.whatsapp.com/LBEePvs3HP6IfME1Ju8HE1?mode=ac_t)
