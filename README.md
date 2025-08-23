@@ -1,6 +1,12 @@
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=F700FF&height=100&section=header&text=🩵%20Makima-Bot-MD%20🩵&fontSize=32&fontColor=ffffff" />
+</p>
+
+---
+
 > 🩵 Versión actual: 2.0.3
 
-<h1 align="center">💙 ̸̷᮫໊᷐͢᷍ᰍ MAKIMA BOT MD</p>
+<h1 align="center">INTRODUCCIÓN</p>
 <p>
         <img src= "https://files.catbox.moe/petcot.jpg">
     </p>
