@@ -5,6 +5,8 @@
         <img src= "https://files.catbox.moe/petcot.jpg">
     </p>
 
+</details>
+
 ---
 
 ## Descripción
