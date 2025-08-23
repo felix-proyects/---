@@ -19,9 +19,6 @@ Este Bot es 100% funcional con super juegs RPG, sistema de gacha, administració
 - **Canal oficial:** [Aquí](https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21)
 - **Grupo oficial:** [Aquí](https://chat.whatsapp.com/ETZduk7trjG9xgTXVCRHYK?mode=ac_t) 
 
----
-
-
 </details>
 
 ---
