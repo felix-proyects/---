@@ -30,14 +30,13 @@ Este Bot es 100% funcional con super juegs RPG, sistema de gacha, administració
 
 ---
 
-<h1 align="center">KURAYAMI-HOST</p>
-<p>
-        <img src= "https://qu.ax/PdMmk.jpg">
-    </p>
+## **`🩵 AKIRAX HOST🩵`**
+<a href="https://dash.kurayamihost.dpdns.org/home"><img src="https://qu.ax/PdMmk.jpg" height="100px"></a>
+</details>
+</details>
+ <summary><b>:paperclip: Enlaces Importantes</b></summary>
 
----
 
-- **LINKS IMPORTANTES**
 - **Dashboard:** [Aquí](https://dash.kurayamihost.dpdns.org/home)
 - **Panel de Servicios:** [Aquí](https://panel.kurayamihost.dpdns.org) 
 - **Grupo de soporte:** [entrar](https://chat.whatsapp.com/LBEePvs3HP6IfME1Ju8HE1?mode=ac_t)
