@@ -93,5 +93,5 @@ Este Bot es 100% funcional con super juegs RPG, sistema de gacha, administració
 
 <a href="http://wa.me/18293142989" target="blank"><img src="https://img.shields.io/badge/Creador-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /> 
 
-<a href="https://whatsapp.com/channel/0029VbAZcyIIXnlwp79iwu2l" target="blank"><img src="https://img.shields.io/badge/Canal oficial-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21" target="blank"><img src="https://img.shields.io/badge/Canal oficial-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
