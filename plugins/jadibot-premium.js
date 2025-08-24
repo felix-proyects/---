@@ -93,15 +93,15 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     global.db.data.users[m.sender].Subs = new Date() * 1;
 };
 
-handler.help = ['qr', 'code', 'jadibot']
+handler.help = ['qrpremium', 'codepremium', 'jadibot']
 handler.tags = ['serbot']
-handler.command = ['qr', 'code', 'jadibot']
+handler.command = ['qrpremium', 'codepremium', 'jadibot']
 export default handler
 
 export async function blackJadiBot(options) {
     let { pathblackJadiBot, m, conn, args, usedPrefix, command, isPremiumFromToken } = options;
-    if (command === 'code') {
-        command = 'qr';
+    if (command === 'codepremium') {
+        command = 'qrpremium';
         args.unshift('code');
     }
     const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false;
