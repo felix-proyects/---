@@ -1,7 +1,11 @@
 /*
 Código creado por Félix Manuel - Makima Bot MD
 Respeta los créditos
+Este código es solo funcional en los prem bot
 */
+
+import fs from 'fs';
+import path from 'path';
 
 const jugadores = [
   { nombre: "Cristiano Ronaldo", valor: 100, url: "https://files.catbox.moe/fl7ibk.jpg" },
@@ -25,20 +29,14 @@ let soccerStorage = global.db.data.soccer || (global.db.data.soccer = {});
 let ventasPendientes = global.db.data.ventasPendientes || (global.db.data.ventasPendientes = {});
 
 let handler = async (m, { conn, command, args }) => {
+  // --- VERIFICACIÓN DE BOT PREMIUM ---
+  const senderNumber = conn.user.jid.split('@')[0];
+  const premiumFilePath = path.join('./JadiBots', senderNumber, 'premium.json');
+  
   try {
-    const fs = await import('fs');
-    const path = await import('path');
-    const botJid = conn.user.jid;
-    const sessionDir = path.join(process.cwd(), 'JadiBots', botJid.split('@')[0]);
-    const premiumFilePath = path.join(sessionDir, 'premium.json');
-    let isPremiumBot = false;
-    
-    if (fs.existsSync(premiumFilePath)) {
-      const premiumConfig = JSON.parse(fs.readFileSync(premiumFilePath, 'utf8'));
-      isPremiumBot = premiumConfig.premiumBot;
-    }
+    const premiumConfig = JSON.parse(fs.readFileSync(premiumFilePath, 'utf8'));
 
-    if (!isPremiumBot) {
+    if (premiumConfig.premiumBot !== true) {
       return m.reply("「🩵」Este comando es exclusivo para bots premium.");
     }
   } catch (e) {
