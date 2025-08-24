@@ -13,7 +13,7 @@ if (/webp|image|video/g.test(mime)) {
 if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return m.reply(`🩵 *¡El video no puede durar mas de 8 segundos!*`)
 let img = await q.download?.()
 
-if (!img) return conn.reply(m.chat, `🩵  *_Responde a un vídeo, imagen o Gif para generar tu sticker._*`, m, rcanal)
+if (!img) return conn.reply(m.chat, `🩵  *_Responde a un vídeo, imagen o Gif para generar tu sticker._*`, m, fake)
 
 let out
 try {
@@ -40,7 +40,7 @@ if (!stiker) stiker = e
 } finally {
 if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: `🩵 ̸̷᮫໊᷐͢᷍ᰍ MAKIMA 2.0`, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m })
 
-else return conn.reply(m.chat, '🩵 *_Debes responder a un Video, Foto o Gif, para generar su sticker._*', m, rcanal)
+else return conn.reply(m.chat, '🩵 *_Debes responder a un Video, Foto o Gif, para generar su sticker._*', m, fake)
 
 
 }}
