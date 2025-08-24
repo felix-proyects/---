@@ -36,10 +36,12 @@ setprimary.admin = true
 // RESETPRIMARY
 let resetprimary = async (m, { conn }) => {
   if (!global.db.data.chats[m.chat] || !global.db.data.chats[m.chat].primaryBot) {
-    return conn.reply(m.chat, '💙 En este grupo ya no hay bot principal.', m, fake)
+    // Ya no hay principal, así que todos pueden responder
+    return conn.reply(m.chat, '💙 En este grupo ya no hay bot principal. Ahora todos los bots pueden responder como antes.', m, fake)
   }
+  // Elimina el bot principal, TODOS los bots pueden volver a responder
   delete global.db.data.chats[m.chat].primaryBot
-  conn.reply(m.chat, '💙 En este grupo ya no hay bot principal.', m, fake)
+  conn.reply(m.chat, '💙 El bot principal ha sido eliminado. Ahora todos los bots pueden responder como antes.', m, fake)
 }
 
 resetprimary.help = ['resetprimary']
