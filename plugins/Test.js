@@ -44,7 +44,7 @@ const pinterest = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) return conn.reply(m.chat, `*💎 Formato incorrecto. Uso Correcto: ${usedPrefix + command} Makima y denji*`, m);
 
     await m.react('🕐');
-    conn.reply(m.chat, '💎 *Descargando imágenes de Pinterest...*', m, {
+    conn.reply(m.chat, '💎 *Descargando imágenes de Pinterest...*', m, fake, {
         contextInfo: {
             externalAdReply: {
                 mediaUrl: null,
