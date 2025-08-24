@@ -50,7 +50,7 @@ global.makiJadibts = true
 
 global.packsticker = `⏤͟͞ू⃪  ̸̷͢Makima 𝐁𝐨𝐭𑁯ᰍ\n`
 global.packname = `⏤͟͞ू⃪  ̸̷͢Makima 𝐁𝐨𝐭𑁯ᰍ`
-global.author = `socket:\n✐ ${botname}\nFecha:\n✐ ${fecha}\nHora\n✐ ${tiempo}\nUsuario\n✐ @${nombre}`;
+global.author = `socket:\n✐ ${botname}\nFecha:\n✐ ${fecha}\nHora:\n✐ ${tiempo}\nUsuario:\n✐ @${nombre}`;
 global.wm = '⏤͟͞ू⃪  ̸̷͢𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 Deymoon Club';
 global.titulowm = '⏤͟͞ू⃪Makima 𝐁𖹭t͟𑁯ᰍ';
 global.igfg = 'Deymoon Club'
