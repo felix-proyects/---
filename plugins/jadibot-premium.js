@@ -50,8 +50,8 @@ function msToTime(duration) {
 }
 
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
-    let time = global.db.data.users[m.sender].Subs + 120000
-    if (new Date - global.db.data.users[m.sender].Subs < 120000) {
+    let time = global.db.data.users[m.sender].Subs + 20000
+    if (new Date - global.db.data.users[m.sender].Subs < 20000) {
         return conn.reply(m.chat, `🕐 Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
     }
     const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
