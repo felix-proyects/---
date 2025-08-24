@@ -48,7 +48,7 @@ global.makiJadibts = true
 
 //*─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─✰─ׄ─ׅ─ׄ─*
 
-global.packsticker = `Usuario: ${nombre}\n\n`
+global.packsticker = `⏤͟͞ू⃪  ̸̷͢Makima 𝐁𝐨𝐭𑁯ᰍ\nsocket:\n✐ ${botname}\nFecha:\n✐ ${fecha}\n\n✐ ${tiempo}\n\n`
 global.packname = `⏤͟͞ू⃪  ̸̷͢Makima 𝐁𝐨𝐭𑁯ᰍ`
 global.author = `Stickers Deymoon Club`;
 global.wm = '⏤͟͞ू⃪  ̸̷͢𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 Deymoon Club';
