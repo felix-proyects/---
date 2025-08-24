@@ -1,4 +1,5 @@
-import { areJidsSameUser } fromimport fs from 'fs';
+import { areJidsSameUser } from
+import fs from 'fs';
 import path from 'path';
 
 const tokensFilePath = './src/database/sessions.json';
