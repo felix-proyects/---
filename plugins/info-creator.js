@@ -5,15 +5,15 @@ let handler = async (m, { conn }) => {
   }
 
   // Datos de los contactos
-  let numberCreator = '18293142989' // Número de la creadora
+  let numberCreator = '14584886621' // Número de la creadora
   let nombreCreator = '💎 C R E A D O R 💎'
-  let canal = 'https://wa.me18293142989'
+  let canal = 'https://wa.me14584886621'
 
   let numberBot = '212649023476' // Número del bot
   let nombreBot = 'BOT OFICIAL'
 
-  let numberManuel = '18092564638'
-  let nombreManuel = 'MANUEL'
+  let numberManuel = '18293142989'
+  let nombreManuel = 'SOPORTE KURAYAMI HOSTING'
 
   // vCards individuales
   let vcardCreator = `BEGIN:VCARD
