@@ -16,17 +16,17 @@ let handler = async (m, { conn }) => {
   const emojis = '👨‍💻'
 
   let grupos = `
-╭─⟪ *💎GRUPOS OFICIALES * 
+╭─⟪ 💎GRUPOS OFICIALES
 │
-│ 🩵 *${namegrupo}*
+│ 💙 *${namegrupo}*
 │ ${gp1}
 │
-│ 🩵 *${namechannel}*
+│ 💙 *${namechannel}*
 │ ${channel}
 │
 │ 💙  *${namehosting}*
 │ ${channelhosting}   
-╰─────────────────╯
+╰───────────────╯
 `
 
   await conn.sendFile(m.chat, catalogo, 'grupos.jpg', grupos.trim(), m)
