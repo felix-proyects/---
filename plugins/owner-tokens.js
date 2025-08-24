@@ -1,4 +1,3 @@
-import { areJidsSameUser } from
 import fs from 'fs';
 import path from 'path';
 
