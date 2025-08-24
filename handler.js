@@ -29,7 +29,7 @@ export async function handler(chatUpdate) {
     m.exp = 0;
     m.coin = false;
     
-    let isBotPrem = false;
+    let isBotPrem = m.fromMe;
     if (!isBotPrem) { 
         try {
             const botJid = this.user.jid.split('@')[0];
