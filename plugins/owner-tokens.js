@@ -47,7 +47,9 @@ const handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
             m.reply('❀ Ocurrió un error al procesar la solicitud. Por favor, revisa la consola.');
         }
 
-    } else if (command === "tokens") {
+    } 
+    
+    if (command === "tokens") {
         try {
             const tokens = JSON.parse(fs.readFileSync(tokensFilePath, 'utf8'));
             let tokenList = '👑 *ESTADO DE LOS TOKENS*\n\n';
@@ -71,7 +73,9 @@ const handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
             m.reply('❀ Ocurrió un error al leer el archivo de tokens.');
         }
 
-    } else if (command === "addtoken") {
+    } 
+    
+    if (command === "addtoken") {
         if (!text) {
             return m.reply(`❀ Faltan argumentos. Usa el comando así:\n*${usedPrefix + command} MI-NUEVO-TOKEN-1234 | 2*`);
         }
@@ -108,7 +112,9 @@ const handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
             m.reply('❀ Ocurrió un error al agregar el token.');
         }
     
-    } else if (command === "deltoken") {
+    } 
+    
+    if (command === "deltoken") {
         if (!text) {
             return m.reply(`❀ Faltan argumentos. Usa el comando así:\n*${usedPrefix + command} MITOKENNUEVO1234 | 1*`);
         }
