@@ -76,6 +76,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
         return conn.reply(m.chat, '❀ El token proporcionado no es válido o ya está en uso.', m);
     }
     
+    // Asignar el token al usuario solo si es válido y libre
     validToken.estado = m.sender;
     saveTokens(tokens);
     
@@ -86,13 +87,14 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     if (!fs.existsSync(pathblackJadiBot)){
         fs.mkdirSync(pathblackJadiBot, { recursive: true })
     }
+
+    // Determinar si es un método de código o QR
+    const isCodeMethod = command === 'codeprem';
     
     blackJBOptions.pathblackJadiBot = pathblackJadiBot
     blackJBOptions.m = m
     blackJBOptions.conn = conn
-    blackJBOptions.args = args
-    blackJBOptions.usedPrefix = usedPrefix
-    blackJBOptions.command = command
+    blackJBOptions.isCodeMethod = isCodeMethod
     blackJBOptions.fromCommand = true
     blackJBOptions.isPremiumFromToken = validToken.premium
     blackJadiBot(blackJBOptions)
@@ -105,19 +107,12 @@ handler.command = ['qrprem', 'codeprem']
 export default handler 
 
 export async function blackJadiBot(options) {
-    let { pathblackJadiBot, m, conn, args, usedPrefix, command, isPremiumFromToken } = options
-    const mcode = command === 'codeprem'; 
+    let { pathblackJadiBot, m, conn, isCodeMethod, isPremiumFromToken } = options
     let txtCode, codeBot, txtQR
     
     const pathCreds = path.join(pathblackJadiBot, "creds.json")
     if (!fs.existsSync(pathblackJadiBot)){
         fs.mkdirSync(pathblackJadiBot, { recursive: true })
-    }
-    try {
-        args[0] && args[0] != undefined ? fs.writeFileSync(pathCreds, JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, '\t')) : ""
-    } catch {
-        conn.reply(m.chat, `❀ Use correctamente el comando » ${usedPrefix + command} code`, m)
-        return
     }
     
     const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
@@ -134,7 +129,7 @@ export async function blackJadiBot(options) {
             auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
             msgRetry,
             msgRetryCache,
-            browser: mcode ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['Makima (Sub Bot)', 'Chrome','2.0.0'],
+            browser: isCodeMethod ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['Makima (Sub Bot)', 'Chrome','2.0.0'],
             version: version,
             generateHighQualityLinkPreview: true
         };
@@ -146,7 +141,7 @@ export async function blackJadiBot(options) {
         async function connectionUpdate(update) {
             const { connection, lastDisconnect, isNewLogin, qr } = update
             if (isNewLogin) sock.isInit = false
-            if (qr && !mcode) {
+            if (qr && !isCodeMethod) {
                 if (m?.chat) {
                     txtQR = await conn.sendMessage(m.chat, { image: await qrcode.toBuffer(qr, { scale: 8 }), caption: rtx.trim()}, { quoted: m})
                 } else {
@@ -157,7 +152,7 @@ export async function blackJadiBot(options) {
                 }
                 return
             } 
-            if (qr && mcode) {
+            if (qr && isCodeMethod) {
                 let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
                 secret = secret.match(/.{1,4}/g)?.join("-")
                 txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m })
@@ -228,7 +223,7 @@ export async function blackJadiBot(options) {
                 sock.isInit = true
                 global.conns.push(sock)
 
-                m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : `@${m.sender.split('@')[0]}, La conexión fue establecida con éxito...`, mentions: [m.sender]}, { quoted: m }) : ''
+                m?.chat ? await conn.sendMessage(m.chat, {text: `@${m.sender.split('@')[0]}, La conexión fue establecida con éxito...`, mentions: [m.sender]}, { quoted: m }) : ''
 
             }
         }
