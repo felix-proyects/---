@@ -25,11 +25,32 @@ let soccerStorage = global.db.data.soccer || (global.db.data.soccer = {});
 let ventasPendientes = global.db.data.ventasPendientes || (global.db.data.ventasPendientes = {});
 
 let handler = async (m, { conn, command, args }) => {
+  try {
+    const fs = await import('fs');
+    const path = await import('path');
+    const botJid = conn.user.jid;
+    const sessionDir = path.join(process.cwd(), 'JadiBots', botJid.split('@')[0]);
+    const premiumFilePath = path.join(sessionDir, 'premium.json');
+    let isPremiumBot = false;
+    
+    if (fs.existsSync(premiumFilePath)) {
+      const premiumConfig = JSON.parse(fs.readFileSync(premiumFilePath, 'utf8'));
+      isPremiumBot = premiumConfig.premiumBot;
+    }
+
+    if (!isPremiumBot) {
+      return m.reply("「🩵」Este comando es exclusivo para bots premium.");
+    }
+  } catch (e) {
+    console.error("Error al verificar el estado premium del bot:", e);
+    return m.reply("Ocurrió un error al verificar tu estado premium. Intenta de nuevo más tarde.");
+  }
+  
   // #rcjugador (reclamar)
   if (command === "rcjugador") {
     let user = global.db.data.users[m.sender];
     if (!user) user = global.db.data.users[m.sender] = {};
-    
+
     // Eliminado el tiempo de espera para rcjugador
     if (!m.quoted || !m.quoted.id) return m.reply('Responde a la foto del jugador con #rcjugador para reclamarlo.');
     let soccer = soccerStorage[m.chat];
