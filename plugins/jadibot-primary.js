@@ -1,7 +1,7 @@
-import fs from 'fs'
-import path from 'path'
+// plugins/jadibot-primary.js
 
-// Fake de canal (puedes personalizar el texto)
+//* Código creado por Félix, no quites créditos *//
+
 const fake = {
   key: {
     fromMe: false,
@@ -13,19 +13,19 @@ const fake = {
   }
 }
 
-// SETPRIMARY
+// SETPRIMARY: Solo un bot responde en el grupo
 let setprimary = async (m, { conn, text }) => {
+  // Validar número
   if (!text || !text.replace(/[^0-9]/g, '')) {
-    return conn.reply(m.chat, '「🩵」Debes etiquetar al bot que quieres hacer principal en este grupo.', m, fake)
+    return await conn.reply(m.chat, '「🩵」Debes etiquetar al bot que quieres hacer principal en este grupo.', m, fake)
   }
-
   let botNumber = text.replace(/[^0-9]/g, '')
   let botJid = botNumber + '@s.whatsapp.net'
 
   if (!global.db.data.chats[m.chat]) global.db.data.chats[m.chat] = {}
   global.db.data.chats[m.chat].primaryBot = botJid
 
-  conn.reply(m.chat, `El bot principal para este grupo ahora es:\n*${botJid}*`, m, fake)
+  await conn.reply(m.chat, `El bot principal para este grupo ahora es:\n*${botJid}*\n\nSolo ese bot responderá aquí.`, m, fake)
 }
 
 setprimary.help = ['setprimary @bot']
@@ -33,15 +33,14 @@ setprimary.tags = ['owner']
 setprimary.command = ['setprimary']
 setprimary.admin = true
 
-// RESETPRIMARY
+// RESETPRIMARY: Todos los bots vuelven a responder
 let resetprimary = async (m, { conn }) => {
-  if (!global.db.data.chats[m.chat] || !global.db.data.chats[m.chat].primaryBot) {
-    // Ya no hay principal, así que todos pueden responder
-    return conn.reply(m.chat, '💙 En este grupo ya no hay bot principal. Ahora todos los bots pueden responder como antes.', m, fake)
+  let data = global.db.data.chats[m.chat]
+  if (!data || !data.primaryBot) {
+    return await conn.reply(m.chat, '💙 En este grupo ya no hay bot principal. Ahora todos los bots pueden responder como antes.', m, fake)
   }
-  // Elimina el bot principal, TODOS los bots pueden volver a responder
-  delete global.db.data.chats[m.chat].primaryBot
-  conn.reply(m.chat, '💙 El bot principal ha sido eliminado. Ahora todos los bots pueden responder como antes.', m, fake)
+  delete data.primaryBot
+  await conn.reply(m.chat, '💙 El bot principal ha sido eliminado. Ahora todos los bots pueden responder como antes.', m, fake)
 }
 
 resetprimary.help = ['resetprimary']
