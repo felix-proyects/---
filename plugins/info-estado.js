@@ -32,8 +32,8 @@ let handler = async (m, { conn, usedPrefix }) => {
   // Mensaje principal
   let makimabot= `
 ╭━━━━◇◇◇━━━━⬣
-┃ ESTADO DE LA BOT 
-┃ MAKIMA 2.0 BOT
+┃ESTADO EN TIEMPO REAL 
+┃   DEYMOON CLUB 
 ╰━━━━◇◇◇━━━━⬣
 
 🩵 *Creador:* Félix Manuel 
