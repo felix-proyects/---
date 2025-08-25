@@ -14,14 +14,6 @@ const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function (
   resolve();
 }, ms));
 
-const tokensFilePath = './src/database/sessions.json';
-function loadTokens() {
-    if (fs.existsSync(tokensFilePath)) {
-        return JSON.parse(fs.readFileSync(tokensFilePath, 'utf8'));
-    }
-    return [];
-}
-
 export async function handler(chatUpdate) {
   this.msgqueque = this.msgqueque || [];
   this.uptime = this.uptime || Date.now();
@@ -37,20 +29,22 @@ export async function handler(chatUpdate) {
     m.exp = 0;
     m.coin = false;
     
-    let isBotPrem = false;
-    if (this?.user?.jid) {
+    // --- LÓGICA DE VERIFICACIÓN DE BOT PREMIUM MEJORADA ---
+    let isBotPrem = false; // El bot solo será premium si se verifica en el archivo.
+    if (!isBotPrem) { // Si no es el principal, revisa el archivo.
         try {
-            const tokens = loadTokens();
             const botJid = this.user.jid.split('@')[0];
-            const currentSession = tokens.find(s => s.numero === botJid);
-            if (currentSession) {
-                isBotPrem = currentSession.premium === true;
+            const premiumFilePath = path.join('./JadiBots', botJid, 'premium.json');
+            if (fs.existsSync(premiumFilePath)) {
+                const premiumConfig = JSON.parse(fs.readFileSync(premiumFilePath, 'utf8'));
+                isBotPrem = premiumConfig.premiumBot === true;
             }
         } catch (e) {
             console.error('Error al verificar el estado premium del bot:', e);
         }
     }
-    
+    // --- FIN DE LA LÓGICA DE VERIFICACIÓN ---
+
     try {
       let user = global.db.data.users[m.sender];
       if (typeof user !== 'object') global.db.data.users[m.sender] = {};
@@ -200,7 +194,7 @@ export async function handler(chatUpdate) {
     const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender);
     const isOwner = isROwner || m.fromMe;
     const isMods = isROwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender);
-    const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender) || _user.premium === true;
+    const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender) || _user.premium == true;
 
     if (m.isBaileys) return;
     if (opts['nyimak']) return;
@@ -350,7 +344,7 @@ export async function handler(chatUpdate) {
           continue;
         }
         
-        // --- AQUÍ ES DONDE SE VERIFICA QUE EL BOT EN USO SEA PREMIUM ---
+        // --- VERIFICACIÓN: COMANDO DISPONIBLE SOLO SI EL BOT ES PREMIUM ---
         if (plugin.botprem && !isBotPrem) {
           fail('botprem', m, this, usedPrefix, command);
           continue;
