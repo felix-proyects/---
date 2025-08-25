@@ -96,7 +96,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     blackJBOptions.isCodeMethod = isCodeMethod
     blackJBOptions.fromCommand = true
     blackJBOptions.userToken = userToken
-    blackJBOptions.isPremiumFromToken = true 
+    blackJBOptions.isPremiumFromToken = validToken.premium
     blackJadiBot(blackJBOptions)
     
     global.db.data.users[m.sender].Subs = new Date * 1
