@@ -99,7 +99,7 @@ const handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
                 token: tokenString,
                 estado: "libre",
                 numero: null,
-                premium: true
+                premium: false
             };
 
             tokens.push(newToken);
@@ -138,7 +138,7 @@ const handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
             token.token = newToken;
             token.estado = "libre";
             token.numero = null;
-            token.premium = true;
+            token.premium = false;
 
             fs.writeFileSync(tokensFilePath, JSON.stringify(tokens, null, 2));
 
