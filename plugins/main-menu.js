@@ -603,7 +603,7 @@ let handler = async (m, { conn, usedPrefix, text, command }) => {
           },
           forwardingScore: 999,
           externalAdReply: {
-            title: '𝐌A͜͡𝑲𝑖𝐌ꪖ  𝐁o͟T͎ 𝙼𝙳',
+            title: 'Deymoon Club',
             body: dev,
             thumbnailUrl: perfil,
             sourceUrl: redes,
