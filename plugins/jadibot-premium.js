@@ -1,6 +1,3 @@
-const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import("@whiskeysockets/baileys"));
-import qrcode from "qrcode"
-import NodeCache from "node-cache"
 import fs from "fs"
 import path from "path"
 import pino from 'pino'
@@ -11,6 +8,10 @@ const { child, spawn, exec } = await import('child_process')
 const { CONNECTING } = ws
 import { makeWASocket } from '../lib/simple.js'
 import { fileURLToPath } from 'url'
+import { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} from (await import("@whiskeysockets/baileys"))
+import qrcode from "qrcode"
+import NodeCache from "node-cache"
+
 const tokensFilePath = './src/database/sessions.json';
 const jadiBotsDir = './JadiBots';
 
@@ -76,7 +77,6 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
         return conn.reply(m.chat, '☆ El token proporcionado no es válido o ya está en uso.', m, fake);
     }
     
-    // Asignar el token al usuario solo si es válido y libre
     validToken.estado = m.sender;
     saveTokens(tokens);
     
@@ -88,7 +88,6 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
         fs.mkdirSync(pathblackJadiBot, { recursive: true })
     }
 
-    // Determinar si es un método de código o QR
     const isCodeMethod = command === 'codeprem';
     
     blackJBOptions.pathblackJadiBot = pathblackJadiBot
@@ -211,10 +210,6 @@ export async function blackJadiBot(options) {
             if (global.db.data == null) loadDatabase()
             if (connection == `open`) {
                 if (!global.db.data?.users) loadDatabase()
-
-                const premiumPath = path.join(pathblackJadiBot, 'premium.json');
-                const premiumConfig = { premiumBot: isPremiumFromToken };
-                fs.writeFileSync(premiumPath, JSON.stringify(premiumConfig, null, 2));
                 
                 let userName, userJid 
                 userName = sock.authState.creds.me.name || 'Anónimo'
