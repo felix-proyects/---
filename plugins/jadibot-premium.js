@@ -77,6 +77,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
         return conn.reply(m.chat, '☆ El token proporcionado no es válido o ya está en uso.', m, fake);
     }
     
+    // Asignar el token al usuario solo si es válido y libre
     validToken.estado = m.sender;
     saveTokens(tokens);
     
@@ -88,6 +89,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
         fs.mkdirSync(pathblackJadiBot, { recursive: true })
     }
 
+    // Determinar si es un método de código o QR
     const isCodeMethod = command === 'codeprem';
     
     blackJBOptions.pathblackJadiBot = pathblackJadiBot
@@ -96,7 +98,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     blackJBOptions.isCodeMethod = isCodeMethod
     blackJBOptions.fromCommand = true
     blackJBOptions.userToken = userToken
-    blackJBOptions.isPremiumFromToken = validToken.premium
+    blackJBOptions.isPremiumFromToken = validToken.premium // Lógica revertida a leer del archivo
     blackJadiBot(blackJBOptions)
     
     global.db.data.users[m.sender].Subs = new Date * 1
@@ -212,6 +214,7 @@ export async function blackJadiBot(options) {
             if (connection == `open`) {
                 if (!global.db.data?.users) loadDatabase()
                 
+                // Actualizar el estado en sessions.json con el JID del bot
                 let tokens = loadTokens();
                 const sessionIndex = tokens.findIndex(s => s.token === options.userToken);
                 if (sessionIndex !== -1) {
