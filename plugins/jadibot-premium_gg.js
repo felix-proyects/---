@@ -1,3 +1,6 @@
+const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import("@whiskeysockets/baileys"));
+import qrcode from "qrcode"
+import NodeCache from "node-cache"
 import fs from "fs"
 import path from "path"
 import pino from 'pino'
@@ -8,10 +11,6 @@ const { child, spawn, exec } = await import('child_process')
 const { CONNECTING } = ws
 import { makeWASocket } from '../lib/simple.js'
 import { fileURLToPath } from 'url'
-import { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} from (await import("@whiskeysockets/baileys"))
-import qrcode from "qrcode"
-import NodeCache from "node-cache"
-
 const tokensFilePath = './src/database/sessions.json';
 const jadiBotsDir = './JadiBots';
 
@@ -24,14 +23,14 @@ function loadTokens() {
 function saveTokens(data) {
     fs.writeFileSync(tokensFilePath, JSON.stringify(data, null, 2));
 }
-let crm1 = "Y2QgcGx1Z2lucw"
+let crm1 = "Y2QgcGx1Z2lucy"
 let crm2 = "A7IG1kNXN1b"
 let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "*︰꯭𞋭💎 ̸̷᮫໊᷐͢᷍ᰍ⧽͓̽ CONEXIÓN PREMIUM*\n\n━⧽ MODO CODIGO QR\n\n✰ 𝖯𝖺𝗌𝗈𝗌 𝖽𝖾 𝗏𝗂𝗇𝖼𝗎𝗅𝖺𝖼𝗂𝗈́𝗇:\n\n• En la Pc o tu otro teléfono escanea este qr.\n\n➪ Toca en dispositivos vinculados.\n\n➪ Selecciona Vincular con el número de teléfono.\n\n➪ Escanea el código QR.\n\n★ 𝗡𝗼𝘁𝗮: Este código expira después de los 45 segundos."
-let rtx2 = "*︰꯭𞋭💎 ̸̷᮫໊᷐͢᷍ᰍ⧽͓̽ CONEXIÓN PREMIUM*\n\n━⧽ MODO CODIGO\n\n✰ 𝖯𝖺𝗌𝗈𝗌 𝖽𝖾 𝗏𝗂𝗇𝖼𝗎𝗅𝖺𝖼𝗂𝗈́𝗇:\n\n➪ Ve a la esquina superior derecha.\n\n➪ Toca en dispositivos vinculados.\n\n➪ Selecciona Vincular con el número de teléfono.\n\n➪ Pega el siguiente código que te enviaremos.\n\n★ 𝗡𝗼𝗍𝖺: 𝖤𝗌𝗍𝖾 𝖼𝗈𝖽𝗂𝗀𝗈 𝗌𝗈𝗅𝗈 𝖿𝗎𝗇𝖼𝗂𝗈𝗇𝖺 𝖾𝗇 𝖾𝗅 𝗇𝗎́𝗆𝖾𝗋𝗈 𝗊𝗎𝖾 𝗅𝗈 𝗌𝗈𝗅𝗂𝖼𝗂𝗍𝗈́."
+let rtx = "*︰꯭𞋭💎 ̸̷᮫໊᷐͢᷍ᰍ⧽͓̽ CONEXIÓN SUBBOT*\n\n━⧽ MODO CODIGO QR\n\n✰ 𝖯𝖺𝗌𝗈𝗌 𝖽𝖾 𝗏𝗂𝗇𝖼𝗎𝗅𝖺𝖼𝗂𝗈́𝗇:\n\n• En la Pc o tu otro teléfono escanea este qr.\n\n➪ Toca en dispositivos vinculados.\n\n➪ Selecciona Vincular con el número de teléfono.\n\n➪ Escanea el código QR.\n\n★ 𝗡𝗼𝘁𝗮: Este código expira después de los 45 segundos."
+let rtx2 = "*︰꯭𞋭💎 ̸̷᮫໊᷐͢᷍ᰍ⧽͓̽ CONEXIÓN SUBBOT*\n\n━⧽ MODO CODIGO\n\n✰ 𝖯𝖺𝗌𝗈𝗌 𝖽𝖾 𝗏𝗂𝗇𝖼𝗎𝗅𝖺𝖼𝗂𝗈́𝗇:\n\n➪ Ve a la esquina superior derecha.\n\n➪ Toca en dispositivos vinculados.\n\n➪ Selecciona Vincular con el número de teléfono.\n\n➪ Pega el siguiente código que te enviaremos.\n\n★ 𝗡𝗼𝗍𝖺: 𝖤𝗌𝗍𝖾 𝖼𝗈𝖽𝗂𝗀𝗈 𝗌𝗈𝗅𝗈 𝖿𝗎𝗇𝖼𝗂𝗈𝗇𝖺 𝖾𝗇 𝖾𝗅 𝗇𝗎́𝗆𝖾𝗋𝗈 𝗊𝗎𝖾 𝗅𝗈 𝗌𝗈𝗅𝗂𝖼𝗂𝗍𝗈́."
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -51,30 +50,30 @@ function msToTime(duration) {
 }
 
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
-    let time = global.db.data.users[m.sender].Subs + 20000
-    if (new Date - global.db.data.users[m.sender].Subs < 20000) {
-        return conn.reply(m.chat, `🕐 Debes esperar ${msToTime(time - new Date())} para volver a intentar conectar como bot premium*`, m,  fake)
+    let time = global.db.data.users[m.sender].Subs + 120000
+    if (new Date - global.db.data.users[m.sender].Subs < 120000) {
+        return conn.reply(m.chat, `🕐 Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
     }
     const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
     const subBotsCount = subBots.length
     if (subBotsCount === 30) {
-        return m.reply(`☆ No se han encontrado servidores para *Sub-Bots* disponibles.`)
+        return m.reply(`❀ No se han encontrado servidores para *Sub-Bots* disponibles.`)
     }
 
     const userToken = args[0];
     if (!userToken) {
-        return conn.reply(m.chat, `☆ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m, fake);
+        return conn.reply(m.chat, `❀ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m);
     }
 
     let tokens = loadTokens();
     const userHasSession = tokens.find(s => s.estado === m.sender);
     if (userHasSession) {
-        return conn.reply(m.chat, `☆ Ya tienes una sesión activa. Tu token es: *${userHasSession.token}*`, m, fake);
+        return conn.reply(m.chat, `❀ Ya tienes una sesión activa. Tu token es: *${userHasSession.token}*`, m);
     }
 
     const validToken = tokens.find(s => s.token === userToken && s.estado === 'libre');
     if (!validToken) {
-        return conn.reply(m.chat, '☆ El token proporcionado no es válido o ya está en uso.', m, fake);
+        return conn.reply(m.chat, '❀ El token proporcionado no es válido o ya está en uso.', m);
     }
     
     // Asignar el token al usuario solo si es válido y libre
@@ -97,8 +96,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     blackJBOptions.conn = conn
     blackJBOptions.isCodeMethod = isCodeMethod
     blackJBOptions.fromCommand = true
-    blackJBOptions.userToken = userToken
-    blackJBOptions.isPremiumFromToken = validToken.premium // Lógica revertida a leer del archivo
+    blackJBOptions.isPremiumFromToken = validToken.premium
     blackJadiBot(blackJBOptions)
     
     global.db.data.users[m.sender].Subs = new Date * 1
@@ -189,7 +187,7 @@ export async function blackJadiBot(options) {
                 if (reason == 405 || reason == 401) {
                     console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La sesión (+${path.basename(pathblackJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
                     try {
-                        if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathblackJadiBot)}@s.whatsapp.net`, {text : '*SESIÓN PENDIENTE*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER PREM BOT CON TU T0KEN*' }, { quoted: m || null }) : ""
+                        if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathblackJadiBot)}@s.whatsapp.net`, {text : '*SESIÓN PENDIENTE*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER SUB-BOT*' }, { quoted: m || null }) : ""
                     } catch (error) {
                         console.error(chalk.bold.yellow(`Error 405 no se pudo enviar mensaje a: +${path.basename(pathblackJadiBot)}`))
                     }
@@ -197,7 +195,7 @@ export async function blackJadiBot(options) {
                 }
                 if (reason === 500) {
                     console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Conexión perdida en la sesión (+${path.basename(pathblackJadiBot)}). Borrando datos...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-                    if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathblackJadiBot)}@s.whatsapp.net`, {text : '*CONEXIÓN PÉRDIDA*\n\n> *INTENTÉ MANUALMENTE VOLVER A SER PREM BOT CON TU TOKEN*' }, { quoted: m || null }) : ""
+                    if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathblackJadiBot)}@s.whatsapp.net`, {text : '*CONEXIÓN PÉRDIDA*\n\n> *INTENTÉ MANUALMENTE VOLVER A SER SUB-BOT*' }, { quoted: m || null }) : ""
                     return creloadHandler(true).catch(console.error)
                 }
                 if (reason === 515) {
@@ -213,14 +211,10 @@ export async function blackJadiBot(options) {
             if (global.db.data == null) loadDatabase()
             if (connection == `open`) {
                 if (!global.db.data?.users) loadDatabase()
-                
-                // Actualizar el estado en sessions.json con el JID del bot
-                let tokens = loadTokens();
-                const sessionIndex = tokens.findIndex(s => s.token === options.userToken);
-                if (sessionIndex !== -1) {
-                    tokens[sessionIndex].numero = sock.authState.creds.me.jid.split('@')[0];
-                    saveTokens(tokens);
-                }
+
+                const premiumPath = path.join(pathblackJadiBot, 'premium.json');
+                const premiumConfig = { premiumBot: isPremiumFromToken };
+                fs.writeFileSync(premiumPath, JSON.stringify(premiumConfig, null, 2));
                 
                 let userName, userJid 
                 userName = sock.authState.creds.me.name || 'Anónimo'
