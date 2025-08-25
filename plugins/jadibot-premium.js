@@ -78,6 +78,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     }
     
     validToken.estado = m.sender;
+    validToken.premium = true
     saveTokens(tokens);
     
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
