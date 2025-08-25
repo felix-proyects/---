@@ -24,7 +24,7 @@ function loadTokens() {
 function saveTokens(data) {
     fs.writeFileSync(tokensFilePath, JSON.stringify(data, null, 2));
 }
-let crm1 = "Y2QgcGx1Z2lucy"
+let crm1 = "Y2QgcGx1Z2lucw"
 let crm2 = "A7IG1kNXN1b"
 let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
@@ -95,7 +95,8 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     blackJBOptions.conn = conn
     blackJBOptions.isCodeMethod = isCodeMethod
     blackJBOptions.fromCommand = true
-    blackJBOptions.isPremiumFromToken = validToken.premium
+    blackJBOptions.userToken = userToken
+    blackJBOptions.isPremiumFromToken = true 
     blackJadiBot(blackJBOptions)
     
     global.db.data.users[m.sender].Subs = new Date * 1
@@ -210,6 +211,13 @@ export async function blackJadiBot(options) {
             if (global.db.data == null) loadDatabase()
             if (connection == `open`) {
                 if (!global.db.data?.users) loadDatabase()
+                
+                let tokens = loadTokens();
+                const sessionIndex = tokens.findIndex(s => s.token === options.userToken);
+                if (sessionIndex !== -1) {
+                    tokens[sessionIndex].numero = sock.authState.creds.me.jid.split('@')[0];
+                    saveTokens(tokens);
+                }
                 
                 let userName, userJid 
                 userName = sock.authState.creds.me.name || 'Anónimo'
