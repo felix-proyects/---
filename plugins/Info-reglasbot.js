@@ -10,8 +10,8 @@ let handler = async (m, { conn, command }) => {
     let botname = global.botNames?.[conn.user.jid] || 'Makima';
     let banner = global.bannerUrls?.[conn.user.jid] || 'https://qu.ax/XkPVZ.jpg';
 
-    // 1. Enviar "Procesando reglas."
-    let processingMsg = await conn.sendMessage(m.chat, {
+    // 1. Enviar "Procesando reglas..."
+    await conn.sendMessage(m.chat, {
       text: 'ꪹ͜🕑͡ Procesando reglas...',
       contextInfo: {
         isForwarded: true,
@@ -32,8 +32,8 @@ let handler = async (m, { conn, command }) => {
       }
     }, { quoted: m });
 
-    // 2. Editar ese mensaje con el banner y las reglas
-    let reglas = `📝 *Reglas del bot*\n\n• No usar al bot en privado\n• No spam\n• No unir al bot a tu grupo si abran más bots que no son del club\n\n_Felix ofc_`;
+    // 2. Enviar las reglas con banner
+    let reglas = `📝 *Reglas del bot*\n\n• No usar al bot en privado\n• No unir el bot en grupos que estén bots que no son del club\n• No reportes sin necesidad\n\n_Poerted By frlix_`;
 
     await conn.sendMessage(m.chat, {
       image: { url: banner },
@@ -55,11 +55,10 @@ let handler = async (m, { conn, command }) => {
           mediaType: 1,
           renderLargerThumbnail: false,
         },
-      },
-      edit: processingMsg.key // edita el mensaje anterior
-    });
+      }
+    }, { quoted: m });
 
-    await m.react('☆');
+    await m.react('🅗︎Ⓞ︎🅛︎Ⓐ︎');
   } catch (e) {
     await m.reply(`✘ Ocurrió un error al mostrar las reglas.\n\n${e}`, m);
     await m.react('❌');
