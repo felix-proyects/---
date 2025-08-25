@@ -16,7 +16,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
   const jid = m.messageStubParameters[0]
   const user = `@${jid.split('@')[0]}`
-  const thumbnailUrl = 'https://qu.ax/dXOUo.jpg'
+  const thumbnailUrl = 'https://qu.ax/XRxEh.jpg'
   const pp = await conn.profilePictureUrl(jid, 'image').catch(() => thumbnailUrl)
   const img = await fetch(pp).then(r => r.buffer())
   const total = [28, 32].includes(m.messageStubType)
@@ -34,7 +34,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     },
     externalAdReply: {
       title: channelRD.name,
-      body: 'MAKIMA 2.0 BOT',
+      body: 'Deymoon Club',
       thumbnailUrl: thumbnailUrl,
       mediaType: 1,
       renderLargerThumbnail: false,
@@ -57,6 +57,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 🩵 Miembros: ${total}
 
 ⌬ Usa *#help* para ver los comandos disponibles
+deymoon-club.vercel.app/
 `
     // Mensaje de bienvenida como newsletter
     await conn.sendMessage(m.chat, { 
@@ -68,7 +69,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     await conn.sendMessage(m.chat, { 
       text: 'SE NOS UNIÓ UN USUARIO', 
       contextInfo: contextNewsletter
-    }, { quoted: quotedMsg('《✧》 LLEGO OTRO GAY JAJAJA') });
+    }, { quoted: quotedMsg('deymoon-club.vercel.app/') });
   }
 
   if ([28, 32].includes(m.messageStubType)) {
@@ -80,6 +81,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 🩵 Miembros: ${total}
 
 ⌬ Espero y vuelvas después.
+deymoon-club.vercel.app/
 `
     // Mensaje de despedida como newsletter
     await conn.sendMessage(m.chat, { 
@@ -91,6 +93,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
     await conn.sendMessage(m.chat, { 
       text: 'SE NOS FUE EL USUARIO', 
       contextInfo: contextNewsletter
-    }, { quoted: quotedMsg('《✧》 SE FUE GAY XD') });
+    }, { quoted: quotedMsg('deymoon-club.vercel.app/') });
   }
 }
