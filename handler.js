@@ -482,15 +482,15 @@ global.dfail = (type, m, conn, usedPrefix, command) => {
     let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom();
 
     const msg = {
-        rowner: '「🩵」Este comando solo puede ser usado por mi creador.\n\n> Félix Manuel',
-        owner: '「💎」Este comando solo puede ser usado por mi creador',
-        premium: '「🩵」 Este comando solo puede ser usado por los usuarios premiums.',
-        botprem: '「💥」Este comando solo está disponible para bots premium.',
-        private: '「💎」Este comando solo puede ser usado en chats privados.',
-        admin: '「🩵」Este comando solo puede ser usado por admins.',
-        botAdmin: '「💎」Para usar este comando, debo ser admin del grupo.',
-        unreg: '「🩵」¡Hey! no estas registrado, registrate para usar mis comandos\n\n/Reg nombre.edad\n\n! Ejemplo: _/Reg Félix.14_',
-        restrict: '「💎」Este comando fue desactivado por mi Creador\n\n> Félix Manuel.'
+        rowner: '「🌪」Este comando solo puede ser usado por mi creador.\n\n> Félix Manuel',
+        owner: '「🌪」Este comando solo puede ser usado por mi creador',
+        premium: '「🌪」 Este comando solo puede ser usado por los usuarios premiums.',
+        botprem: '「🌪」Este comando solo está disponible para bots premium.',
+        private: '「🌪」Este comando solo puede ser usado en chats privados.',
+        admin: '「🌪」Este comando solo puede ser usado por admins.',
+        botAdmin: '「🌪」Para usar este comando, debo ser admin del grupo.',
+        unreg: '「🌪」¡Hey! no estas registrado, registrate para usar mis comandos\n\n/Reg nombre.edad\n\n! Ejemplo: _/Reg Félix.14_',
+        restrict: '「🌪」Este comando fue desactivado por mi Creador\n\n> Félix Manuel.'
     }[type];
 
     if (msg)
