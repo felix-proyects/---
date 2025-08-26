@@ -10,7 +10,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
   // let name = await conn.getName(who)
   const name = await '@' + who.split`@`[0];
 
-  const ERROR = `🚩 Ese usuario no está en mi base de datos!`;
+  const ERROR = `☆ Ese usuario no está en mi base de datos!`;
   if (!user) return m.reply(ERROR, null, {mentions: conn.parseMention(ERROR)});
 
   const segundos10 = 10 * 1000; // 10 segundos en milisegundos
