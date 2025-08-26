@@ -24,8 +24,8 @@ const handler = async (m, { conn, command, args }) => {
         global.db.data.users[m.sender].coin += count;
 
         const channelRD = { 
-          id: "120363418804796632@newsletter",
-          name: "Kurayami Host"              
+          id: "120363402362088282@newsletter",
+          name: "=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 - 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥⏤͟͟͞͞★"              
         };
         
         let recibo = `
@@ -50,8 +50,8 @@ const handler = async (m, { conn, command, args }) => {
             },
             externalAdReply: {
               title: channelRD.name,
-              body: 'MAKIMA 2.0 BOT',
-              thumbnailUrl: 'https://qu.ax/tqWBN.jpg', 
+              body: 'Deymoon Ultra Bot',
+              thumbnailUrl: 'https://qu.ax/YDSyQ.jpg', 
               mediaType: 1,
               renderLargerThumbnail: true,
               sourceUrl: `https://whatsapp.com/channel/${channelRD.id.replace('@newsletter', '')}`
