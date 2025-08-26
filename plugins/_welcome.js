@@ -1,6 +1,7 @@
 const thumbnailUrl = 'https://qu.ax/XRxEh.jpg'
 
 export async function before(m, { conn, participants, groupMetadata }) {
+  // SOLO activar si hay mensaje de entrada/salida, en grupo y bienvenida activa
   if (
     !m.messageStubType ||
     !m.isGroup ||
@@ -11,7 +12,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
   const jid = m.messageStubParameters[0]
   const taguser = '@' + jid.split('@')[0]
   const groupName = groupMetadata.subject
-  // El total real tras la acción (entra o sale)
   const total = [28, 32].includes(m.messageStubType)
     ? participants.length - 1
     : participants.length + 1
@@ -27,8 +27,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
     }
   }
 
-  // B I E N V E N I D A
   if (m.messageStubType == 27) {
+    // MENSAJE DE BIENVENIDA
     const bienvenida = 
 `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚 *${groupName}*
 
@@ -46,8 +46,8 @@ deymoon-club.vercel.app/`
     })
   }
 
-  // D E S P E D I D A
   if ([28, 32].includes(m.messageStubType)) {
+    // MENSAJE DE DESPEDIDA
     const despedida = 
 `Adiós de  *${groupName}*
 
@@ -66,7 +66,7 @@ deymoon-club.vercel.app/`
   }
 }
 
-// Comando para probar en el grupo
+// COMANDO DE TEST
 let handler = async (m, { conn, participants, groupMetadata }) => {
   const jid = m.sender
   const taguser = '@' + jid.split('@')[0]
