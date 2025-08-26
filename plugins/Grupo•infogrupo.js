@@ -4,34 +4,18 @@ const handler = async (m, {conn, participants, groupMetadata}) => {
   const groupAdmins = participants.filter((p) => p.admin);
   const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n');
   const owner = groupMetadata.owner || groupAdmins.find((p) => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net';
-  const text = `💥 *INFO GRUPO*
-💌 *ID:*
-→ ${groupMetadata.id}
-🥷 *Nombre:*
-→ ${groupMetadata.subject}
-🌟 *Descripción:*
-→ ${groupMetadata.desc?.toString() || 'Sin Descripción'}
-💫 *Miembros:*
-→ ${participants.length} Participantes
-👑 *Creador del Grupo:*
-→ @${owner.split('@')[0]}
-🏆 *Administradores:*
-${listAdmin}
+  const text = `*「✿」Grupo ◢ ${groupMetadata.subject} ◤*
 
-💭 *CONFIGURACIÓN*
+❏ Usuarios » ${participants.length}
+☆ Registros » ${totalreg}
+♡ Creador » @${owner.split('@')[0]}
+♧ Bot principal » Undefined
 
-◈ *Welcome:* ${welcome ? '✅' : '❌'}
-◈ *Detect:* ${detect ? '✅' : '❌'}  
-◈ *Antilink:* ${antiLink ? '✅' : '❌'} 
-◈ *Antilink 𝟸:* ${antiLink2 ? '✅' : '❌'} 
-◈ *Modohorny:* ${modohorny ? '✅' : '❌'} 
-◈ *Autosticker:* ${autosticker ? '✅' : '❌'} 
-◈ *Audios:* ${audios ? '✅' : '❌'} 
-◈ *Antiver:* ${antiviewonce ? '✅' : '❌'} 
-◈ *Reacción* ${reaction ? "✅️" : "❌️"}
-◈ *Delete:* ${antidelete ? '✅' : '❌'} 
-◈ *Antitoxic:* ${antiToxic ? '✅' : '❌'} 
-◈ *Antitraba:* ${antiTraba ? '✅' : '❌'} 
+✐ ${botname} » *✓ Activado*
+✐ Anti-Links » *${antiLink ? ' ✓ Activado' : '✗ Desactivado'}*
+✐ NSFW » *${nsfw ? ' ✓ Activado' : '✗ Desactivado'}*
+✐ Welcome » *${welcome ? ' ✓ Activado' : '✗ Desactivado'}*
+✐ Alertas » *${restrict ? ' ✓ Activado' : '✗ Desactivado'}* 
 `.trim();
   conn.sendFile(m.chat, pp, 'img.jpg', text, m, false, {mentions: [...groupAdmins.map((v) => v.id), owner]});
 };
