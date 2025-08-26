@@ -1,11 +1,11 @@
 let handler = async (m, { conn }) => {
   try {
     let taguser = '@' + m.sender.split('@')[0]
-    let botname = 'Makima'
+    let botname = 'Deymoon Ultra'
     let tipo = 'ofc'
-    let devby = `𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️ | ${taguser}`
+    let devby = `𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️ | Bot oficial del club`
 
-    let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *[${tipo}]*
+    let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}*
 
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭━𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️
