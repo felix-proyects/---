@@ -1,10 +1,4 @@
-import { WAMessageStubType } from '@whiskeysockets/baileys'
-import fetch from 'node-fetch'
-
-const channelRD = {
-  id: "120363418804796632@newsletter", // Cambia por tu canal si quieres
-  name: "Kurayami Host"
-};
+const thumbnailUrl = 'https://qu.ax/XRxEh.jpg'
 
 export async function before(m, { conn, participants, groupMetadata }) {
   if (
@@ -15,84 +9,115 @@ export async function before(m, { conn, participants, groupMetadata }) {
   ) return !0
 
   const jid = m.messageStubParameters[0]
-  const user = `@${jid.split('@')[0]}`
-  const thumbnailUrl = 'https://qu.ax/XRxEh.jpg'
-  const pp = await conn.profilePictureUrl(jid, 'image').catch(() => thumbnailUrl)
-  const img = await fetch(pp).then(r => r.buffer())
+  const taguser = '@' + jid.split('@')[0]
+  const groupName = groupMetadata.subject
+  // El total real tras la acción (entra o sale)
   const total = [28, 32].includes(m.messageStubType)
     ? participants.length - 1
     : participants.length + 1
 
-  // Contexto newsletter/canal
-  const contextNewsletter = {
-    isForwarded: true,
-    forwardingScore: 999,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: channelRD.id,
-      newsletterName: channelRD.name,
-      serverMessageId: -1
-    },
+  const contextLink = {
     externalAdReply: {
-      title: channelRD.name,
+      title: groupName,
       body: 'Deymoon Club',
       thumbnailUrl: thumbnailUrl,
       mediaType: 1,
       renderLargerThumbnail: false,
-      sourceUrl: `https://whatsapp.com/channel/${channelRD.id.replace('@newsletter', '')}`
+      sourceUrl: 'https://deymoon-club.vercel.app/'
     }
-  };
-
-  // Mensaje citado para bienvenida/despedida
-  const quotedMsg = (txt) => ({
-    key: { fromMe: false, participant: "0@s.whatsapp.net", remoteJid: m.chat, id: Math.random().toString(36).slice(2) },
-    message: { conversation: txt }
-  });
-
-  if (m.messageStubType == 27) {
-    const bienvenida = `
-💎 WELCOME - USER 💎
-
-🩵 Usuario: ${taguser}
-🩵 Grupo: ${groupMetadata.subject}
-🩵 Miembros: ${total}
-
-⌬ Usa *#help* para ver los comandos disponibles
-deymoon-club.vercel.app/
-`
-    // Mensaje de bienvenida como newsletter
-    await conn.sendMessage(m.chat, { 
-      image: img, 
-      caption: bienvenida, 
-      contextInfo: contextNewsletter 
-    });
-    // Mensaje adicional, respondiendo a 《✧》 LLEGO OTRO
-    await conn.sendMessage(m.chat, { 
-      text: 'SE NOS UNIÓ UN USUARIO', 
-      contextInfo: contextNewsletter
-    }, { quoted: quotedMsg('deymoon-club.vercel.app/') });
   }
 
+  // B I E N V E N I D A
+  if (m.messageStubType == 27) {
+    const bienvenida = 
+`𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚 *${groupName}*
+
+✰ *${taguser}*
+
+シ︎ 𝐃𝐢𝐬𝐟𝐫𝐮𝐭𝐚 𝐝𝐞 𝐭𝐮 𝐞𝐬𝐭𝐚𝐝𝐢𝐚 𝐚𝐪𝐮í 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨 de ${total} Miembros.
+> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
+deymoon-club.vercel.app/`
+    await conn.sendMessage(m.chat, {
+      text: bienvenida,
+      contextInfo: {
+        mentionedJid: [jid],
+        ...contextLink
+      }
+    })
+  }
+
+  // D E S P E D I D A
   if ([28, 32].includes(m.messageStubType)) {
-    const despedida = `
-💎 ADIOS - USER 💎
+    const despedida = 
+`Adiós de  *${groupName}*
 
-🩵 Usuario: ${taguser}
-🩵 Grupo: ${groupMetadata.subject}
-🩵 Miembros: ${total}
+✰ *${taguser}*
 
-⌬ Espero y vuelvas después.
-deymoon-club.vercel.app/
-`
-    // Mensaje de despedida como newsletter
-    await conn.sendMessage(m.chat, { 
-      image: img, 
-      caption: despedida, 
-      contextInfo: contextNewsletter 
-    });
-    // Segundo mensaje, respondiendo a 《✧》 SE FUE
-    await conn.sendMessage(m.chat, { 
-      text: 'SE NOS FUE EL USUARIO', 
-      contextInfo: contextNewsletter
-    }, { quoted: quotedMsg('deymoon-club.vercel.app/') });
+シ︎ Nos vemos después y recuerda que ahora quedamos ${total} Miembros.
+> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
+deymoon-club.vercel.app/`
+    await conn.sendMessage(m.chat, {
+      text: despedida,
+      contextInfo: {
+        mentionedJid: [jid],
+        ...contextLink
+      }
+    })
   }
 }
+
+// Comando para probar en el grupo
+let handler = async (m, { conn, participants, groupMetadata }) => {
+  const jid = m.sender
+  const taguser = '@' + jid.split('@')[0]
+  const groupName = groupMetadata?.subject || 'Grupo'
+  const total = participants ? participants.length : 1
+
+  const contextLink = {
+    externalAdReply: {
+      title: groupName,
+      body: 'Deymoon Club',
+      thumbnailUrl: thumbnailUrl,
+      mediaType: 1,
+      renderLargerThumbnail: false,
+      sourceUrl: 'https://deymoon-club.vercel.app/'
+    }
+  }
+
+  const bienvenida = 
+`𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚 *${groupName}*
+
+✰ *${taguser}*
+
+シ︎ 𝐃𝐢𝐬𝐟𝐫𝐮𝐭𝐚 𝐝𝐞 𝐭𝐮 𝐞𝐬𝐭𝐚𝐝𝐢𝐚 𝐚𝐪𝐮í 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨 de ${total} Miembros.
+> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
+deymoon-club.vercel.app/`
+
+  const despedida = 
+`Adiós de  *${groupName}*
+
+✰ *${taguser}*
+
+シ︎ Nos vemos después y recuerda que ahora quedamos ${total} Miembros.
+> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
+deymoon-club.vercel.app/`
+
+  await conn.sendMessage(m.chat, {
+    text: bienvenida,
+    contextInfo: {
+      mentionedJid: [jid],
+      ...contextLink
+    }
+  })
+  await conn.sendMessage(m.chat, {
+    text: despedida,
+    contextInfo: {
+      mentionedJid: [jid],
+      ...contextLink
+    }
+  })
+}
+handler.command = ['testwelcome']
+handler.group = true
+
+export default handler
