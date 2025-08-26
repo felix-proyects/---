@@ -2,9 +2,9 @@ let handler = async (m, { conn }) => {
   try {
     let nombre = await conn.getName(m.sender)
     let devby = `𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️ | ${nombre}`
-    let botname = 'Makima'
+    let botname = 'Deymoon Ultra'
     let tipo = 'ofc'
-    let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *[${tipo}]*
+    let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(Oficial-Bot)' : '(Sub-Bot)')}*
 
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭━𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️
