@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
     let botname = 'Makima'
     let tipo = 'ofc'
     let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *[${tipo}]*
-    
+
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭━𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️
 ┃Cᴏᴍᴀɴᴅᴏs ꨄ︎
@@ -15,21 +15,23 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 ╰━━━━━━━━━━
 > C𝚛a 𝚄n Subbot con tu número de telefono usando #qr o #code
 
-... (tu menú completo aquí) ...
+...(el resto de tu menú aquí)...
 `
+
     await conn.sendMessage(m.chat, {
-      image: { url: 'https://qu.ax/XkPVZ.jpg' },
-      caption: menu,
+      text: menu,
       contextInfo: {
         mentionedJid: [m.sender],
         externalAdReply: {
           title: devby,
           sourceUrl: 'https://deymoon-club.vercel.app/',
           mediaType: 1,
-          renderLargerThumbnail: true
+          renderLargerThumbnail: true,
+          thumbnailUrl: 'https://qu.ax/XkPVZ.jpg', // opcional, solo para que salga preview
         }
       }
     }, { quoted: m })
+
     await m.react('🩵')
   } catch (e) {
     await m.reply(`✘ Ocurrió un error cuando la lista de comandos se iba a enviar.\n\n${e}`, m)
