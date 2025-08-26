@@ -12,9 +12,9 @@ handler.before = async (m) => {
     try {
       const ressimi = await simitalk(textodem);
      // await m.conn.sendMessage(m.chat, { text: ressimi.resultado.simsimi }, { quoted: m });
-        await conn.reply(m.chat, ressimi.resultado.simsimi, m)
+        await conn.reply(m.chat, ressimi.resultado.simsimi, m, fake)
     } catch {
-      throw '🩵 *Ocurrió un error...*';
+      throw '☆ *Ocurrió un error...*';
     }
     return !0;
   }
