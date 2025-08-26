@@ -3,7 +3,7 @@ import * as fs from 'fs'
 
 var handler = async (m, { conn, text, participants, isOwner, isAdmin }) => {
 
-if (!m.quoted && !text) return conn.reply(m.chat, `💎 Ingresa un texto para hacer el tag`, m, fake)
+if (!m.quoted && !text) return conn.reply(m.chat, `☆ Ingresa un texto para hacer el tag`, m, fake)
 
 try { 
 
