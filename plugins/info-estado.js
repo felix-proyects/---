@@ -36,18 +36,18 @@ let handler = async (m, { conn, usedPrefix }) => {
 ┃   DEYMOON CLUB 
 ╰━━━━◇◇◇━━━━⬣
 
-🩵 *Creador:* Félix Manuel 
-🩵 *Prefijo:* [ ${usedPrefix} ]
-🩵 *Versión:* ${vs}
+☆ *Socket:* Deymoon
+☆ *Prefijo:* [ ${usedPrefix} ]
+☆ *Versión:* ${vs}
 
-🩵 *Usuarios registrados:* ${totalreg}
-🩵 *Total de chats:* ${chats.length}
-🩵 *Grupos:* ${groupsIn.length}
-🩵 *Privados:* ${chats.length - groupsIn.length}
-🩵 *SubBots activos:* ${totalUsers || '0'}
+☆ *Usuarios registrados:* ${totalreg}
+☆ *Total de chats:* ${chats.length}
+☆ *Grupos:* ${groupsIn.length}
+☆ *Privados:* ${chats.length - groupsIn.length}
+☆ *SubBots activos:* ${totalUsers || '0'}
 
-🩵 *Actividad:* ${muptime}
-🩵 *Velocidad:* ${(speed * 1000).toFixed(0) / 1000}s
+☆ *Actividad:* ${muptime}
+☆ *Velocidad:* ${(speed * 1000).toFixed(0) / 1000}s
 `.trim();
 
   await conn.sendFile(m.chat, pp, 'estado.jpg', makimabot, fkontak, null, fake);
