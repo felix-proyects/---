@@ -1,123 +1,27 @@
-const thumbnailUrl = 'https://qu.ax/XRxEh.jpg'
+import { WAMessageStubType } from '@whiskeysockets/baileys'
+import fetch from 'node-fetch'
 
 export async function before(m, { conn, participants, groupMetadata }) {
-  // SOLO activar si hay mensaje de entrada/salida, en grupo y bienvenida activa
-  if (
-    !m.messageStubType ||
-    !m.isGroup ||
-    !m.messageStubParameters?.[0] ||
-    !global.db.data.chats[m.chat]?.welcome
-  ) return !0
-
-  const jid = m.messageStubParameters[0]
-  const taguser = '@' + jid.split('@')[0]
-  const groupName = groupMetadata.subject
-  const total = [28, 32].includes(m.messageStubType)
-    ? participants.length - 1
-    : participants.length + 1
-
-  const contextLink = {
-    externalAdReply: {
-      title: groupName,
-      body: 'Deymoon Club',
-      thumbnailUrl: thumbnailUrl,
-      mediaType: 1,
-      renderLargerThumbnail: false,
-      sourceUrl: 'https://deymoon-club.vercel.app/'
-    }
-  }
-
+  if (!m.messageStubType || !m.isGroup) return !0;
+  const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net"}  
+  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745522645448.jpeg')
+  let img = await (await fetch(`${pp}`)).buffer()
+  let chat = global.db.data.chats[m.chat]
+  let txt = '𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 |  𝐂𝐡𝐚𝐭 𝐠𝐫𝐮𝐩𝐚𝐥 '
+  let txt1 = '𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 | 𝐂𝐡𝐚𝐭 𝐠𝐫𝐮𝐩𝐚𝐥'
+  let groupSize = participants.length
   if (m.messageStubType == 27) {
-    // MENSAJE DE BIENVENIDA
-    const bienvenida = 
-`𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚 *${groupName}*
-
-✰ *${taguser}*
-
-シ︎ 𝐃𝐢𝐬𝐟𝐫𝐮𝐭𝐚 𝐝𝐞 𝐭𝐮 𝐞𝐬𝐭𝐚𝐝𝐢𝐚 𝐚𝐪𝐮í 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨 de ${total} Miembros.
-> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
-deymoon-club.vercel.app/`
-    await conn.sendMessage(m.chat, {
-      text: bienvenida,
-      contextInfo: {
-        mentionedJid: [jid],
-        ...contextLink
-      }
-    })
+    groupSize++;
+  } else if (m.messageStubType == 28 || m.messageStubType == 32) {
+    groupSize--;
   }
 
-  if ([28, 32].includes(m.messageStubType)) {
-    // MENSAJE DE DESPEDIDA
-    const despedida = 
-`Adiós de  *${groupName}*
-
-✰ *${taguser}*
-
-シ︎ Nos vemos después y recuerda que ahora quedamos ${total} Miembros.
-> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
-deymoon-club.vercel.app/`
-    await conn.sendMessage(m.chat, {
-      text: despedida,
-      contextInfo: {
-        mentionedJid: [jid],
-        ...contextLink
-      }
-    })
-  }
-}
-
-// COMANDO DE TEST
-let handler = async (m, { conn, participants, groupMetadata }) => {
-  const jid = m.sender
-  const taguser = '@' + jid.split('@')[0]
-  const groupName = groupMetadata?.subject || 'Grupo'
-  const total = participants ? participants.length : 1
-
-  const contextLink = {
-    externalAdReply: {
-      title: groupName,
-      body: 'Deymoon Club',
-      thumbnailUrl: thumbnailUrl,
-      mediaType: 1,
-      renderLargerThumbnail: false,
-      sourceUrl: 'https://deymoon-club.vercel.app/'
-    }
+  if (chat.welcome && m.messageStubType == 27) {
+    let bienvenida = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚 ${groupMetadata.subject}\n\n✰ @${m.messageStubParameters[0].split`@`[0]}\nシ︎ 𝐃𝐢𝐬𝐟𝐫𝐮𝐭𝐚 𝐝𝐞 𝐭𝐮 𝐞𝐬𝐭𝐚𝐝𝐢𝐚 𝐚𝐪𝐮𝐢 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨\n> 𝐔𝐬𝐚 #help 𝐩𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.\nhttps://deymoon-club.vercel.app/`    
+    await conn.sendMini(m.chat, txt, dev, bienvenida, img, img, redes, fkontak)
   }
 
-  const bienvenida = 
-`𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚 *${groupName}*
-
-✰ *${taguser}*
-
-シ︎ 𝐃𝐢𝐬𝐟𝐫𝐮𝐭𝐚 𝐝𝐞 𝐭𝐮 𝐞𝐬𝐭𝐚𝐝𝐢𝐚 𝐚𝐪𝐮í 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨 de ${total} Miembros.
-> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
-deymoon-club.vercel.app/`
-
-  const despedida = 
-`Adiós de  *${groupName}*
-
-✰ *${taguser}*
-
-シ︎ Nos vemos después y recuerda que ahora quedamos ${total} Miembros.
-> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.
-deymoon-club.vercel.app/`
-
-  await conn.sendMessage(m.chat, {
-    text: bienvenida,
-    contextInfo: {
-      mentionedJid: [jid],
-      ...contextLink
-    }
-  })
-  await conn.sendMessage(m.chat, {
-    text: despedida,
-    contextInfo: {
-      mentionedJid: [jid],
-      ...contextLink
-    }
-  })
-}
-handler.command = ['testwelcome']
-handler.group = true
-
-export default handler
+  if (chat.welcome && (m.messageStubType == 28 || m.messageStubType == 32)) {
+    let bye = `𝐀𝐝𝐢𝐨𝐬 𝐃𝐞 ${groupMetadata.subject}\n\n✰ @${m.messageStubParameters[0].split`@`[0]}\n\nシ︎ 𝐀𝐡𝐨𝐫𝐚 𝐪𝐮𝐞𝐝𝐚𝐦𝐨𝐬 ${groupSize} 𝐌𝐢𝐞𝐦𝐛𝐫𝐨𝐬.\n> 𝐔𝐬𝐚 #help 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬.\nhttps://deymoon-club.vercel.app/`
+    await conn.sendMini(m.chat, txt1, dev, bye, img, img, redes, fkontak)
+  }}
