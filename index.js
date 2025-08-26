@@ -41,7 +41,7 @@ let { say } = cfonts
 
 console.log(chalk.bold.redBright(`\nMakima Bot MD\n`))
 
-say('🩵 Makima Bot 🩵', {
+say('Deymoon Ultra Bot', {
 font: 'block',
 align: 'center',
 colors: ['redBright']
