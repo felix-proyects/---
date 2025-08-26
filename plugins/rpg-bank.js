@@ -7,8 +7,8 @@ const img = 'https://qu.ax/YDSyQ.jpg'
 // Canal info (personaliza aquí)
 const canalName = 'ECONOMIA DEL USUARIO'
 const canalDesc = 'Kurayami Host'
-const canalUrl = 'https://whatsapp.com/channel/120363418804796632'
-const dev = 'Félix Manuel'
+const canalUrl = 'https://whatsapp.com/channel/120363402362088282'
+const dev = 'Deymoon Ultra Bot'
 
 function obtenerRango(level) {
   if (level >= 100) return 'SUPREMO'
@@ -28,7 +28,7 @@ let handler = async (m, { conn }) => {
   if (who === conn.user.jid) return m.react('✖️')
 
   if (!global.db.data.users[who]) {
-    return m.reply(`🩵 *Este usuario no está registrado.*`)
+    return m.reply(`☆ *Este usuario no está registrado.*`)
   }
 
   let user = global.db.data.users[who]
@@ -58,7 +58,7 @@ let handler = async (m, { conn }) => {
     contextInfo: {
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: "120363418804796632@newsletter", // ID de tu canal
+        newsletterJid: "120363402362088282@newsletter", // ID de tu canal
         newsletterName: canalName,
         serverMessageId: -1,
       },
