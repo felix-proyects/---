@@ -1,10 +1,11 @@
 let handler = async (m, { conn }) => {
   try {
-    let nombre = await conn.getName(m.sender)
-    let devby = `𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️ | ${username}`
-    let botname = 'Deymoon Ultra'
+    let taguser = '@' + m.sender.split('@')[0]
+    let botname = 'Makima'
     let tipo = 'ofc'
-    let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(Oficial-Bot)' : '(Sub-Bot)')}*
+    let devby = `𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️ | ${taguser}`
+
+    let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *[${tipo}]*
 
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭━𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️
@@ -14,7 +15,6 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 ┃https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21
 ╰━━━━━━━━━━
 > C𝚛a 𝚄n Subbot con tu número de telefono usando #qr o #code
-
 
 .       ╭ֹ┈ ⵿❀⵿ ┈╮ ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮SISTEMA
@@ -492,12 +492,12 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
           sourceUrl: 'https://deymoon-club.vercel.app/',
           mediaType: 1,
           renderLargerThumbnail: true,
-          thumbnailUrl: 'https://qu.ax/nOdLd.jpg', // opcional, solo para que salga preview
+          thumbnailUrl: 'https://qu.ax/XkPVZ.jpg'
         }
       }
     }, { quoted: m })
 
-    await m.react('🌪')
+    await m.react('🩵')
   } catch (e) {
     await m.reply(`✘ Ocurrió un error cuando la lista de comandos se iba a enviar.\n\n${e}`, m)
     await m.react('❌')
