@@ -482,19 +482,19 @@ global.dfail = (type, m, conn, usedPrefix, command) => {
     let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom();
 
     const msg = {
-        rowner: '「🌪」Este comando solo puede ser usado por mi creador.\n\n> Félix Manuel',
-        owner: '「🌪」Este comando solo puede ser usado por mi creador',
-        premium: '「🌪」 Este comando solo puede ser usado por los usuarios premiums.',
-        botprem: '「🌪」Este comando solo está disponible para bots premium.',
-        private: '「🌪」Este comando solo puede ser usado en chats privados.',
-        admin: '「🌪」Este comando solo puede ser usado por admins.',
-        botAdmin: '「🌪」Para usar este comando, debo ser admin del grupo.',
-        unreg: '「🌪」¡Hey! no estas registrado, registrate para usar mis comandos\n\n/Reg nombre.edad\n\n! Ejemplo: _/Reg Félix.14_',
-        restrict: '「🌪」Este comando fue desactivado por mi Creador\n\n> Félix Manuel.'
+        rowner: '「🌪」El comando *${comando}* solo puede ser usado por mi creador.\n\n> Félix Manuel',
+        owner: '「🌪」El comando *${comando} solo puede ser usado por mi creador',
+        premium: '「🌪」 El comando *${comando}* solo puede ser usado por los usuarios premiums.',
+        botprem: '「🌪」El comando *${comando}* solo está disponible para bots premium.',
+        private: '「🌪」El comando *${comando}* solo puede ser usado en chats privados.',
+        admin: '「🌪」El comando *${comando}* solo puede ser usado por admins.',
+        botAdmin: '「🌪」Para usar el comando *${comando}* , debo ser admin del grupo.',
+        unreg: '「🌪」¡Hey! no estas registrado, registrate para usar *${comando}*\n\n/Reg nombre.edad\n\n! Ejemplo: _/Reg Félix.14_',
+        restrict: '「🌪」El comando *${comando}* fue desactivado por mi Creador\n\n> Félix Manuel.'
     }[type];
 
     if (msg)
-        return conn.reply(m.chat, msg, m, { contextInfo: fake }).then(() => conn.sendMessage(m.chat, { react: { text: '✖️', key: m.key } }));
+        return conn.reply(m.chat, msg, m, { contextInfo: fake }).then(() => conn.sendMessage(m.chat, { react: { text: '🤣', key: m.key } }));
 
     let file = global.__filename(import.meta.url, true);
     watchFile(file, async () => {
