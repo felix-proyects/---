@@ -2,7 +2,7 @@
 import fetch from 'node-fetch'
 import db from '../lib/database.js'
 
-const img = 'https://qu.ax/dXOUo.jpg'
+const img = 'https://qu.ax/YDSyQ.jpg'
 
 // Canal info (personaliza aquí)
 const canalName = 'ECONOMIA DEL USUARIO'
@@ -41,11 +41,11 @@ let handler = async (m, { conn }) => {
 ╭━━━━━━━━━━━━━━━━━╮
 ┃𝗘𝗖𝗢𝗡𝗢𝗠𝗜𝗔 𝗗𝗘𝗟 𝗨𝗦𝗨𝗔𝗥𝗜𝗢: 
 ╰━─━─━─≪≪✠≫≫─━─━─━╯
-🩵𝖭𝗈𝗆𝖻𝗋𝖾: ${nombreParaMostrar}
-🩵𝖤𝗑𝗉: ${user.exp}
-🩵𝖭𝗂𝗏𝖾𝗅: ${user.level}
-🩵𝖱𝖺𝗇𝗀𝗈: ${rangoMagico}
-🩵𝖥𝖾𝖼𝗁𝖺: ${new Date().toLocaleString('es-ES')}
+🌪𝖭𝗈𝗆𝖻𝗋𝖾: ${nombreParaMostrar}
+🌫𝖤𝗑𝗉: ${user.exp}
+🌪𝖭𝗂𝗏𝖾𝗅: ${user.level}
+🌫𝖱𝖺𝗇𝗀𝗈: ${rangoMagico}
+🌪𝖥𝖾𝖼𝗁𝖺: ${new Date().toLocaleString('es-ES')}
 ╰━━━━━━━━━━━━━━━━━━
 > © Desarrollado por Félix 
 ╰━━━━━━━━━━━━━━━━━━`.trim()
