@@ -34,12 +34,12 @@ global.asistencia = 'Wa.me/18293142989'
 global.namechannel = '⏤͟͞ू⃪  ̸̷͢𝐌𝐚𝐤𝐢𝐦𝐚 ☦︎ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥𑁯ᰍ'
 global.namegrupo = '⏤͟͞ू⃪  ̸̷͢𝐌𝐚𝐤𝐢𝐦𝐚 ☦︎ 𝐆𝐫𝐮𝐩𝐨𑁯ᰍ'
 global.namecomu = 'Deymoon Club'
-global.listo = '🩵 *Aquí tienes ᕕ( ᐛ )ᕗ*'
+global.listo = '☆ *Aquí tienes ᕕ( ᐛ )ᕗ*'
 
 //Ids channel
-global.idchannel = '120363418804796632@newsletter'
-global.canalIdM = ["120363402362088282@newsletter", "120363418804796632@newsletter"]
-global.canalNombreM = ["⏤͟͞ू⃪  ̸̷͢Deymoon ☦︎ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥𑁯ᰍ", "🩵̶۫̄͟𓏲𓍲̈͜Kurayami Host⋆͙̈么͟͞──"]
+global.idchannel = '120363402362088282@newsletter'
+global.canalIdM = ["120363402362088282@newsletter", "120363402362088282@newsletter"]
+global.canalNombreM = ["=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 - 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥⏤͟͟͞͞★", "=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 - 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥⏤͟͟͞͞★"]
 global.channelRD = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
@@ -56,20 +56,20 @@ global.done = '✅'
 global.error = '❌'
 
 //Emojis determinado de MakimaBot 
-global.emoji = '🩵'
-global.emoji2 = '💎'
-global.emoji3 = '🩵'
-global.emoji4 = '💎'
+global.emoji = '🌪'
+global.emoji2 = '🌫'
+global.emoji3 = '🌪'
+global.emoji4 = '🌫'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21'  
 let canal2 = 'https://whatsapp.com/channel/0029VbAa5sNCsU9Hlzsn651S'
-var git = 'https://dash.kurayamihost.dpdns.org/home' 
+var git = 'https://github.com/FELIX-OFC/MakiMD' 
 var youtube = 'https://dash.kurayamihost.dpdns.org/home' 
-var github = 'https://dash.kurayamihost.dpdns.org/home' 
-let correo = 'https://dash.kurayamihost.dpdns.org/home'
+var github = 'https://github.com/FELIX-OFC/MakiMD' 
+let correo = 'https://github.com/FELIX-OFC/MakiMD'
 global.redes = [canal, git, github, correo].getRandom()
 
 let category = "imagen"
