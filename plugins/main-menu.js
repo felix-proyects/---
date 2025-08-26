@@ -492,7 +492,7 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
           sourceUrl: 'https://deymoon-club.vercel.app/',
           mediaType: 1,
           renderLargerThumbnail: true,
-          thumbnailUrl: 'https://qu.ax/XkPVZ.jpg'
+          thumbnailUrl: 'https://qu.ax/nOdLd.jpg'
         }
       }
     }, { quoted: m })
