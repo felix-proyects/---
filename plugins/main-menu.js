@@ -497,7 +497,7 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
       }
     }, { quoted: m })
 
-    await m.react('🩵')
+    await m.react('🌪')
   } catch (e) {
     await m.reply(`✘ Ocurrió un error cuando la lista de comandos se iba a enviar.\n\n${e}`, m)
     await m.react('❌')
