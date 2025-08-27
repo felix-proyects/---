@@ -1,3 +1,19 @@
+//* Código creado por Félix, no quites créditos *//
+
+// ────── 𝗖𝗢𝗡𝗧𝗘𝗫𝗧𝗢 𝗡𝗘𝗪𝗦𝗟𝗘𝗧𝗧𝗘𝗥 ──────
+//
+// Este archivo implementa un handler de comandos para la gestión de SubBots y sesiones en un sistema multi-bot de WhatsApp.
+// Permite a los administradores y usuarios con permisos:
+//   - Eliminar sesiones activas de SubBots, limpiando su información y archivos asociados.
+//   - Pausar el funcionamiento de un SubBot (sin afectar al bot principal).
+//   - Listar y mostrar el estado de todos los SubBots activos, incluyendo su número de teléfono y tiempo de actividad (uptime) en formato amigable.
+//
+// El módulo utiliza la API de WhatsApp y la gestión de archivos en Node.js para manipular sesiones y conexiones de bots, garantizando el control y la limpieza de recursos.
+// Además, incluye manejo de errores y mensajes personalizados para mejorar la experiencia del usuario.
+//
+// Ideal para proyectos donde se necesita escalar la administración de múltiples instancias de bots o gestionar dinámicamente sesiones de usuarios en plataformas basadas en WhatsApp.
+//
+
 import { readdirSync, statSync, unlinkSync, existsSync, readFileSync, watch, rmSync, promises as fsPromises } from "fs";
 const fs = { ...fsPromises, existsSync };
 import path, { join } from 'path';
