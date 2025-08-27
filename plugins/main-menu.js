@@ -19,177 +19,177 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
  ╭ֹ┈ ⵿❀⵿ Sistema
 > Herramientas para convivir.
 
-#formarpareja5
+❒ #formarpareja5
 > Forma 5 parejas a lo random.
-#afk [alasan]
+❒ #afk [alasan]
 > Pon un mensaje de ausencia.
-#runtime
+❒ #runtime
 > Mira el tiempo activo del bot.
-#blocklist
+❒ #blocklist
 > Mira la lista de usuarios bloqueados.
-#owner
+❒ #owner
 > Mira quien es el creador.
-#menu
+❒ #menu
 > Mira la lista de comandos. 
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮Grupos
 > Comandos para grupos.
 
-#desbanearbot
+❒ #desbanearbot
 > Para que el bot responda.
-#banearbot
+❒ #banearbot
 > Para que el bot no responda.
-#enable <opción>
+❒ #enable <opción>
 > Activa una opción.
-#disable <opción>
+❒ #disable <opción>
 > Desactiva una opción.
-#staff
+❒ #staff
 > Mira los admins del grupo.
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮JADI - BOTS
 > Comandos para los bots.
 
-#qr
+❒ #qr
 > Conectate como Sub-Bot mediante codigo qr.
-#code
+❒ #code
 > Conectate como Sub-Bot mediante código de  8 dígitos.
-#setname [nombre]
+❒ #setname [nombre]
 > Cambia el nombre del bot.
-#setbanner [link]
+❒ #setbanner [link]
 > Cambia la foto del bot.
-#setprimary [@Bot]
+❒ #setprimary [@Bot]
 > Pon un bot como principal en el grupo.
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮AI
 > Comandos para asistente de IA.
 
-#gemini
+❒ #gemini
 > Habla con la IA.
-#chatgpt <texto>
+❒ #chatgpt <texto>
 > Habla con ChatGPT.
-#ia <texto>
+❒ #ia <texto>
 > Habla con el bot.
 
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮ANIME
 > Comandos de anime.
 
-#animelink
+❒ #animelink
 > Mira diferentes links de animes.
-#infoanime
+❒ #infoanime
 > Mira información de animes.
-#topwaifus [página]
+❒ #topwaifus [página]
 > Mira el top de las waifus más usadas.
-#wvideo <nombre del personaje>
+❒ #wvideo <nombre del personaje>
 > Mira videos de algún personaje de anime.
-#wimage <nombre del personaje>
+❒ #wimage <nombre del personaje>
 < Convierte algunas waifus en imagen.
-#charinfo <nombre del personaje>
+❒ #charinfo <nombre del personaje>
 > Mira información de charangas.
-#winfo <nombre del personaje>
+❒ #winfo <nombre del personaje>
 > Mira más información de waifus.
-#waifuinfo <nombre del personaje>
+❒ #waifuinfo <nombre del personaje>
 > Mira información de un anime en especifico.
-#alisa
+❒ #alisa
 > Mira fotos de este anime.
-#aihoshino
+❒ #aihoshino
 > Mira fotos de este anime.
-#remcham
+❒ #remcham
 > Mira fotos de este anime.
-#akira
+❒ #akira
 > Mira fotos de este anime.
-#akiyama
+❒ #akiyama
 > Mira fotos de este anime.
-#anna
+❒ #anna
 > Mira fotos de este anime.
-#asuna
+❒ #asuna
 > Mira fotos de este anime.
-#ayuzawa
+❒ #ayuzawa
 > Mira fotos de este anime.
-#boruto
+❒ #boruto
 > Mira fotos de este anime
-#chiho
+❒ #chiho
 > Mira fotos de este anime.
-#chitoge
+❒ #chitoge
 > Mira fotos de este anime.
-#deidara
+❒ #deidara
 > Mira fotos de este anime.
-#erza
+❒ #erza
 > Mira fotos de este anime.
-#elaina
+❒ #elaina
 > Mira fotos de este anime.
-#eba
+❒ #eba
 > Mira fotos de este anime.
-#emilia
+❒ #emilia
 > Mira fotos de este anime.
-#hestia
+❒ #hestia
 > Mira fotos de este anime.
-#hinata
+❒ #hinata
 > Mira fotos de este anime.
-#inori
+❒ #inori
 > Mira fotos de este anime.
-#isuzu
+❒ #isuzu
 > Mira fotos de este anime.
-#itachi
+❒ #itachi
 > Mira fotos de este anime.
-#itori
+❒ #itori
 > Mira fotos de este anime.
-#kaga
+❒ #kaga
 > Mira fotos de este anime.
-#kagura
+❒ #kagura
 > Mira fotos de este anime.
-#kaori
+❒ #kaori
 > Mira fotos de este anime.
-#keneki
+❒ #keneki
 > Mira fotos de este anime.
-#kotori
+❒ #kotori
 > Mira fotos de este anime.
-#kurumitokisaki
+❒ #kurumitokisaki
 > Mira fotos de este anime.#madara
-#mikasa
+❒ #mikasa
 > Mira fotos de este anime.
-#miku
+❒ #miku
 > Mira fotos de este anime.
-#minato
+❒ #minato
 > Mira fotos de este anime.
-#naruto
+❒ #naruto
 > Mira fotos de este anime.
-#nezuko
+❒ #nezuko
 > Mira fotos de este anime.
-#sagiri 
+❒ #sagiri 
 > Mira fotos de este anime.
-#sasuke
+❒ #sasuke
 > Mira fotos de este anime.
-#sakura
+❒ #sakura
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮Audio
-#bass [vn]
+❒ #bass [vn]
 > Undefined
-#blown [vn]
+❒ #blown [vn]
 > Undefined
-#deep [vn]
+❒ #deep [vn]
 > Undefined
-#earrape [vn]
+❒ #earrape [vn]
 > Undefined
-#fast [vn]
+❒ #fast [vn]
 > Undefined
-#fat [vn]
+❒ #fat [vn]
 > Undefined
-#nightcore [vn]
+❒ #nightcore [vn]
 > Undefined
-#reverse [vn]
+❒ #reverse [vn]
 > Undefined
-#robot [vn]
+❒ #robot [vn]
 > Undefined
-#slow [vn]
+❒ #slow [vn]
 > Undefined
-#smooth [vn]
+❒ #smooth [vn]
 > Undefined
-#tupai [vn]
+❒ #tupai [vn]
 > Undefined
 
  ㅤ
