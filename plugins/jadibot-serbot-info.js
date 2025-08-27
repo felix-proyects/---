@@ -98,7 +98,7 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
 
 ${detallesBots.trim()}
 
-> ${dev}`.trim();
+> ${wm}`.trim();
 
         await _envio.sendMessage(m.chat, {
           text: textoFinal,
