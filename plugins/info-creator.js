@@ -1,56 +1,13 @@
-let handler = async (m, { conn }) => {
-  // Reacciona con 💎
+let handler = async (m, { conn, command }) => {
+  // Reacciona con ❌
   if (conn.sendMessage) {
-    await conn.sendMessage(m.chat, { react: { text: '💎', key: m.key }});
+    await conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
   }
 
-  // Datos de los contactos
-  let numberCreator = '14584886621' // Número de la creadora
-  let nombreCreator = '💎 C R E A D O R 💎'
-  let canal = 'https://wa.me14584886621'
-
-  let numberBot = '212649023476' // Número del bot
-  let nombreBot = 'BOT OFICIAL'
-
-  let numberManuel = '18293142989'
-  let nombreManuel = 'SOPORTE KURAYAMI HOSTING'
-
-  // vCards individuales
-  let vcardCreator = `BEGIN:VCARD
-VERSION:3.0
-N:${nombreCreator}
-FN:${nombreCreator}
-TEL;waid=${numberCreator}:${numberCreator}
-END:VCARD`
-
-  let vcardBot = `BEGIN:VCARD
-VERSION:3.0
-N:${nombreBot}
-FN:${nombreBot}
-TEL;waid=${numberBot}:${numberBot}
-END:VCARD`
-
-  let vcardManuel = `BEGIN:VCARD
-VERSION:3.0
-N:${nombreManuel}
-FN:${nombreManuel}
-TEL;waid=${numberManuel}:${numberManuel}
-END:VCARD`
-
-  // Envía el canal como texto
-  await conn.sendMessage(m.chat, { text: `💙 AQUI ESTA EL NUMERO DE MI CREADOR Y MÁS CONTACTOS` }, { quoted: m })
-
-  // Envía la tarjeta de contacto con los tres contactos
-  await conn.sendMessage(m.chat, {
-    contacts: {
-      displayName: 'Contactos Importantes',
-      contacts: [
-        { vcard: vcardCreator },
-        { vcard: vcardBot },
-        { vcard: vcardManuel }
-      ]
-    }
-  }, { quoted: m })
+  // Envía el mensaje personalizado
+  await conn.sendMessage(m.chat, { 
+    text: `❏ El comando *${command}* no esta disponible para ti.\n\n> ✐ Usa #help para ver los comandos disponibles.`
+  }, { quoted: m });
 }
 
 handler.help = ['owner']
