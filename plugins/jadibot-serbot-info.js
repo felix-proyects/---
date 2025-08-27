@@ -86,13 +86,16 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
           return `${horas} horas, ${minutos} minutos, ${segundos} segundos`;
         };
 
-        // Detalles de subbots con número en vez de nombre
+        // Detalles de subbots con número y uptime
         let detallesBots = '';
         if (cantidadSubBots > 0) {
           detallesBots += `\nSubbots - Números\n`;
           let i = 1;
-          for (let jid of uniqueUsers.keys()) {
-            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime `;
+          for (let [jid, connBot] of uniqueUsers.entries()) {
+            let uptime = connBot.startTime
+              ? convertirMsADiasHorasMinutosSegundos(Date.now() - connBot.startTime)
+              : 'N/A';
+            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime ${uptime}\n`;
           }
         }
 
