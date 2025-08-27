@@ -35,7 +35,7 @@ case isShowBots: {
         const uptime = connBot.uptime
           ? convertirMsADiasHorasMinutosSegundos(Date.now() - connBot.uptime)
           : 'Desconocido';
-        detallesBots += `☆ Bot » wa.me/${numero}\n> 🜸 Uptime » ${uptime}\n\n`;
+        detallesBots += `☆ Bot » wa.me/${numero}\n> 🜸 Uptime » \n\n`;
         i++;
       }
     }
