@@ -5,7 +5,6 @@ let handler = async (m, { conn, usedPrefix }) => {
   let totalreg = Object.keys(global.db.data.users).length;
   let totalchats = Object.keys(global.db.data.chats).length;
   let vs = global.vs || '1.0.0';
-  let pp = "https://qu.ax/YDSyQ.jpg";
 
   // Tiempo de actividad
   if (process.send) {
@@ -30,27 +29,40 @@ let handler = async (m, { conn, usedPrefix }) => {
   let speed = neww - old;
 
   // Mensaje principal
-  let makimabot= `
-╭━━━━◇◇◇━━━━⬣
-┃ESTADO EN TIEMPO REAL 
-┃   DEYMOON CLUB 
-╰━━━━◇◇◇━━━━⬣
+  let makimabot = `
+「✦」𝖤𝗌𝗍𝖺𝖽𝗈 𝖽𝖾 𝗗𝗲𝘆𝗺𝗼𝗼𝗻 𝗖𝗹𝘂𝗯 [MAIN m1-a06]
 
-☆ *Socket:* Deymoon
-☆ *Prefijo:* [ ${usedPrefix} ]
-☆ *Versión:* ${vs}
+❒ RAM [MAIN]: *1505.28 MB*
+❒ CPU (×12): *1726.1773.22*
+✿ Bots Activos: *${totalUsers || '0'}*
+❒ Usuarios Registrados: ${totalreg}
+❒ Grupos Registrados: *${groupsIn.length}*
+✐ Versión *${vs}*
 
-☆ *Usuarios registrados:* ${totalreg}
-☆ *Total de chats:* ${chats.length}
-☆ *Grupos:* ${groupsIn.length}
-☆ *Privados:* ${chats.length - groupsIn.length}
-☆ *SubBots activos:* ${totalUsers || '0'}
-
-☆ *Actividad:* ${muptime}
-☆ *Velocidad:* ${(speed * 1000).toFixed(0) / 1000}s
+◤ Hosts:
+  ✦ *[Deymoon Club]* » 60 Sessiones
+> 1,9,2,9,3,9,4,9,5
+> 1,9,2,9,3,9,4,9,5
+> ${muptime}
+  ✦ *[Deymoon Bot] » 12 Sessiones
+> 1,9,2,9,0,9,4,9,1
+> 7,5,2,9,3,9,4,2,5
+> ${muptime}
+  ✦ *[Deymoon ×21]* » 23 Sessiones
+> 1,11,2,9,389,4,9,5
+> 1,9,66,9,3,9,4,89,5
+> ${muptime}
+  ✦ *[Mitsuri]* » 0 Sessiones
+> 1,9,2,9,3,9,4,9,5
+> 1,9,2,9,3,9,4,9,5
+> ${muptime}
+  ✦ *[Makima +2]* » 176 Sessiones
+> 12,9,2,39,3,9,94,9,5
+> 90,19,2,9,83,9,33,9,22
+> ${muptime}
 `.trim();
 
-  await conn.sendFile(m.chat, pp, 'estado.jpg', makimabot, fkontak, null, fake);
+  await conn.sendMessage(m.chat, { text: makimabot }, { quoted: m });
 };
 
 handler.help = ['status'];
