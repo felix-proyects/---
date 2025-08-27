@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
     let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}*
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭┈ ↷
-│ ✐ 𝓓𝓮𝔀𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧𝐎𝐟𝐜 ❤️
+│ ✐ ${textbot}
 ┃✐ ꒷ꕤ💎ദ Cᴏᴍᴀɴᴅᴏs ෴
 ┃deymoon-club.vercel.app/
 │ ✐ ꒷ꕤ💎ദ ᴄᴀɴᴀʟ ᴏғɪᴄɪᴀʟ ෴
