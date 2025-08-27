@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
     let taguser = '@' + m.sender.split('@')[0]
     let botname = 'Deymoon Ultra'
     let tipo = 'ofc'
-    let devby = `${dev} | ${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}`
+    let devby = `${dev} | ${(conn.user.jid == global.conn.user.jid ? '𝐏𝐫𝐞𝐦-𝐁𝐨𝐭' : '𝐒𝐮𝐛-𝐁𝐨𝐭')}`
 
     let menu = `𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(𝐏𝐫𝐞𝐦-𝐁𝐨𝐭)' : '(𝐒𝐮𝐛-𝐁𝐨𝐭)')}*
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
@@ -14,7 +14,7 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 │ ✐ ꒷ꕤ💎ദ ᴄᴀɴᴀʟ ᴏғɪᴄɪᴀʟ ෴
 ┃https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21
 ╰━━━━━━━━━━
-> C𝚛a 𝚄n Subbot con tu número de telefono usando #qr o #code
+> Crea un Sub-Bot con tu número de telefono usando #qr o #code
 
  ╭ֹ┈ ⵿❀⵿ Sistema
 > Herramientas para convivir.
