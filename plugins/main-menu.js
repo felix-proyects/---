@@ -3,15 +3,15 @@ let handler = async (m, { conn }) => {
     let taguser = '@' + m.sender.split('@')[0]
     let botname = 'Deymoon Ultra'
     let tipo = 'ofc'
-    let devby = `𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️ | Bot oficial del club`
+    let devby = `${dev} | ${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}`
 
     let menu = `𝐇𝐨𝐥𝐚, 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(OficialBot)' : '(Sub-Bot)')}*
-
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
-╭━𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧-𝐨𝐟𝐜 ❤️
-┃Cᴏᴍᴀɴᴅᴏs ꨄ︎
+╭┈ ↷
+│ ✐ 𝓓𝓮𝔀𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝐃𝐞𝐲𝐦𝐨𝐨𝐧𝐎𝐟𝐜 ❤️
+┃✐ ꒷ꕤ💎ദ Cᴏᴍᴀɴᴅᴏs ෴
 ┃deymoon-club.vercel.app/
-┃Cᴀɴᴀʟ ᴏғᴄ ❦︎
+│ ✐ ꒷ꕤ💎ദ ᴄᴀɴᴀʟ ᴏғɪᴄɪᴀʟ ෴
 ┃https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21
 ╰━━━━━━━━━━
 > C𝚛a 𝚄n Subbot con tu número de telefono usando #qr o #code
