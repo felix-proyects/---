@@ -15,24 +15,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       throw '❌ No se encontraron resultados. Intenta con otro título.';
     }
 
-    const body = `*┏━━━━━━━━━━━━━━━━━⬣*
-*┃ DESCARGAS 
-*┗━━━━━━━━━━━━━━━━━⬣*
+    const body = `DESCARGANDO ${videoInfo.title}
 
- *TÍTULO:* 
-» ${videoInfo.title}
-
- *CANAL:* 
-» ${videoInfo.author.name}
-
- *DURACIÓN:* 
-» ${videoInfo.timestamp}
-
- *PUBLICADO:* 
-» ${videoInfo.ago}
-
- *VISTAS:* 
-» ${videoInfo.views.toLocaleString()} 
+> Canal: ${videoInfo.author.name}
+> Duración: ${videoInfo.timestamp}
+> Publicado: ${videoInfo.ago}
+> Vistas: ${videoInfo.views.toLocaleString()} 
 
 >  *Selecciona una opción para descargar:*`;
 
@@ -41,10 +29,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       {
         image: { url: videoInfo.thumbnail },
         caption: body,
-        footer: 'ᴘʟᴀʏ',
+        footer: 'Deymoon Club',
         buttons: [
-          { buttonId: `.ytmp3 ${videoInfo.url}`, buttonText: { displayText: 'ᴀᴜᴅɪᴏ' } },
-          { buttonId: `.play2 ${videoInfo.url}`, buttonText: { displayText: 'ᴠɪᴅᴇᴏ' } },
+          { buttonId: `.ytmp3 ${videoInfo.url}`, buttonText: { displayText: 'Audio' } },
+          { buttonId: `.play2 ${videoInfo.url}`, buttonText: { displayText: 'Video' } },
         ],
         viewOnce: true,
         headerType: 4,
@@ -59,7 +47,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 };
 
-handler.command = ['play', 'playvid'];
+handler.command = ['play', 'playaudio'];
 handler.tags = ['downloader'];
 handler.group = true;
 handler.limit = 6;
