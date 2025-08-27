@@ -33,7 +33,7 @@ global.makiJadibts = true
 
 global.packsticker = `⏤͟͞ू⃪  ̸̷͢𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚𑁯ᰍ\n`
 global.packname = `=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★`
-global.author = `socket:\n✐ =͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★\n👹 Usuario:\n➪ @${nombre}`;
+global.author = `socket:\n✐ =͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★\n👹 Usuario:\n➪ @Undefined`;
 global.wm = '⏤͟͞ू⃪  ̸̷͢𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 Deymoon Club';
 global.titulowm = '⏤͟͞ू⃪𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭𑁯ᰍ';
 global.igfg = 'Deymoon Club'
