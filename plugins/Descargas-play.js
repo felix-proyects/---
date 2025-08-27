@@ -16,32 +16,32 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 
     const body = `*┏━━━━━━━━━━━━━━━━━⬣*
-*┃ 💎 MAKIMA - PLAY 💎*
+*┃ DESCARGAS 
 *┗━━━━━━━━━━━━━━━━━⬣*
 
-🩵 *TÍTULO:* 
+ *TÍTULO:* 
 » ${videoInfo.title}
 
-🩵 *CANAL:* 
+ *CANAL:* 
 » ${videoInfo.author.name}
 
-🩵 *DURACIÓN:* 
+ *DURACIÓN:* 
 » ${videoInfo.timestamp}
 
-🩵 *PUBLICADO:* 
+ *PUBLICADO:* 
 » ${videoInfo.ago}
 
-🩵 *VISTAS:* 
+ *VISTAS:* 
 » ${videoInfo.views.toLocaleString()} 
 
-> 💎 *Selecciona una opción para descargar:*`;
+>  *Selecciona una opción para descargar:*`;
 
     await conn.sendMessage(
       m.chat,
       {
         image: { url: videoInfo.thumbnail },
         caption: body,
-        footer: '🩷 ᴍᴀᴋɪᴍᴀ ʙᴏᴛ ✨| ᴘʟᴀʏ',
+        footer: 'ᴘʟᴀʏ',
         buttons: [
           { buttonId: `.ytmp3 ${videoInfo.url}`, buttonText: { displayText: 'ᴀᴜᴅɪᴏ' } },
           { buttonId: `.play2 ${videoInfo.url}`, buttonText: { displayText: 'ᴠɪᴅᴇᴏ' } },
