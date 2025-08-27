@@ -51,16 +51,13 @@ var handler = async (m, { conn }) => {
   let noprem = `
 『 PERFIL DEL USUARIO 』
 
-💎 *usuario:* ${username}
-🩵 *tag:* @${who.replace(/@.+/, '')}
-💎 *Registrado:* ${registered ? '✅ Activado' : '❌ No'}
+*usuario:* ${username}
+*tag:* @${who.replace(/@.+/, '')}
+*Registrado:* ${registered ? '✅ Activado' : '❌ No'}
 
-╭━━━━━━━━━━━━━╮
-┃💎 *Nivel:* ${level}
-┃💎 *Experiencia:* ${exp}
-┃💎 *Rango:* ${role}
-╰━━━━━━━━━━━━━
-> © Desarrollado por Félix 
+*Nivel:* ${level}
+*Experiencia:* ${exp}
+*Rango:* ${role}
 `.trim()
 
   // 🔥 Usuarios Premium
