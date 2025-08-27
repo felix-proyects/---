@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
     let taguser = '@' + m.sender.split('@')[0]
     let botname = 'Deymoon Ultra'
     let tipo = 'ofc'
-    let devby = `${dev} | ${(conn.user.jid == global.conn.user.jid ? '𝐏𝐫𝐞𝐦-𝐁𝐨𝐭' : '𝐒𝐮𝐛-𝐁𝐨𝐭')}`
+    let devby = `${dev} | ${(conn.user.jid == global.conn.user.jid ? '(𝐏𝐫𝐞𝐦-𝐁𝐨𝐭)' : '(𝐒𝐮𝐛-𝐁𝐨𝐭)')}`
 
     let menu = `𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(𝐏𝐫𝐞𝐦-𝐁𝐨𝐭)' : '(𝐒𝐮𝐛-𝐁𝐨𝐭)')}*
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
@@ -222,45 +222,38 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮TRANSFORMADOR
 ❏ #tovideo
+> Convierte sticker en video.
 ❏ #togifaud
-
+> Convierte sticker en fouds.
 
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮STICKER
 ❏ #toimg (reply)
+> Convierte sticker en fotos.
 ❏ #qc
-❏ #take *<nombre>|<autor>*
-❏ #sticker <imagen|video|url>
-❏ #stiker <imagen|video|url>
+> Crea Stickers con letras.
 ❏ #s <imagen|video|url>
-
+> Crea Stickers de diferentes maneras.
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮TOOLS
 ❏ #tts <lang> <teks>
+> Convierte textos en audios.
 ❏ #fake
+> Crea textos falsos.
 ❏ #hd
+> Mejora la calidad de una imagen.
 ❏ #ssweb
-❏ #ss
-❏ #trad
+> Busca la información de una web.
 ❏ #spamwa <number>|<mesage>|<no of messages>
-❏ #IPdoxx
-❏ #nuevafotochannel
-❏ #nosilenciarcanal
-❏ #silenciarcanal
-❏ #noseguircanal
-❏ #seguircanal
-❏ #avisoschannel
-❏ #resiviravisos
+> Hasle spam al privado de un usuario.
 ❏ #inspect
+> Mira la información junto al ID de un canal.
 ❏ #inspeccionar
-❏ #eliminarfotochannel
-❏ #reactioneschannel
-❏ #reaccioneschannel
-❏ #nuevonombrecanal
-❏ #nuevadescchannel
+Mira la información junto al ID de un grupo.
 ❏ #tourl
-❏ #tourl2
-
+> Convierte videos en link.
+❏ #catbox
+> Convierte fotos en link.
 
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮DESCARGAS
