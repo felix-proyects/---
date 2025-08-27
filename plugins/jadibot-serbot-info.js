@@ -3,7 +3,6 @@ const fs = { ...fsPromises, existsSync };
 import path, { join } from 'path';
 import ws from 'ws';
 
-
 let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner }) => {
   const isDeleteSession = /^(deletesesion|deletebot|deletesession|deletesesaion)$/i.test(command);
   const isPauseBot = /^(stop|pausarai|pausarbot)$/i.test(command);
@@ -61,13 +60,22 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
 
     case isShowBots: {
       try {
-        const allConnections = [...new Set([...global.conns.filter(conn => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED)])];
-        const cantidadSubBots = allConnections.length;
+        // Usar Map para evitar duplicados:
+        let uniqueUsers = new Map();
+        if (!global.conns || !Array.isArray(global.conns)) global.conns = [];
 
+        global.conns.forEach((connBot) => {
+          if (connBot.user && connBot.ws?.socket?.readyState !== ws.CLOSED) {
+            uniqueUsers.set(connBot.user.jid, connBot);
+          }
+        });
+
+        const cantidadSubBots = uniqueUsers.size;
         const metadata = await _envio.groupMetadata(m.chat);
         const participantes = metadata.participants || [];
         const botsEnEsteGrupo = participantes.filter(p => global.db.data.users[p.id]?.isBot).length;
 
+        // Formato de uptime
         const convertirMsADiasHorasMinutosSegundos = (ms) => {
           let segundos = Math.floor(ms / 1000);
           let minutos = Math.floor(segundos / 60);
@@ -78,14 +86,15 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
           return `${horas} horas, ${minutos} minutos, ${segundos} segundos`;
         };
 
-        const detallesBots = allConnections.map((connBot) => {
-          const numero = connBot.user?.jid?.split('@')[0] || 'Desconocido';
-          const nombre = connBot.user?.name || 'Sub-Bot';
-          const uptime = connBot.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - connBot.uptime) : 'Desconocido';
-          return `
-✧ Bot » ${nombre}
-> 🜸 Uptime » ${uptime}`.trim();
-        }).join('\n\n');
+        // Detalles de subbots con número en vez de nombre
+        let detallesBots = '';
+        if (cantidadSubBots > 0) {
+          detallesBots += `\nSubbots - Números\n`;
+          let i = 1;
+          for (let jid of uniqueUsers.keys()) {
+            detallesBots += `  ${i++}. wa.me/${jid.split('@')[0]}\n`;
+          }
+        }
 
         const textoFinal = `
 *ꕥ LISTA DE BOTS ACTIVOS*
@@ -96,13 +105,13 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
 
 ❏ En este grupo » *${botsEnEsteGrupo}* bots
 
-${detallesBots}
+${detallesBots.trim()}
 
-> ${dev}`.trim();
+> Deymoon ofc`.trim();
 
         await _envio.sendMessage(m.chat, {
           text: textoFinal,
-          mentions: [...allConnections.map(v => v.user?.jid), m.sender].filter(Boolean)
+          mentions: [...uniqueUsers.keys(), m.sender].filter(Boolean)
         }, { quoted: m });
       } catch (e) {
         reportError(e);
