@@ -6,7 +6,7 @@ let handler = async (m, { conn, command }) => {
 
   // Envía el mensaje personalizado
   await conn.sendMessage(m.chat, { 
-    text: `❏ El comando *${command}* no esta disponible para ti.\n\n> ✐ Usa #help para ver los comandos disponibles.`
+    text: `❏ El comando *${command}* no esta disponible.\n\n> ✐ Usa #help para ver los comandos disponibles.`
   }, { quoted: m });
 }
 
