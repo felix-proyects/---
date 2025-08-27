@@ -42,25 +42,17 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
     }
     
     let sn = createHash('md5').update(m.sender).digest('hex')
-    let regbot = `╔━━▣━━━━⌬⌬━━▣
-┃Nombre: ${name}
-┃Edad: ${age} años 
-┗━━▣━━━━⌬⌬━━▣
+    let regbot = `❒ ${name} el Registro fue realizado con éxito.
 
-   ━━━SIGUENOS━━━
-
-╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹
-https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21
-╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝
-
-> ${dev}~`
+> ✐ Cuídate mucho que a la edad de ${age} años hay que cuidarse para que no te pase nada.
+`
 
   await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
             externalAdReply: {
-                title: '⊱『☆𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥♧』⊰',
-                thumbnailUrl: 'https://qu.ax/XjrVb.jpg',
+                title: 'Deymoon Club te desea un lindo día 🤍',
+                thumbnailUrl: 'https://files.catbox.moe/3zb86a.jpg',
                 mediaType: 1,
                 renderLargerThumbnail: true
             }
