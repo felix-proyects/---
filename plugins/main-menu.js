@@ -600,7 +600,7 @@ Mira la información junto al ID de un grupo.
         mentionedJid: [m.sender],
         externalAdReply: {
           title: devby,
-          sourceUrl: 'https://deymoon-club.vercel.app/',
+          sourceUrl: '${dev}',
           mediaType: 1,
           renderLargerThumbnail: true,
           thumbnailUrl: 'https://qu.ax/nOdLd.jpg'
@@ -608,10 +608,10 @@ Mira la información junto al ID de un grupo.
       }
     }, { quoted: m })
 
-    await m.react('🌪')
+    // ← Línea eliminada: await m.react('🌪')
   } catch (e) {
     await m.reply(`✘ Ocurrió un error cuando la lista de comandos se iba a enviar.\n\n${e}`, m, fake)
-    await m.react('❌')
+    // ← Línea eliminada: await m.react('❌')
   }
 }
 
