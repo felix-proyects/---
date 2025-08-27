@@ -92,7 +92,7 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
           detallesBots += `\nSubbots - Números\n`;
           let i = 1;
           for (let jid of uniqueUsers.keys()) {
-            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime » ${uptime}`;
+            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime `;
           }
         }
 
