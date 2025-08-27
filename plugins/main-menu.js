@@ -25,10 +25,6 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Pon un mensaje de ausencia.
 ❒ #runtime
 > Mira el tiempo activo del bot.
-❒ #blocklist
-> Mira la lista de usuarios bloqueados.
-❒ #owner
-> Mira quien es el creador.
 ❒ #menu
 > Mira la lista de comandos. 
 
