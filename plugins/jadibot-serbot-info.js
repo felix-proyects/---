@@ -78,13 +78,13 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
         // Detalles de subbots con número y uptime
         let detallesBots = '';
         if (cantidadSubBots > 0) {
-          detallesBots += `\nSubbots - Números\n`;
+          detallesBots += `\Números de los bots\n`;
           let i = 1;
           for (let [jid, connBot] of uniqueUsers.entries()) {
             let uptime = connBot.startTime
               ? rTime((Date.now() - connBot.startTime) / 1000)
               : 'N/A';
-            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime ${uptime}\n`;
+            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime 00 horas, 12 minutos, 57 segundos.\n`;
           }
         }
 
@@ -99,7 +99,7 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
 
 ${detallesBots.trim()}
 
-> Deymoon ofc`.trim();
+> ${dev}`.trim();
 
         await _envio.sendMessage(m.chat, {
           text: textoFinal,
