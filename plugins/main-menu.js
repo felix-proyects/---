@@ -600,7 +600,7 @@ Mira la información junto al ID de un grupo.
         mentionedJid: [m.sender],
         externalAdReply: {
           title: devby,
-          sourceUrl: '${dev}',
+          sourceUrl: 'https://Deymoon.club/',
           mediaType: 1,
           renderLargerThumbnail: true,
           thumbnailUrl: 'https://qu.ax/nOdLd.jpg'
