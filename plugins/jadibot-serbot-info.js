@@ -84,7 +84,7 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
             let uptime = connBot.startTime
               ? rTime((Date.now() - connBot.startTime) / 1000)
               : 'N/A';
-            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime » 0 horas, 12 minutos, 57 segundos.\n`;
+            detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Tipo » (𝐒𝐮𝐛-𝐁𝐨𝐭)\n`;
           }
         }
 
