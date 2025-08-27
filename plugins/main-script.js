@@ -1,21 +1,17 @@
-const handler = async (m, { conn }) => {
-  const texto = `
- _*REPO DE LA BOT*_ 
+let handler = async (m, { conn, command }) => {
+  // Reacciona con ❌
+  if (conn.sendMessage) {
+    await conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+  }
 
-\`\`\`Repositorio OFC:\`\`\`
-https://github.com/FELIX-OFC/MAKIMABOT 
-
-> 🌟 Deja tu estrella así nos motivas a seguir mejorando la bot.
-
-🔥 *Grupo oficial de la bot 
-https://chat.whatsapp.com/ETZduk7trjG9xgTXVCRHYK?mode=ems_copy_c
-  `.trim()
-
-  await conn.reply(m.chat, texto, m)
+  // Envía el mensaje personalizado
+  await conn.sendMessage(m.chat, { 
+    text: `❏ El comando [${command}] no esta disponible para ti.\n\n> ✐ Usa #help para ver los comandos disponibles.`
+  }, { quoted: m });
 }
 
-handler.help = ['script']
-handler.tags = ['info']
+handler.help = ['owner']
+handler.tags = ['main']
 handler.command = ['script']
 
 export default handler
