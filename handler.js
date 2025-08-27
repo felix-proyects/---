@@ -489,7 +489,7 @@ global.dfail = (type, m, conn, usedPrefix, command) => {
         private: '❒ Comando no disponible para chats grupales.\n> ✐ Usa #help para ver tus comandos disponibles.',
         admin: '❒ Comando disponible solo para admins.\n> ✐ Usa #help para ver tus comandos disponibles.',
         botAdmin: '❒ Comando disponible solo si el bot es administrador\n> ✐ Promueve al bot para darle admin.',
-        unreg: '❒ Comando no disponible para ti\n> ✐ Registrate con #reg nombre. edad para usar este comando.',
+        unreg: '❒ Comando no disponible para ti\n> ✐ Registrate con:\n\n#reg nombre. edad para usar este comando.',
         restrict: '❒ Comando no disponible por el momento.\n> ✐ Usa #help para ver los comandos disponibles.'
     }[type];
 
