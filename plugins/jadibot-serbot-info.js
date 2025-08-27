@@ -75,17 +75,6 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
         const participantes = metadata.participants || [];
         const botsEnEsteGrupo = participantes.filter(p => global.db.data.users[p.id]?.isBot).length;
 
-        // Formato de uptime
-        const convertirMsADiasHorasMinutosSegundos = (ms) => {
-          let segundos = Math.floor(ms / 1000);
-          let minutos = Math.floor(segundos / 60);
-          let horas = Math.floor(minutos / 60);
-          segundos %= 60;
-          minutos %= 60;
-          horas %= 24;
-          return `${horas} horas, ${minutos} minutos, ${segundos} segundos`;
-        };
-
         // Detalles de subbots con número y uptime
         let detallesBots = '';
         if (cantidadSubBots > 0) {
@@ -93,7 +82,7 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
           let i = 1;
           for (let [jid, connBot] of uniqueUsers.entries()) {
             let uptime = connBot.startTime
-              ? convertirMsADiasHorasMinutosSegundos(Date.now() - connBot.startTime)
+              ? rTime((Date.now() - connBot.startTime) / 1000)
               : 'N/A';
             detallesBots += `${i++}. wa.me/${jid.split('@')[0]}\n> 🜸 Uptime ${uptime}\n`;
           }
@@ -133,3 +122,17 @@ handler.command = [
 ];
 
 export default handler;
+
+// Función para mostrar el uptime al estilo de tu código
+function rTime(seconds) {
+  seconds = Number(seconds);
+  var d = Math.floor(seconds / (3600 * 24));
+  var h = Math.floor((seconds % (3600 * 24)) / 3600);
+  var m = Math.floor((seconds % 3600) / 60);
+  var s = Math.floor(seconds % 60);
+  var dDisplay = d > 0 ? d + (d == 1 ? " dia, " : " Dias, ") : "";
+  var hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
+  return dDisplay + hDisplay + mDisplay + sDisplay;
+}
