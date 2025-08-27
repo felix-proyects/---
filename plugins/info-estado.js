@@ -44,7 +44,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 > 1,9,2,9,3,9,4,9,5
 > 1,9,2,9,3,9,4,9,5
 > ${muptime}
-  ✦ *[Deymoon Bot] » 12 Sessiones
+  ✦ *[Deymoon Bot]* » 12 Sessiones
 > 1,9,2,9,0,9,4,9,1
 > 7,5,2,9,3,9,4,2,5
 > ${muptime}
