@@ -1,52 +1,40 @@
-// plugins/jadibot-primary.js
+import fs from 'fs'
+import path from 'path'
 
-//* Código creado por Félix, no quites créditos *//
+let handler = async (m, { text }) => {
+  let number = (m.mentionedJid && m.mentionedJid[0]?.replace('@s.whatsapp.net', '')) || text?.replace(/[^0-9]/g, '')
 
-const fake = {
-  key: {
-    fromMe: false,
-    participant: '0@s.whatsapp.net',
-    remoteJid: 'status@broadcast'
-  },
-  message: {
-    conversation: "Canal Oficial"
+  if (!number) {
+    return m.reply('Debes etiquetar al bot que quieres hacer principal en este grupo.')
   }
-}
 
-// SETPRIMARY: Solo un bot responde en el grupo
-let setprimary = async (m, { conn, text }) => {
-  // Validar número
-  if (!text || !text.replace(/[^0-9]/g, '')) {
-    return await conn.reply(m.chat, '「🩵」Debes etiquetar al bot que quieres hacer principal en este grupo.', m, fake)
+  let botJid = number + '@s.whatsapp.net'
+
+  let isMainBot = global.conn.user && global.conn.user.jid === botJid
+
+  let subbotPath = path.join('./JadiBots', number, 'creds.json')
+  let isSubbot = fs.existsSync(subbotPath)
+
+  if (!isSubbot && !isMainBot) {
+    return m.reply(`El número *${number}* no corresponde ni al bot principal ni a un Subbot válido.`)
   }
-  let botNumber = text.replace(/[^0-9]/g, '')
-  let botJid = botNumber + '@s.whatsapp.net'
+
+  let isInConns = isMainBot || global.conns.some(conn => conn.user && conn.user.jid === botJid)
+  if (!isInConns) {
+    return m.reply(`❌ El bot *${botJid}* no está conectado actualmente y no se puede poner como primario.`)
+  }
 
   if (!global.db.data.chats[m.chat]) global.db.data.chats[m.chat] = {}
   global.db.data.chats[m.chat].primaryBot = botJid
 
-  await conn.reply(m.chat, `El bot principal para este grupo ahora es:\n*${botJid}*\n\nSolo ese bot responderá aquí.`, m, fake)
+  if (global.db.write) await global.db.write()
+
+  m.reply(`✅ El bot principal para este grupo ahora es:\n*${botJid}*`)
 }
 
-setprimary.help = ['setprimary @bot']
-setprimary.tags = ['owner']
-setprimary.command = ['setprimary']
-setprimary.admin = true
+handler.help = ['setprimary @bot']
+handler.tags = ['serbot']
+handler.command = ['setprimary']
+handler.admin = true
 
-// RESETPRIMARY: Todos los bots vuelven a responder
-let resetprimary = async (m, { conn }) => {
-  let data = global.db.data.chats[m.chat]
-  if (!data || !data.primaryBot) {
-    return await conn.reply(m.chat, '💙 En este grupo ya no hay bot principal. Ahora todos los bots pueden responder como antes.', m, fake)
-  }
-  delete data.primaryBot
-  await conn.reply(m.chat, '💙 El bot principal ha sido eliminado. Ahora todos los bots pueden responder como antes.', m, fake)
-}
-
-resetprimary.help = ['resetprimary']
-resetprimary.tags = ['owner']
-resetprimary.command = ['resetprimary']
-resetprimary.admin = true
-
-export default setprimary
-export { resetprimary }
+export default handler
