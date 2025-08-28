@@ -303,38 +303,6 @@ export async function handler(chatUpdate) {
           continue;
         }
         m.plugin = name;
-        const isMatchCommand = plugin.command && (
-  Array.isArray(plugin.command) 
-    ? plugin.command.some(cmd => {
-        if (typeof cmd === 'string') {
-          return command === cmd.toLowerCase()
-        } else if (cmd instanceof RegExp) {
-          return cmd.test(command)
-        }
-        return false
-      })
-    : (typeof plugin.command === 'string' 
-        ? command === plugin.command.toLowerCase() 
-        : plugin.command instanceof RegExp 
-          ? plugin.command.test(command) 
-          : false)
-)
-
-if (isMatchCommand) {
-  // --- Restringir comandos en privado ---
-  const allowedPrivateCommands = ['qr', 'code']
-  if (!m.isGroup && !allowedPrivateCommands.includes(command) && !isOwner) {
-    return // Bloquea comandos privados no permitidos
-  }
-
-  // --- Restringir comandos cuando el bot está desactivado en un grupo ---
-  if (m.isGroup && global.db.data.botGroups && global.db.data.botGroups[m.chat] === false) {
-    const alwaysAllowedCommands = ['grupo']
-    if (!alwaysAllowedCommands.includes(command) && !isOwner) {
-      return m.reply(`El bot está desactivado en este grupo.\n\n> Pídele a un administrador que lo active.`)
-    }
-  }
-}
         if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
           let chat = global.db.data.chats[m.chat];
           let user = global.db.data.users[m.sender];
