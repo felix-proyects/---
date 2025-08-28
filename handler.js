@@ -28,7 +28,7 @@ export async function handler(chatUpdate) {
     if (!m) return;
     m.exp = 0;
     m.coin = false;
-    
+
     // --- LÓGICA DE VERIFICACIÓN DE BOT PREMIUM MEJORADA ---
     let isBotPrem = false; // El bot solo será premium si se verifica en el archivo.
     if (!isBotPrem) { // Si no es el principal, revisa el archivo.
@@ -201,7 +201,7 @@ export async function handler(chatUpdate) {
     if (!isROwner && opts['self']) return;
     if (opts['swonly'] && m.chat !== 'status@broadcast') return;
     if (typeof m.text !== 'string') m.text = '';
-    
+
     if (m.isGroup) {
       let chat = global.db.data.chats[m.chat];
       if (chat?.primaryBot && this?.user?.jid !== chat.primaryBot) {
@@ -273,7 +273,7 @@ export async function handler(chatUpdate) {
         [[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]] :
         [[[], new RegExp]]
       ).find(p => p[1]);
-      
+
       if (typeof plugin.before === 'function') {
         if (await plugin.before.call(this, m, {
           match, conn: this, participants, groupMetadata, user, bot, isROwner, isOwner, isRAdmin, isAdmin, isBotAdmin, isPrems, chatUpdate, __dirname: ___dirname, __filename
@@ -303,6 +303,38 @@ export async function handler(chatUpdate) {
           continue;
         }
         m.plugin = name;
+        const isMatchCommand = plugin.command && (
+  Array.isArray(plugin.command) 
+    ? plugin.command.some(cmd => {
+        if (typeof cmd === 'string') {
+          return command === cmd.toLowerCase()
+        } else if (cmd instanceof RegExp) {
+          return cmd.test(command)
+        }
+        return false
+      })
+    : (typeof plugin.command === 'string' 
+        ? command === plugin.command.toLowerCase() 
+        : plugin.command instanceof RegExp 
+          ? plugin.command.test(command) 
+          : false)
+)
+
+if (isMatchCommand) {
+  // --- Restringir comandos en privado ---
+  const allowedPrivateCommands = ['qr', 'code']
+  if (!m.isGroup && !allowedPrivateCommands.includes(command) && !isOwner) {
+    return // Bloquea comandos privados no permitidos
+  }
+
+  // --- Restringir comandos cuando el bot está desactivado en un grupo ---
+  if (m.isGroup && global.db.data.botGroups && global.db.data.botGroups[m.chat] === false) {
+    const alwaysAllowedCommands = ['grupo']
+    if (!alwaysAllowedCommands.includes(command) && !isOwner) {
+      return m.reply(`El bot está desactivado en este grupo.\n\n> Pídele a un administrador que lo active.`)
+    }
+  }
+}
         if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
           let chat = global.db.data.chats[m.chat];
           let user = global.db.data.users[m.sender];
@@ -326,7 +358,7 @@ export async function handler(chatUpdate) {
         let adminMode = global.db.data.chats[m.chat].modoadmin;
         let mini = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`;
         if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && mini) return;   
-        
+
         if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { 
           fail('owner', m, this, usedPrefix, command);
           continue;
@@ -343,7 +375,7 @@ export async function handler(chatUpdate) {
           fail('mods', m, this, usedPrefix, command);
           continue;
         }
-        
+
         // --- VERIFICACIÓN: COMANDO DISPONIBLE SOLO SI EL BOT ES PREMIUM ---
         if (plugin.botprem && !isBotPrem) {
           fail('botprem', m, this, usedPrefix, command);
@@ -372,7 +404,7 @@ export async function handler(chatUpdate) {
           fail('unreg', m, this, usedPrefix, command);
           continue;
         }
-        
+
         m.isCommand = true;
         let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10;
         m.exp += xp;
@@ -387,7 +419,7 @@ export async function handler(chatUpdate) {
         let extra = {
           match, usedPrefix, noPrefix, _args, args, command, text, conn: this, participants, groupMetadata, user, bot, isROwner, isOwner, isRAdmin, isAdmin, isBotAdmin, isPrems, isBotPrem, chatUpdate, __dirname: ___dirname, __filename
         };
-        
+
         try {
           await plugin.call(this, m, extra);
           if (!isPrems) m.coin = m.coin || plugin.coin || false;
@@ -463,7 +495,7 @@ export async function handler(chatUpdate) {
     } catch (e) { 
       console.log(m, m.quoted, e);
     }
-    
+
     let settingsREAD = global.db.data.settings[this.user.jid] || {};
     if (opts['autoread']) await this.readMessages([m.key]);
 
