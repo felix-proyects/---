@@ -3,7 +3,7 @@
 
 let handler = async (m, { conn, text }) => {
   if (!text || !text.endsWith('@g.us')) {
-    return m.reply('🍂 Uso correcto:\n> .delprimary 120363xxxxxx@g.us')
+    return m.reply('☆ Uso correcto:\n> .delprimary 120363xxxxxx@g.us')
   }
 
   const groupId = text.trim()
@@ -17,7 +17,7 @@ let handler = async (m, { conn, text }) => {
 
     // validar admin
     if (!userInGroup.admin && userInGroup.role !== 'admin' && userInGroup.role !== 'superadmin') {
-      return m.reply('❌ No sos admin en ese grupo.')
+      return m.reply('☆ No sos admin en ese grupo.')
     }
 
     if (!global.db.data.chats[groupId]) global.db.data.chats[groupId] = {}
@@ -29,10 +29,10 @@ let handler = async (m, { conn, text }) => {
     delete global.db.data.chats[groupId].primaryBot
     global.db.data.chats[groupId].allBots = true
 
-    m.reply(`✅ Se eliminó el bot primario del grupo:\n*${metadata.subject}*\n\nAhora todos los bots pueden responder.`)
+    m.reply(`☆ Se eliminó el bot primario del grupo:\n*${metadata.subject}*\n\nAhora todos los bots pueden responder.`)
   } catch (e) {
     console.error(e)
-    m.reply('❌ No pude acceder a ese grupo. Asegúrate de que el bot esté dentro del grupo y el ID sea correcto.')
+    m.reply('☆ No pude acceder a ese grupo. Asegúrate de que el bot esté dentro del grupo y el ID sea correcto.')
   }
 }
 
