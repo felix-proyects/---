@@ -29,8 +29,12 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "𒊹︎︎︎ Conexión Premium Mediante Codigo Qr:\n\n➪ Has click en la web u otro dispositivo y luego escanea el codigo QR.\n\n⚠︎ 𝐄𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐯𝐞𝐧𝐜𝐞 𝐞𝐧 45 𝐬𝐞𝐠𝐮𝐧𝐝𝐨𝐬 ⚠︎"
-let rtx2 = "𒊹︎︎︎ Conexión Premium Mediante Codigo de 8 digitos\n\n➪ Has click en dispositivos vinculados e ingresa el codigo  que te envia el bot\n\n⚠︎ 𝐄𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐯𝐞𝐧𝐜𝐞 𝐞𝐧 45 𝐬𝐞𝐠𝐮𝐧𝐝𝐨𝐬 ⚠︎"
+let rtx = "✿ *Vincula tu cuenta como premium usando el codigo QR.*\n\nSigue las instrucciones:
+✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.*\n\n_Recuerda que es recomendable no usar tu cuenta principal para registrar bots._
+↺ El codigo es valido por 60 segundos."
+let rtx2 = "✿ *Vincula tu cuenta como premium usando el codigo de 8 dígitos.*\n\nSigue las instrucciones:
+✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.*\n\n_Recuerda que es recomendable no usar tu cuenta principal para registrar bots._
+↺ El codigo es valido por 60 segundos."
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
