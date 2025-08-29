@@ -31,9 +31,7 @@ let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
 let rtx = "Vincula"
-let rtx2 = "✿ *Vincula tu cuenta usando el codigo de 8 dígitos.*\n\nSigue las instrucciones:
-✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.*\n\n_Recuerda que es recomendable no usar tu cuenta principal para registrar bots._
-↺ El codigo es valido por 45 segundos."
+let rtx2 = "Vincula"
 
 
 const __filename = fileURLToPath(import.meta.url)
