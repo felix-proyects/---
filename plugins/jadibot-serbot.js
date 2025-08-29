@@ -30,8 +30,12 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "𒊹︎︎︎ Conexión Mediante Codigo:\n\n➪ Has click en la web u otro dispositivo y luego escanea el codigo QR.\n\n⚠︎ 𝐄𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐯𝐞𝐧𝐜𝐞 𝐞𝐧 45 𝐬𝐞𝐠𝐮𝐧𝐝𝐨𝐬 ⚠︎"
-let rtx2 = "𒊹︎︎︎ Conexión Mediante Codigo de 8 digitos\n\n➪ Has click en dispositivos vinculados e ingresa el codigo  que te envia el bot\n\n⚠︎ 𝐄𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐯𝐞𝐧𝐜𝐞 𝐞𝐧 45 𝐬𝐞𝐠𝐮𝐧𝐝𝐨𝐬 ⚠︎"
+let rtx = "✿ *Vincula tu cuenta usando el codigo QR.*\n\nSigue las instrucciones:
+✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.*\n\n_Recuerda que es recomendable no usar tu cuenta principal para registrar bots._
+↺ El codigo es valido por 60 segundos."
+let rtx2 = "✿ *Vincula tu cuenta usando el codigo de 8 dígitos.*\n\nSigue las instrucciones:
+✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.*\n\n_Recuerda que es recomendable no usar tu cuenta principal para registrar bots._
+↺ El codigo es valido por 45 segundos."
 
 
 const __filename = fileURLToPath(import.meta.url)
@@ -42,11 +46,11 @@ else global.conns = []
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 //if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`♡ Comando desactivado temporalmente.`)
 let time = global.db.data.users[m.sender].Subs + 120000
-if (new Date - global.db.data.users[m.sender].Subs < 120000) return conn.reply(m.chat, `🕐 Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
+if (new Date - global.db.data.users[m.sender].Subs < 120000) return conn.reply(m.chat, `Espera ${msToTime(time - new Date())} para volver a intentar Vincular un *Sub-Bot*`, m, fake)
 const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
 const subBotsCount = subBots.length
 if (subBotsCount === 30) {
-return m.reply(`${emoji2} No se han encontrado servidores para *Sub-Bots* disponibles.`)
+return m.reply(`☆ No hay espacios para *Sub-Bots* disponibles.`)
 }
 /*if (Object.values(global.conns).length === 30) {
 return m.reply(`${emoji2} No se han encontrado espacios para *Sub-Bots* disponibles.`)
