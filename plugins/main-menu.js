@@ -1,11 +1,28 @@
+import fs from 'fs'
+import { join } from 'path'
+
 let handler = async (m, { conn }) => {
   try {
     let taguser = '@' + m.sender.split('@')[0]
-    let botname = 'Deymoon Ultra'
-    let tipo = 'ofc'
-    let devby = `${dev} | ${(conn.user.jid == global.conn.user.jid ? '(𝐏𝐫𝐞𝐦-𝐁𝐨𝐭)' : '(𝐒𝐮𝐛-𝐁𝐨𝐭)')}`
+    let nombreBot = 'Deymoon Ultra'
+    let bannerFinal = 'https://qu.ax/nOdLd.jpg'
 
-    let menu = `𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 *${botname}* *${(conn.user.jid == global.conn.user.jid ? '(𝐏𝐫𝐞𝐦-𝐁𝐨𝐭)' : '(𝐒𝐮𝐛-𝐁𝐨𝐭)')}*
+    const botActual = conn.user?.jid?.split('@')[0]?.replace(/\D/g, '')
+    const configPath = join('./JadiBots', botActual || '', 'config.json')
+    if (botActual && fs.existsSync(configPath)) {
+      try {
+        const config = JSON.parse(fs.readFileSync(configPath))
+        if (config.name) nombreBot = config.name
+        if (config.banner) bannerFinal = config.banner
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    const tipo = conn.user?.jid === global.conn?.user?.jid ? '(𝐏𝐫𝐞𝐦-𝐁𝐨𝐭)' : '(𝐒𝐮𝐛-𝐁𝐨𝐭)'
+    const devby = `${dev} | ${tipo}`
+
+    let menu = `𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 *${nombrebot}* *${tipo}*
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭┈ ↷
 │ ✐ ${textbot}
@@ -587,8 +604,7 @@ Mira la información junto al ID de un grupo.
 > Juego para devertirte en tu grupo.
 
 ❏ #cajamisteriosa
-> Mira una caja misteriosa.
-`
+> Mira una caja misteriosa.`
 
     await conn.sendMessage(m.chat, {
       text: menu,
@@ -599,15 +615,13 @@ Mira la información junto al ID de un grupo.
           sourceUrl: 'https://Deymoon.club/',
           mediaType: 1,
           renderLargerThumbnail: true,
-          thumbnailUrl: 'https://qu.ax/nOdLd.jpg'
+          thumbnailUrl: bannerFinal
         }
       }
     }, { quoted: m })
 
-    // ← Línea eliminada: await m.react('🌪')
   } catch (e) {
-    await m.reply(`✘ Ocurrió un error cuando la lista de comandos se iba a enviar.\n\n${e}`, m, fake)
-    // ← Línea eliminada: await m.react('❌')
+    await m.reply(`✘ Ocurrió un error al mostrar el menú.\n\n${e}`)
   }
 }
 
