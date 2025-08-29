@@ -52,23 +52,23 @@ function msToTime(duration) {
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     let time = global.db.data.users[m.sender].Subs + 120000
     if (new Date - global.db.data.users[m.sender].Subs < 120000) {
-        return conn.reply(m.chat, `🕐 Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
+        return conn.reply(m.chat, `Debes esperar ${msToTime(time - new Date())} para registrar un bot premium otra vez.`, m, fake)
     }
     const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
     const subBotsCount = subBots.length
     if (subBotsCount === 30) {
-        return m.reply(`❀ No se han encontrado servidores para *Sub-Bots* disponibles.`)
+        return m.reply(`❀ No se han encontrado servidores para *Bots premium* disponibles.`)
     }
 
     const userToken = args[0];
     if (!userToken) {
-        return conn.reply(m.chat, `❀ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m);
+        return conn.reply(m.chat, `❀ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m,  fake);
     }
 
     let tokens = loadTokens();
     const userHasSession = tokens.find(s => s.estado === m.sender);
     if (userHasSession) {
-        return conn.reply(m.chat, `❀ Ya tienes una sesión activa. Tu token es: *${userHasSession.token}*`, m);
+        return conn.reply(m.chat, `❀ Ya tienes una sesión activa. Tu token es: *${userHasSession.token}*`, m, fake);
     }
 
     const validToken = tokens.find(s => s.token === userToken && s.estado === 'libre');
