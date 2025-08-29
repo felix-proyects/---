@@ -13,7 +13,6 @@ const handler = async (m, {conn, participants, groupMetadata}) => {
 
 ✐ ${botname} » *✓ Activado*
 ✐ Anti-Links » *${antiLink ? ' ✓ Activado' : '✗ Desactivado'}*
-✐ NSFW » *${nsfw ? ' ✓ Activado' : '✗ Desactivado'}*
 ✐ Welcome » *${welcome ? ' ✓ Activado' : '✗ Desactivado'}*
 ✐ Alertas » *${restrict ? ' ✓ Activado' : '✗ Desactivado'}* 
 `.trim();
