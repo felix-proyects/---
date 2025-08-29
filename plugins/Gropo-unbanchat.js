@@ -7,11 +7,11 @@ let handler = async (m, { conn, isAdmin, isROwner }) => {
 
 
   if (!(isAdmin || isROwner || fs.existsSync(botPath))) {
-    return m.reply('☆ No tienes permisos para usar este comando. Solo admins o el bot pueden hacerlo.')
+    return m.reply('☆ No tienes permisos para usar este comando. Solo admins, owners o subbots pueden hacerlo.')
   }
 
   global.db.data.chats[m.chat].isBanned = false
-  m.reply('☆ Bot desbaneado en este grupo.')
+  m.reply('🧃 Bot desbaneado en este grupo.')
 }
 
 handler.help = ['desbanearbot']
