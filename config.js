@@ -28,7 +28,7 @@ global.vs = '2.0.0'
 global.languaje = 'Español'
 global.nameqr = '𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭'
 global.sessions = 'Session'
-global.jadi = 'JadiBot'
+global.jadi = 'JadiBots'
 global.makiJadibts = true
 
 global.packsticker = `⏤͟͞ू⃪  ̸̷͢𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚𑁯ᰍ\n`
