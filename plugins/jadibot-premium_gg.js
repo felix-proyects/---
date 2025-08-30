@@ -29,12 +29,8 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "✿ *Vincula tu cuenta como premium usando el codigo QR.*\n\nSigue las instrucciones:
-✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.*\n\n_Recuerda que es recomendable no usar tu cuenta principal para registrar bots._
-↺ El codigo es valido por 60 segundos."
-let rtx2 = "✿ *Vincula tu cuenta como premium usando el codigo de 8 dígitos.*\n\nSigue las instrucciones:
-✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.*\n\n_Recuerda que es recomendable no usar tu cuenta principal para registrar bots._
-↺ El codigo es valido por 60 segundos."
+let rtx = "✿  *Vincula tu cuenta usando el siguiente código.*\n\nSigue las instrucciones:\n\n✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.\n\n↺ El codigo es valido por 45 segundos."
+let rtx2 = "✿  *Vincula tu cuenta usando el siguiente código.*\n\nSigue las instrucciones:\n\n✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.\n\n↺ El codigo es valido por 45 segundos."
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -56,17 +52,17 @@ function msToTime(duration) {
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     let time = global.db.data.users[m.sender].Subs + 120000
     if (new Date - global.db.data.users[m.sender].Subs < 120000) {
-        return conn.reply(m.chat, `Debes esperar ${msToTime(time - new Date())} para registrar un bot premium otra vez.`, m, fake)
+        return conn.reply(m.chat, `Espera ${msToTime(time - new Date())} para intentar volver a vincular un bot premium.`, m, fake)
     }
     const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
     const subBotsCount = subBots.length
     if (subBotsCount === 30) {
-        return m.reply(`❀ No se han encontrado servidores para *Bots premium* disponibles.`)
+        return m.reply(`❀ Ya no hay espacios para Sub-Bots activos.`)
     }
 
     const userToken = args[0];
     if (!userToken) {
-        return conn.reply(m.chat, `❀ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m,  fake);
+        return conn.reply(m.chat, `❀ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m, fake);
     }
 
     let tokens = loadTokens();
@@ -77,24 +73,24 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 
     const validToken = tokens.find(s => s.token === userToken && s.estado === 'libre');
     if (!validToken) {
-        return conn.reply(m.chat, '❀ El token proporcionado no es válido o ya está en uso.', m);
+        return conn.reply(m.chat, '❀ El token proporcionado no es válido o ya está en uso.', m fake);
     }
-    
+
     // Asignar el token al usuario solo si es válido y libre
     validToken.estado = m.sender;
     saveTokens(tokens);
-    
+
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let id = `${who.split`@`[0]}`
     let pathblackJadiBot = path.join(jadiBotsDir, id)
-    
+
     if (!fs.existsSync(pathblackJadiBot)){
         fs.mkdirSync(pathblackJadiBot, { recursive: true })
     }
 
     // Determinar si es un método de código o QR
     const isCodeMethod = command === 'codeprem';
-    
+
     blackJBOptions.pathblackJadiBot = pathblackJadiBot
     blackJBOptions.m = m
     blackJBOptions.conn = conn
@@ -102,7 +98,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     blackJBOptions.fromCommand = true
     blackJBOptions.isPremiumFromToken = validToken.premium
     blackJadiBot(blackJBOptions)
-    
+
     global.db.data.users[m.sender].Subs = new Date * 1
 } 
 handler.help = ['qrprem', 'codeprem']
@@ -113,12 +109,12 @@ export default handler
 export async function blackJadiBot(options) {
     let { pathblackJadiBot, m, conn, isCodeMethod, isPremiumFromToken } = options
     let txtCode, codeBot, txtQR
-    
+
     const pathCreds = path.join(pathblackJadiBot, "creds.json")
     if (!fs.existsSync(pathblackJadiBot)){
         fs.mkdirSync(pathblackJadiBot, { recursive: true })
     }
-    
+
     const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
     exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
         const drmer = Buffer.from(drm1 + drm2, `base64`)
@@ -126,7 +122,7 @@ export async function blackJadiBot(options) {
         const msgRetry = (MessageRetryMap) => { }
         const msgRetryCache = new NodeCache()
         const { state, saveState, saveCreds } = await useMultiFileAuthState(pathblackJadiBot)
-        
+
         const connectionOptions = {
             logger: pino({ level: "fatal" }),
             printQRInTerminal: false,
@@ -137,11 +133,11 @@ export async function blackJadiBot(options) {
             version: version,
             generateHighQualityLinkPreview: true
         };
-        
+
         let sock = makeWASocket(connectionOptions)
         sock.isInit = false
         let isInit = true
-        
+
         async function connectionUpdate(update) {
             const { connection, lastDisconnect, isNewLogin, qr } = update
             if (isNewLogin) sock.isInit = false
@@ -169,7 +165,7 @@ export async function blackJadiBot(options) {
             if (codeBot && codeBot.key) {
                 setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
             }
-            
+
             const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
             if (connection === 'close') {
                 if (reason === 428) {
@@ -219,7 +215,7 @@ export async function blackJadiBot(options) {
                 const premiumPath = path.join(pathblackJadiBot, 'premium.json');
                 const premiumConfig = { premiumBot: isPremiumFromToken };
                 fs.writeFileSync(premiumPath, JSON.stringify(premiumConfig, null, 2));
-                
+
                 let userName, userJid 
                 userName = sock.authState.creds.me.name || 'Anónimo'
                 userJid = sock.authState.creds.me.jid || `${path.basename(pathblackJadiBot)}@s.whatsapp.net`
