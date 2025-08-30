@@ -26,7 +26,7 @@ let handler = async (m, { conn }) => {
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭┈ ↷
 ┃Baileys: AdonixBails
-┃Comandos: ${totalcommand}
+┃Comandos: 250
 ┃Canal Oficial: https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21
 ╰━━━━━━━━━━
 > Crea un Sub-Bot con tu número de telefono usando #qr o #code
