@@ -48,10 +48,6 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
  ╭ֹ┈ ⵿❀⵿ ┈╮Grupos
 > Comandos para grupos.
 
-❒ #desbanearbot
-> Para que el bot responda.
-❒ #banearbot
-> Para que el bot no responda.
 ❒ #enable <opción>
 > Activa una opción.
 ❒ #disable <opción>
