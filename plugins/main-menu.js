@@ -25,8 +25,9 @@ let handler = async (m, { conn }) => {
     let menu = `𝐇𝐨𝐥𝐚! ${taguser} 𝐒𝐨𝐲 *${botname}* *${tipo}*
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭┈ ↷
+┃Usuario: *${taguser}*
 ┃Baileys: AdonixBails
-┃Comandos: 250
+┃Comandos: deymoon-club.vercel.app/
 ┃Canal Oficial: https://whatsapp.com/channel/0029Vb5nxWWFHWq5CNFP5b21
 ╰━━━━━━━━━━
 > Crea un Sub-Bot con tu número de telefono usando #qr o #code
