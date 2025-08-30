@@ -27,7 +27,7 @@ const handler = async (m, { conn, command }) => {
   const configPath = path.join(botPath, 'config.json')
 
   if (!fs.existsSync(botPath)) {
-    return m.reply('☆ El comando ${command} Sólo puede ser ejecutado por el socket.')
+    return m.reply('☆ El comando *Setbanner* Sólo puede ser ejecutado por el socket.')
   }
 
   try {
