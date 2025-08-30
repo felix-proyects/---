@@ -29,8 +29,8 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "✿  *Vincula tu cuenta usando el siguiente código.*\n\nSigue las instrucciones:\n\n✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.\n\n↺ El codigo es valido por 45 segundos."
-let rtx2 = "✿  *Vincula tu cuenta usando el siguiente código.*\n\nSigue las instrucciones:\n\n✎ *Mas opciones » Dispositivos vinculados » Vincular nuevo dispositivo » Vincular usando numero.\n\n↺ El codigo es valido por 45 segundos."
+let rtx = "*︰꯭𞋭☆ ̸̷᮫໊᷐͢᷍ᰍ⧽͓̽ CONEXIÓN PREMIUM*\n\n━⧽ MODO CODIGO QR\n\n✰ 𝖯𝖺𝗌𝗈𝗌 𝖽𝖾 𝗏𝗂𝗇𝖼𝗎𝗅𝖺𝖼𝗂𝗈́𝗇:\n\n• En la Pc o tu otro teléfono escanea este qr.\n\n➪ Toca en dispositivos vinculados.\n\n➪ Selecciona Vincular con el número de teléfono.\n\n➪ Escanea el código QR.\n\n★ 𝗡𝗼𝘁𝗮: Este código expira después de los 45 segundos."
+let rtx2 = "*︰꯭𞋭☆ ̸̷᮫໊᷐͢᷍ᰍ⧽͓̽ CONEXIÓN PREMIUM*\n\n━⧽ MODO CODIGO\n\n✰ 𝖯𝖺𝗌𝗈𝗌 𝖽𝖾 𝗏𝗂𝗇𝖼𝗎𝗅𝖺𝖼𝗂𝗈́𝗇:\n\n➪ Ve a la esquina superior derecha.\n\n➪ Toca en dispositivos vinculados.\n\n➪ Selecciona Vincular con el número de teléfono.\n\n➪ Pega el siguiente código que te enviaremos.\n\n★ 𝗡𝗼𝗍𝖺: 𝖤𝗌𝗍𝖾 𝖼𝗈𝖽𝗂𝗀𝗈 𝗌𝗈𝗅𝗈 𝖿𝗎𝗇𝖼𝗂𝗈𝗇𝖺 𝖾𝗇 𝖾𝗅 𝗇𝗎́𝗆𝖾𝗋𝗈 𝗊𝗎𝖾 𝗅𝗈 𝗌𝗈𝗅𝗂𝖼𝗂𝗍𝗈́."
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -52,28 +52,28 @@ function msToTime(duration) {
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     let time = global.db.data.users[m.sender].Subs + 120000
     if (new Date - global.db.data.users[m.sender].Subs < 120000) {
-        return conn.reply(m.chat, `Espera ${msToTime(time - new Date())} para intentar volver a vincular un bot premium.`, m, fake)
+        return conn.reply(m.chat, `🕐 Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
     }
     const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
     const subBotsCount = subBots.length
     if (subBotsCount === 30) {
-        return m.reply(`❀ Ya no hay espacios para Sub-Bots activos.`)
+        return m.reply(`❀ No se han encontrado servidores para *Sub-Bots* disponibles.`)
     }
 
     const userToken = args[0];
     if (!userToken) {
-        return conn.reply(m.chat, `❀ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m, fake);
+        return conn.reply(m.chat, `❀ Debes proporcionar un token para iniciar la sesión.\n> Ejemplo: *${usedPrefix + command} tu_token_aqui*`, m);
     }
 
     let tokens = loadTokens();
     const userHasSession = tokens.find(s => s.estado === m.sender);
     if (userHasSession) {
-        return conn.reply(m.chat, `❀ Ya tienes una sesión activa. Tu token es: *${userHasSession.token}*`, m, fake);
+        return conn.reply(m.chat, `❀ Ya tienes una sesión activa. Tu token es: *${userHasSession.token}*`, m);
     }
 
     const validToken = tokens.find(s => s.token === userToken && s.estado === 'libre');
     if (!validToken) {
-        return conn.reply(m.chat, '❀ El token proporcionado no es válido o ya está en uso.', m fake);
+        return conn.reply(m.chat, '❀ El token proporcionado no es válido o ya está en uso.', m);
     }
 
     // Asignar el token al usuario solo si es válido y libre
