@@ -7,8 +7,11 @@ let yaNotificados = new Set(
     : []
 );
 
+// Define aquí la URL/canal que quieres enviar
+const ch = 'https://whatsapp.com/channel/0029VbAa5sNCsU9Hlzsn651S';
+
 const enviarAvisoCanal = async (conn, notifyChat = null) => {
-  const mensaje = `🦈 *¡Te invitamos a nuestro canal!* 🦈\n\nEste es el canal oficial 📢 de *Gawr Gura*:\n\n👉 https://whatsapp.com/channel/0029Vb5atcVL7UVQwAB9tU2k\n\nSíguelo para estar al tanto de todas las novedades.`;
+  const mensaje = `Te invitamos al canal oficial Del Bot ya que lo acabamos de cambiar:\n\n${ch}`;
 
   // Ajusta para frameworks que usan conn.chats o conn.store.chats
   const chats = Object.entries(conn.chats || conn.store?.chats || {}).filter(
