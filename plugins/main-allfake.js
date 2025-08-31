@@ -37,8 +37,8 @@ global.namecomu = 'Deymoon Club'
 global.listo = '☆ *Aquí tienes ᕕ( ᐛ )ᕗ*'
 
 //Ids channel
-global.idchannel = '120363402362088282@newsletter'
-global.canalIdM = ["120363402362088282@newsletter", "120363402362088282@newsletter"]
+global.idchannel = '120363418804796632@newsletter'
+global.canalIdM = ["120363418804796632@newsletter", "120363418804796632@newsletter"]
 global.canalNombreM = ["=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 - 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥⏤͟͟͞͞★", "=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 - 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥⏤͟͟͞͞★"]
 global.channelRD = await getRandomChannel()
 
