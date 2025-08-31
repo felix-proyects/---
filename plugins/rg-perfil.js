@@ -36,13 +36,7 @@ var handler = async (m, { conn }) => {
   // 🩵 Animación de carga jjj
   let animacion = `
 〘 CARGANDO PERFIL 〙
-
-• La carga demora un poco.
-• Porfavor espera...
-
-💎 Perfil reconocido con exito.
-
-*Enviando tu perfil...*
+*RECONOCIDO CON ÉXITO...*
 `.trim()
 
   await m.reply(animacion)
@@ -64,18 +58,14 @@ var handler = async (m, { conn }) => {
   let prem = `
 〘 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 〙
 
-ERES RECONOCIDO EN DENJI』
 
-🔥 *Usuario:* ${username}
-💥 *tag:* @${who.replace(/@.+/, '')}
-🔥 *Registrado:* ${registered ? '✅' : '❌'}
+ *Usuario:* ${username}
+ *tag:* @${who.replace(/@.+/, '')}
+ *Registrado:* ${registered ? '✅' : '❌'}
 
-╭━━━━━━━━━━━━━╮
-┃🔥 *Nivel:* ${level}
-┃💥 *Experiencia:* ${exp}
-┃🔥 *Rango:* ${role}
-╰━━━━━━━━━━━━━
-> © powered by Félix Manuel 
+ *Nivel:* ${level}
+ *Experiencia:* ${exp}
+ *Rango:* ${role}
 `.trim()
 
   await conn.sendFile(m.chat, pp, 'ponte_una_foto_gay', premium ? prem : noprem, m, undefined, { mentions: [who] })
