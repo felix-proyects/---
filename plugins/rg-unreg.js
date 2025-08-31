@@ -32,7 +32,7 @@ let handler = async function (m, { conn }) {
       forwardingScore: 999,
       externalAdReply: {
         title: channelRD.name,
-        body: 'Deymoon Ultra Bot',
+        body: 'Deymoon Club',
         thumbnailUrl: 'https://files.catbox.moe/3zb86a.jpg', // Opcional, cámbiala si quieres
         mediaType: 1,
         renderLargerThumbnail: true,
