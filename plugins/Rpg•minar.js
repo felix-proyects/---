@@ -10,12 +10,12 @@ let handler = async (m, { conn }) => {
   let stone = `${pickRandom([200, 500, 700, 800, 900, 4000, 300])}` * 1
 
   let time = global.db.data.users[m.sender].lastmiming + 600000
-  if (new Date - global.db.data.users[m.sender].lastmiming < 600000) return conn.reply(m.chat, `*🕑 Debes esperar ${msToTime(time - new Date())} para volver a minar*`, m)
+  if (new Date - global.db.data.users[m.sender].lastmiming < 600000) return conn.reply(m.chat, `*🕑 Debes esperar ${msToTime(time - new Date())} para volver a minar*`, m, fake)
 
   let hasil = Math.floor(Math.random() * 1000)
   let info = `⛏️ ESTABAS MINANDO...
 
->  OBTUVISTE ESTOS RECURSOS:
+> OBTUVISTE ESTOS RECURSOS:
 
 ✨ *Exp*: ${hasil}
 💰 *coins*: ${cookies}
@@ -27,7 +27,7 @@ let handler = async (m, { conn }) => {
 
   // ENVÍO DEL MENSAJE COMO REENVIADO DESDE CANAL/NEWSLETTER
   const channelRD = { 
-    id: "1203634003698@newsletter", // <-- Pon aquí el ID de tu canal/newsletter
+    id: "120363418804796632@newsletter", // <-- Pon aquí el ID de tu canal/newsletter
     name: "DeymoonClub"              // <-- Pon aquí el nombre del canal/newsletter
   }
 
@@ -43,7 +43,7 @@ let handler = async (m, { conn }) => {
       },
       externalAdReply: {
         title: channelRD.name,
-        body: 'MAKIMA 2.0 BOT',
+        body: 'Deymoon - Club',
         thumbnailUrl: 'https://qu.ax/tqWekN.jpg', // Cambia la imagen si deseas
         mediaType: 1,
         renderLargerThumbnail: true,
