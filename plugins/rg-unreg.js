@@ -14,7 +14,7 @@ let handler = async function (m, { conn }) {
 `)
 
   // Datos del canal/newsletter (para el efecto de reenviado)
-  const channelRD = { id: "6632@newsletter", name: "DeymoonClub" }
+  const channelRD = { id: "6632@newsletter", name: "." }
   
   // El mensaje que TÚ quieras (puedes cambiarlo)
   let mensaje = "「☆」Debido a que eliminaste tu registro en el bot, ya no podrás usar la mayoría de sus funciones."
