@@ -1,6 +1,6 @@
 const comandosValidos = [
   // Sistema
-  'formarpareja5', 'afk', 'runtime', 'menu', 'help', 'menú', 'asistenciabot', 'comandosbot', 'listadecomandos', 'menucompleto',
+  'formarpareja5', 'afk', 'runtime', 'menu', 'help', 'update, 'asistenciabot', 'comandosbot', 'listadecomandos', 'menucompleto',
   // Grupos
   'enable', 'disable', 'staff',
   // Jadi-Bots
