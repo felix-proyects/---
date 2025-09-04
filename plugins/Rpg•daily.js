@@ -9,7 +9,7 @@ var handler = async (m, {conn, isPrems }) => {
   const senderNumber = m.sender.replace(/[^0-9]/g, '')
   const botPath = path.join('./JadiBots', senderNumber)
   const configPath = path.join(botPath, 'config.json')
-  let moneda = 'Moneda' // Valor por defecto
+  let moneda = 'Coins' // Valor por defecto
   if (fs.existsSync(configPath)) {
     try {
       const config = JSON.parse(fs.readFileSync(configPath))
