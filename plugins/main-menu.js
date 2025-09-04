@@ -27,8 +27,9 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 ╭┈ ↷
 ┃Usuario: *${taguser}*
 ┃Baileys: AdonixBails
-┃Comandos: deymoon-club.vercel.app/
-┃Tokens: 2
+┃Comandos: 221
+┃Tokens Usados: 3
+┃Canal: https://whatsapp.com/channel/0029VbAscL4Fcow56wUp5b1Z
 ╰━━━━━━━━━━
 > Crea un Sub-Bot con tu número de telefono usando #qr o #code
 
