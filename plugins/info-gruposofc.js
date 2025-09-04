@@ -57,7 +57,7 @@ const comandosValidos = [
 
 const PREFIJOS = ['#', '!', '.', '/']
 
-let handler = async (m, { conn }) => {
+let handler = async (m,fake, { conn }) => {
   // Solo si inicia con prefijo permitido
   const texto = m.text || ''
   const prefijo = PREFIJOS.find(p => texto.startsWith(p))
@@ -71,7 +71,7 @@ let handler = async (m, { conn }) => {
   if (comandosValidos.includes(cmdUsuario)) return
 
   // Responde solo si el comando NO existe
-  await m.reply(`☆ El comando [${prefijo}${cmdUsuario}] No está disponible.\n> Usa #help para ver cuales lo están.`)
+  await m.reply(`☆ El comando ${prefijo}${cmdUsuario} No está disponible.\n> Usa #help para ver cuales lo están.`)
 }
 
 // Detecta cualquier texto con prefijo
