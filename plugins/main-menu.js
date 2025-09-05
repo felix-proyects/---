@@ -36,7 +36,7 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
  ╭ֹ┈ ⵿❀⵿ Sistema
 > Herramientas para convivir.
 
-❒ #formarpareja5
+❒ ${usedPrefix}formarpareja5
 > Forma 5 parejas a lo random.
 ❒ #afk [alasan]
 > Pon un mensaje de ausencia.
