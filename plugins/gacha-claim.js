@@ -36,7 +36,7 @@ let handler = async (m, { conn }) => {
     if (m.quoted && m.quoted.sender === conn.user.jid) {
         try {
             const characters = await loadCharacters();
-        const characterIdMatch = m.quoted.text.match(/✦ ID: \*(.+?)\*/);
+            const characterIdMatch = m.quoted.text.match(/✦ ID: \*(.+?)\*/);
 
             if (!characterIdMatch) {
                 await conn.reply(m.chat, '《✧》No se pudo encontrar el ID del personaje en el mensaje citado.', m);
@@ -52,7 +52,12 @@ let handler = async (m, { conn }) => {
             }
 
             if (character.user && character.user !== userId) {
-                await conn.reply(m.chat, `《✧》El personaje ya ha sido reclamado por @${character.user.split('@')[0]}, inténtalo a la próxima :v.`, m, { mentions: [character.user] });
+                await conn.reply(
+                    m.chat,
+                    `《✧》El personaje ya ha sido reclamado por @${character.user.split('@')[0]}, inténtalo a la próxima :v.`,
+                    m,
+                    { mentions: [character.user] }
+                );
                 return;
             }
 
@@ -62,7 +67,9 @@ let handler = async (m, { conn }) => {
             await saveCharacters(characters);
 
             await conn.reply(m.chat, `✦ Has reclamado a *${character.name}* con éxito.`, m);
-            cooldowns[userId] = now + 30 * 60 * 1000;
+
+            // Cooldown de solo 1 segundo
+            cooldowns[userId] = now + 1000;
 
         } catch (error) {
             await conn.reply(m.chat, `✘ Error al reclamar el personaje: ${error.message}`, m);
