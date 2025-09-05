@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 const handler = async (m, { args, usedPrefix, command }) => {
-  const msg = `*[❗𝐈𝐍𝐅𝐎❗] 𝚄𝚂𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙾 𝙳𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 ${usedPrefix + command} (idioma) (texto)*\n*𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*${usedPrefix + command} en Hola, cómo estás*`;
+  const msg = `Formato incorrecto.\n\n•Ejemplos de uso del comando:\n\nde inglés a Español: ${usedPrefix + command} es Hola\n\n De español a inglés: ${usedPrefix + command} en Hello.`;
 
   if (!args || !args[0]) return m.reply(msg);
 
@@ -25,7 +25,7 @@ const handler = async (m, { args, usedPrefix, command }) => {
 
     if (!json || !json.status || !json.data || !json.data.translatedText) {
       await m.react('❌');
-      return m.reply('*[❗𝐈𝐍𝐅𝐎❗] ERROR AL TRADUCIR, INTÉNTALO NUEVAMENTE*');
+      return m.reply('...');
     }
 
     const translated = json.data.translatedText;
@@ -34,7 +34,7 @@ const handler = async (m, { args, usedPrefix, command }) => {
   } catch (e) {
     console.error(e);
     await m.react('❌');
-    await m.reply('*[❗𝐈𝐍𝐅𝐎❗] ERROR, VUELVA A INTENTARLO*');
+    await m.reply('...');
   }
 };
 
