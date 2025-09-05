@@ -14,7 +14,7 @@ const handler = async (m, {conn, command, args}) => {
 ║│ *Compra Nominal* : + ${count} 
 ║│ *Gastado* : -${xpperchocolates * count} XP
 ║╰───────────┄
-╚═══════⩽✰⩾════╝`, m, fake);
+╚═══════⩽✰⩾═══╝`, m, fake);
   } else conn.reply(m.chat, `No tienes suficiente XP para comprar *${count}* Coins`, m, fake);
 };
 handler.help = ['Buy', 'Buyall'];
