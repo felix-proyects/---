@@ -75,7 +75,8 @@ let handler = async (m, { conn }) => {
             await saveCharacters(characters)
         }
 
-        cooldowns[userId] = now + 15 * 60 * 1000
+        // Cooldown de solo 1 segundo
+        cooldowns[userId] = now + 1000
 
     } catch (error) {
         await conn.reply(m.chat, `✘ Error al cargar el personaje: ${error.message}`, m)
