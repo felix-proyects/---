@@ -7,14 +7,14 @@ const handler = async (m, {conn, command, args}) => {
     global.db.data.users[m.sender].exp -= xpperchocolates * count;
     global.db.data.users[m.sender].chocolates += count;
     conn.reply(m.chat, `
-╔═══════⩽✰⩾═══════╗
+╔═════⩽✰⩾═════╗
 ║    𝐍𝐨𝐭𝐚 𝐃𝐞 𝐏𝐚𝐠𝐨 
-╠═══════⩽✰⩾═══════╝
-║╭──────────────┄
+╠═════⩽✰⩾═════╝
+║╭───────────┄
 ║│ *Compra Nominal* : + ${count} 
 ║│ *Gastado* : -${xpperchocolates * count} XP
-║╰──────────────┄
-╚═══════⩽✰⩾═══════╝`, m, fake);
+║╰───────────┄
+╚═══════⩽✰⩾════╝`, m, fake);
   } else conn.reply(m.chat, `No tienes suficiente XP para comprar *${count}* Coins`, m, fake);
 };
 handler.help = ['Buy', 'Buyall'];
