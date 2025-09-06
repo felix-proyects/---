@@ -47,14 +47,19 @@ const handler = async (m, { conn, text, command }) => {
     const canal = author.name || "Desconocido"
 
     const infoMessage = `
-*.╭╭ִ╼࣪━ִDESCARGANDO━ִ╾࣪╮╮.*
-> ♡ *Título:* ${title}
-> ♡ *Duración:* ${timestamp}
-> ♡ *Vistas:* ${vistas}
+*╭╭ִ╼࣪━ִDESCARGANDO━ִ╾࣪╮╮*
+> ♡ *Título:* ${title || 'Desconocido'}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Duración:* ${timestamp || 'Desconocido'}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Vistas:* ${vistas || 'Desconocido'}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
 > ♡ *Canal:* ${canal}
-> ♡ *Publicado:* ${ago}
-> ♡ *Link:* ${url}
-*⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ*`
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Publicado:* ${ago || 'Desconocido'}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Enlace:* ${url}
+*⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ׄۛ۫۫۫۫۫۫ۜ*`
 
     const thumb = (await conn.getFile(thumbnail))?.data
 
