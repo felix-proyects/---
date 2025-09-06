@@ -1,4 +1,4 @@
-const handler = async (m, fake, { conn, command }) => {
+const handler = async (m, { conn, command }) => {
   // Animación de "calculando..."
   const loadingBars = [
     "《 █▒▒▒▒▒▒▒▒▒▒▒》10%",
@@ -12,7 +12,7 @@ const handler = async (m, fake, { conn, command }) => {
   const finalMessage = `👋 Hola`;
 
   // Enviar mensaje inicial
-  let { key } = await conn.sendMessage(m.chat, {text: `🤍 Calculando...`}, {quoted: m, fake});
+  let { key } = await conn.sendMessage(m.chat, {text: `Cargando menu del bot.`}, {quoted: m, fake});
   
   // Animar las barras de carga
   for (let i = 0; i < loadingBars.length; i++) {
@@ -26,5 +26,5 @@ const handler = async (m, fake, { conn, command }) => {
 
 handler.help = ['hola'];
 handler.tags = ['fun'];
-handler.command = ['prueba2'];
+handler.command = ['hola'];
 export default handler;
