@@ -12,12 +12,12 @@ const handler = async (m, { conn, command }) => {
   const finalMessage = `El comando funciona con éxito.`;
 
   // Enviar mensaje inicial
-  let { key } = await conn.sendMessage(m.chat, {text: `Cargando menu del bot.`}, {quoted: m});
+  let { key } = await conn.sendMessage(m.chat, {text: `Cargando menu del bot.`}, {quoted: m, fake});
   
   // Animar las barras de carga
   for (let i = 0; i < loadingBars.length; i++) {
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await conn.sendMessage(m.chat, {text: loadingBars[i], edit: key}, {quoted: m});
+    await conn.sendMessage(m.chat, {text: loadingBars[i], edit: key}, {quoted: m, fake});
   }
 
   // Mensaje final
