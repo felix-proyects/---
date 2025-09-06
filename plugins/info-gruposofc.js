@@ -9,10 +9,10 @@ const handler = async (m, { conn, command }) => {
   ];
   
   // Mensaje final
-  const finalMessage = `👋 Hola`;
+  const finalMessage = `El comando funciona con éxito.`;
 
   // Enviar mensaje inicial
-  let { key } = await conn.sendMessage(m.chat, {text: `🤍 Calculando...`}, {quoted: m});
+  let { key } = await conn.sendMessage(m.chat, {text: `Cargando menu del bot.`}, {quoted: m});
   
   // Animar las barras de carga
   for (let i = 0; i < loadingBars.length; i++) {
@@ -26,5 +26,5 @@ const handler = async (m, { conn, command }) => {
 
 handler.help = ['hola'];
 handler.tags = ['fun'];
-handler.command = ['hola'];
+handler.command = ['prueba'];
 export default handler;
