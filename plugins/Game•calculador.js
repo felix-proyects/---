@@ -1,7 +1,7 @@
 const handler = async (m, { conn, command, text, usedPrefix }) => {
   if (!text) return conn.reply(m.chat, `🩵 *Mensiona a un Usuario.*`, m, fake, );
   const percentages = (500).getRandom();
-  let emoji = '';
+  let emoji = '☆';
   let description = '';
   switch (command) {
     case 'gay':
