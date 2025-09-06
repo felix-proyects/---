@@ -1,4 +1,4 @@
-const handler = async (m, { conn, command }) => {
+const handler = async (m, fake, { conn, command }) => {
   // Animación de "calculando..."
   const loadingBars = [
     "《 █▒▒▒▒▒▒▒▒▒▒▒》10%",
@@ -12,7 +12,7 @@ const handler = async (m, { conn, command }) => {
   const finalMessage = `👋 Hola`;
 
   // Enviar mensaje inicial
-  let { key } = await conn.sendMessage(m.chat, {text: `🤍 Calculando...`}, {quoted: m});
+  let { key } = await conn.sendMessage(m.chat, {text: `🤍 Calculando...`}, {quoted: m, fake});
   
   // Animar las barras de carga
   for (let i = 0; i < loadingBars.length; i++) {
