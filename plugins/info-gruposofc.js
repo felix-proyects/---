@@ -12,7 +12,7 @@ const handler = async (m, { conn, command }) => {
   const finalMessage = `👋 Hola`;
 
   // Enviar mensaje inicial
-  let { key } = await conn.sendMessage(m.chat, {text: `Cargando menu del bot.`}, {quoted: m, fake});
+  let { key } = await conn.sendMessage(m.chat, {text: `Cargando menu del bot.`}, {quoted: m});
   
   // Animar las barras de carga
   for (let i = 0; i < loadingBars.length; i++) {
