@@ -21,7 +21,7 @@ const handler = async (m, { conn, command }) => {
   }
 
   // Mensaje final
-  await conn.sendMessage(m.chat, {text: finalMessage, edit: key}, {quoted: m});
+  await conn.sendMessage(m.chat, {text: finalMessage, edit: key}, {quoted: m, fake});
 };
 
 handler.help = ['hola'];
