@@ -1,11 +1,6 @@
 let handler  = async (m, { conn }) => {
 
-conn.reply(m.chat, '☆ *¡Buscando un reto para ti!*', m, {
-contextInfo: { fake :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-title: packname,
-body: dev,
-previewType: 0, thumbnail: icons,
-sourceUrl: channel }}})
+conn.reply(m.chat, '☆ *¡Buscando un reto para ti!*', m, fake)
 conn.reply(m.chat, `*"${pickRandom(global.bucin)}"*`, m, fake)
 }
 
