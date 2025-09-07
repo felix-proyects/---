@@ -209,7 +209,7 @@ let handler = async (m, { conn, usedPrefix }) => {
                 serverMessageId: '-1'
             }
         }
-    }, { quoted: fake });
+    }, { quoted: m, fake});
 }
 
 handler.help = ['fraseanime'];
