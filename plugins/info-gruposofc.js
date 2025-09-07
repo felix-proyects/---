@@ -172,36 +172,34 @@ const frasesAnime = [
 ];
 
 let handler = async (m, { conn, command }) => {
+    if (!['fraseanime'].includes(command)) return;
     try {
-        if (command === 'fraseanime') {
-            for (const item of frasesAnime) {
-                const mensaje = `*${item.personaje}*\n\n${item.frase}\n\n${item.canal}`;
-                await conn.sendMessage(m.chat, {
-                    image: { url: item.imagen },
-                    caption: mensaje,
-                    contextInfo: {
-                        externalAdReply: {
-                            title: item.personaje,
-                            body: item.frase,
-                            thumbnailUrl: item.icono,
-                            sourceUrl: item.canal,
-                            mediaType: 1,
-                            renderLargerThumbnail: true
-                        }
-                    }
-                }, { quoted: m });
-                await new Promise(resolve => setTimeout(resolve, 1200));
+        const item = frasesAnime[Math.floor(Math.random() * frasesAnime.length)];
+        const mensaje = `*${item.personaje}*\n\n${item.frase}\n\n${item.canal}`;
+        await conn.sendMessage(m.chat, {
+            image: { url: item.imagen },
+            caption: mensaje,
+            contextInfo: {
+                externalAdReply: {
+                    title: item.personaje,
+                    body: item.frase,
+                    thumbnailUrl: item.icono,
+                    sourceUrl: item.canal,
+                    mediaType: 1,
+                    renderLargerThumbnail: true
+                }
             }
-            await m.react('✅');
-        }
+        }, { quoted: m });
+        await m.react('✅');
     } catch (e) {
-        await m.reply(`✘ Error al enviar las frases de anime.\n\n${e}`, m);
+        await m.reply(`✘ Error al enviar la frase de anime.\n\n${e}`, m);
         await m.react('❌');
     }
 };
 
 handler.help = ['fraseanime'];
-handler.tags = ['main'];
+handler.tags = ['anime', 'frases'];
 handler.command = ['fraseanime'];
+handler.register = true;
 
 export default handler;
