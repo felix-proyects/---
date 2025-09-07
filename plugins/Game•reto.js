@@ -1,7 +1,7 @@
 let handler  = async (m, { conn }) => {
 
 conn.reply(m.chat, '☆ *¡Buscando un reto para ti!*', m, {
-contextInfo: { newsletterJid :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
+contextInfo: { fake :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: packname,
 body: dev,
 previewType: 0, thumbnail: icons,
