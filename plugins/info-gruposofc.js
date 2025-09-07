@@ -193,7 +193,6 @@ let handler = async (m, { conn, usedPrefix }) => {
         image: { url: elegido.imagen },
         caption: str,
         contextInfo: {
-            externalAdReply: {
                 mediaUrl: null,
                 mediaType: 3,
                 showAdAttribution: true,
