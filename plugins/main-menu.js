@@ -71,17 +71,6 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 ❒ #setprimary [@Bot]
 > Pon un bot como principal en el grupo.
 
-
- ╭ֹ┈ ⵿❀⵿ ┈╮AI
-> Comandos para asistente de IA.
-
-❒ #gemini
-> Habla con la IA.
-❒ #chatgpt <texto>
-> Habla con ChatGPT.
-❒ #ia <texto>
-> Habla con el bot.
-
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮ANIME
 > Comandos de anime.
@@ -173,33 +162,6 @@ Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 ❒ #sasuke
 > Mira fotos de este anime.
 ❒ #sakura
-
-
- ╭ֹ┈ ⵿❀⵿ ┈╮Audio
-❒ #bass [vn]
-> Undefined
-❒ #blown [vn]
-> Undefined
-❒ #deep [vn]
-> Undefined
-❒ #earrape [vn]
-> Undefined
-❒ #fast [vn]
-> Undefined
-❒ #fat [vn]
-> Undefined
-❒ #nightcore [vn]
-> Undefined
-❒ #reverse [vn]
-> Undefined
-❒ #robot [vn]
-> Undefined
-❒ #slow [vn]
-> Undefined
-❒ #smooth [vn]
-> Undefined
-❒ #tupai [vn]
-> Undefined
 
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮BUSCADOR
@@ -586,21 +548,7 @@ Mira la información junto al ID de un grupo.
 ❏ #profile
 > Mira tu perfil.
 ❏ #unreg
-> Elimina tu registro.
-
-ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮PREMIUM
-> Comando para hacerte usuario premium.
-
-❏ #comprarpremium <cantidad> <unidad>
-> Vuélvete usuario premium.
- ㅤ
-
- ╭ֹ┈ ⵿❀⵿ ┈╮JUEGOS
-> Juego para devertirte en tu grupo.
-
-❏ #cajamisteriosa
-> Mira una caja misteriosa.`
+> Elimina tu registro.`
 
     await conn.sendMessage(m.chat, {
       text: menu,
