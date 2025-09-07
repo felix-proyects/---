@@ -42,7 +42,7 @@ const handler = async (m, { conn }) => {
 • \`/soportelogs\` - Ver logs del sistema
 
 *╭─────────────────◆*
-*│  💫 Powered by Equipo de soporte*
+*│  💫 Powered by Deymoon ofc
 *│  🛡️ Panel de Soporte*
 *╰─────────────────◆*`;
 
