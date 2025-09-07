@@ -205,11 +205,11 @@ let handler = async (m, { conn, usedPrefix }) => {
             },
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363335626706839@newsletter',
-                newsletterName: '⛦『 ✎𝐓͢ᴇ𝙖፝ᴍ⃨ 𝘾𝒉꯭𝐚𝑛𝑛𝒆𝑙 𝑹ᴜ⃛ɓ𝑦-𝑯ᴏ⃔𝒔𝑯𝙞꯭𝑛⃡𝒐✎ 』⛦',
+                newsletterName: 'aa',
                 serverMessageId: '-1'
             }
         }
-    }, { quoted: m, fake});
+    }, { quoted: m });
 }
 
 handler.help = ['fraseanime'];
