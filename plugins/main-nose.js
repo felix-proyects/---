@@ -3,10 +3,10 @@ import fs from 'fs';
 import path from 'path';
 
 const channelRD = {
-  id: "120363418804796632@newsletter",
-  name: "KURAYAMI-HOST"
+  id: "120363403950112178@newsletter",
+  name: "=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 - 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥⏤͟͟͞͞★"
 };
-const thumbnailUrl = 'https://qu.ax/dXOUo.jpg';
+const thumbnailUrl = 'https://qu.ax/XygHN.jpg';
 
 let handler = async function (m, { args, command, usedPrefix, conn }) {
   if (!args[0]) {
@@ -23,7 +23,7 @@ let handler = async function (m, { args, command, usedPrefix, conn }) {
       },
       externalAdReply: {
         title: channelRD.name,
-        body: 'MAKIMA 2.0 BOT',
+        body: dev,
         thumbnailUrl: thumbnailUrl,
         mediaType: 1,
         renderLargerThumbnail: false,
@@ -33,7 +33,7 @@ let handler = async function (m, { args, command, usedPrefix, conn }) {
     await conn.sendMessage(
       m.chat,
       {
-        text: '「🩵」Debes ingresar un texto para usar este comando.',
+        text: '「☆」Debes ingresar un texto para usar este comando.',
         contextInfo: contextNewsletter
       },
       { quoted: m }
