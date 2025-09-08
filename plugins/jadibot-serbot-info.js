@@ -93,7 +93,7 @@ let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner
 
 ❀ Principal » *1*
 ✿ Subs » *${cantidadSubBots}*
-☆ Premiums » 3
+☆ Premiums » 1
 ❏ Total sessions » ${cantidadSubBots}/60
 
 ${detallesBots.trim()}
