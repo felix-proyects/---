@@ -26,7 +26,7 @@ let handler = async (m, { conn }) => {
 Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭┈ ↷
 ┃Usuario: *${taguser}*
-┃Baileys: AdonixBails
+┃Baileys: RubyHoshinoBails
 ┃Comandos: 221
 ┃Tokens Usados: 3
 ┃Canal: https://whatsapp.com/channel/0029VbAscL4Fcow56wUp5b1Z
