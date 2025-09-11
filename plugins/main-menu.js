@@ -23,7 +23,7 @@ let handler = async (m, { conn }) => {
     const devby = `${nombreBot}, ${dev}`
 
     let menu = `𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 *${nombreBot}* *${tipo}*
-Aǫᴜɪ ᴇsᴛᴀ ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
+Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs: 
 ╭┈ ↷
 ┃Usuario: *${taguser}*
 ┃Baileys: RubyHoshinoBails
