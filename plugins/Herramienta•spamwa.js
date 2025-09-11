@@ -20,5 +20,5 @@ if (i !== 0) conn.reply(fixedNumber, pesan.trim(), null);
 handler.help = ['spamwa <number>|<mesage>|<no of messages>'];
 handler.tags = ['tools'];
 handler.command = ['spam', 'spamwa'];
-handler.private = false;
+handler.private = true;
 export default handler;
