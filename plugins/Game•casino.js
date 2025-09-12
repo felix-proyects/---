@@ -15,20 +15,20 @@ let username = conn.getName(who)
 let tiempoEspera = 15
 if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
 let tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000))
-conn.reply(m.chat, `🩵 Ya has iniciado una apuesta recientemente, espera *⏱️ ${tiempoRestante}* para apostar nuevamente`, m, fake)
+conn.reply(m.chat, `☆ Ya has iniciado una apuesta recientemente, espera *⏱️ ${tiempoRestante}* para apostar nuevamente`, m, fake)
 return
 }
 cooldowns[m.sender] = Date.now()
 count = count ? /all/i.test(count) ? Math.floor(global.db.data.users[m.sender].limit / buatall) : parseInt(count) : args[0] ? parseInt(args[0]) : 1
 count = Math.max(1, count)
-if (args.length < 1) return conn.reply(m.chat, '🩵 Ingresa la cantidad de ' + `💎 *Diamantes*` + ' que deseas aportar contra' + ` *Makima-MD*` + `\n\n` + '`Ejemplo:`\n' + `> *${usedPrefix + command}* 100`, m, fake)
+if (args.length < 1) return conn.reply(m.chat, '☆ Ingresa la cantidad de ' + `☆ *Diamantes*` + ' que deseas aportar contra' + ` *Makima*` + `\n\n` + '`Ejemplo:`\n' + `> *${usedPrefix + command}* 100`, m, fake)
 if (user.cookies >= count * 1) {
 user.cookies -= count * 1
 if (Aku > Kamu) {
-conn.reply(m.chat, '`🩵 Veamos que numeros tienen!`\n\n'+ `➠ *Makima* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *PERDISTE* ${formatNumber(count)} 💎 Diamantes.`.trim(), m, fake)
+conn.reply(m.chat, '`☆ Veamos que numeros tienen!`\n\n'+ `➠ *Makima* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *PERDISTE* ${formatNumber(count)} ☆ Diamantes.`.trim(), m, fake)
 } else if (Aku < Kamu) {
 user.cookies += count * 2
-conn.reply(m.chat, '`🩵 Veamos que numeros tienen!`\n\n'+ `➠ *blackcloverBot* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *GANASTE* ${formatNumber(count * 2)} 💎 Diamantes.`.trim(), m, fake)
+conn.reply(m.chat, '`☆ Veamos que numeros tienen!`\n\n'+ `➠ *Denji* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username}, *GANASTE* ${formatNumber(count * 2)} ☆ Diamantes.`.trim(), m, fake)
 } else {
 user.cookies += count * 1
 conn.reply(m.chat, '`🩵 Veamos que numeros tienen!`\n\n'+ `➠ *MakimaBot* : ${Aku}\n➠ *${username}* : ${Kamu}\n\n> ${username} obtienes ${formatNumber(count * 1)} 💎 Diamantes.`.trim(), m, fake)}
