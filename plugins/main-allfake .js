@@ -9,24 +9,24 @@ let handler = async (m, { text, conn }) => {
 
 
   if (!text) {
-    return await conn.reply(m.chat, `🩵 Escribe el prompt de la imagen. Ejemplo:\n#dalle2 makima con denji.`, m)
+    return await conn.reply(m.chat, `☆ Escribe el prompt de la imagen. Ejemplo:\n#dalle2 makima con denji.`, m, fake)
   }
 
-  await conn.reply(m.chat, `🩵 Generando la imagen de: "${text}", espera un momento...`, m)
+  await conn.reply(m.chat, `☆ Generando la imagen de: "${text}", espera un momento...`, m, fake)
 
   try {
     let prompt = encodeURIComponent(text.trim())
     let imageUrl = `https://anime-xi-wheat.vercel.app/api/ia-img?prompt=${prompt}`
 
-    await conn.sendFile(m.chat, imageUrl, 'imagen.jpg', `🩵 Imagen generada:\n"${text}"`, m)
+    await conn.sendFile(m.chat, imageUrl, 'imagen.jpg', `☆ Imagen generada:\n"${text}"`, m, fake)
   } catch (e) {
     console.error(e)
-    m.reply(`❌ Ocurrió un error al generar la imagen:\n${e.message}`)
+    m.reply(`☆ Ocurrió un error al generar la imagen:\n${e.message}`)
   }
 }
 
 handler.help = ['imagina <prompt>']
 handler.tags = ['main'];
-handler.command = ['dalle2', 'imagen2']
+handler.command = ['dalle', 'imagen2']
 
 export default handler
