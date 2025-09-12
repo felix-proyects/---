@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) return conn.reply(m.chat, `☆ Por favor, ingrese el error que desea reportar.`, m, fake)
+    if (!text) return conn.reply(m.chat, `☆ Ingresa el comando y que quieres que ese comando aga.`, m, fake)
     if (text.length < 10) return conn.reply(m.chat, `☆ Espesifique la sugerencia de comando. Máximo 10 caracteres.`, m, fake)
     if (text.length > 1000) return conn.reply(m.chat, `☆ El máximo de la sugerencia es de 1000 caracteres.`, m, fake)
     const teks = `*Nueva Sugerencia De comando*
