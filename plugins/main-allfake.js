@@ -53,7 +53,7 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 // Códigos importantes 
 global.packsticker = `⏤͟͞ू⃪  ̸̷͢𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚𑁯ᰍ\n`
 global.packname = `=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★`
-global.author = `socket:\n✐ =͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★\n👹 Usuario:\n➪ ${nombre}`;
+global.author = `socket:\n✐ =͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★\n👹 Usuario:\n➪ @Desconocido`;
 
 //Reacciones De Comandos.!
 global.rwait = '🕐'
