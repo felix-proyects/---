@@ -17,7 +17,7 @@ let handler = async (m, { conn, args, participants }) => {
     users = users.filter(u => groupJids.includes(u.jid));
 
     if (!users.length) {
-        return conn.reply(m.chat, `${emoji} No hay usuarios registrados en este grupo.`, m);
+        return conn.reply(m.chat, `${emoji} No hay usuarios registrados en este grupo.`, m, fake);
     }
 
     // Ordena por la suma de monedas y banco de mayor a menor
@@ -31,7 +31,7 @@ let handler = async (m, { conn, args, participants }) => {
     const end = start + perPage;
     const usuariosPagina = users.slice(start, end);
 
-    let texto = `${emoji} 「Top usuarios con más *¥${moneda}*」\n\n`;
+    let texto = `「Top usuarios con más *${moneda}*」\n\n`;
     for (let i = 0; i < usuariosPagina.length; i++) {
         const { jid, coin = 0, bank = 0 } = usuariosPagina[i];
         const total = coin + bank;
