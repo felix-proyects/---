@@ -44,7 +44,7 @@ let handler = async (m, { conn, args, participants }) => {
         texto += `✰ ${start + i + 1}. *${nombre}*\n`;
         texto += `      💸 ¥${coin.toLocaleString()} + 🏦 ¥${bank.toLocaleString()} = 💰 *¥${total.toLocaleString()}*\n\n`;
     }
-    texto += `> Página *${page}* de *${totalPages}*`;
+    texto += `> Página *${page}* de *${totalPages}*\n\n• Usa #baltop <Siguiente pagina> para ver más usuarios.`;
 
     await conn.reply(m.chat, texto.trim(), m, {
         mentions: usuariosPagina.map(u => u.jid)
