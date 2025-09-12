@@ -50,21 +50,16 @@ global.mes = d.toLocaleDateString('es', {month: 'long'})
 global.año = d.toLocaleDateString('es', {year: 'numeric'})
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true})
 
-// Códigos importantes 
-global.packsticker = `⏤͟͞ू⃪  ̸̷͢𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚𑁯ᰍ\n`
-global.packname = `=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★`
-global.author = `socket:\n✐ =͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭⏤͟͟͞͞★\n👹 Usuario:\n➪ @Desconocido`;
-
 //Reacciones De Comandos.!
 global.rwait = '🕐'
 global.done = '✅'
 global.error = '❌'
 
 //Emojis determinado de MakimaBot 
-global.emoji = '🌪'
-global.emoji2 = '🌫'
-global.emoji3 = '🌪'
-global.emoji4 = '🌫'
+global.emoji = '☆'
+global.emoji2 = '☆'
+global.emoji3 = '☆'
+global.emoji4 = '☆'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 
