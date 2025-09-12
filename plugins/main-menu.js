@@ -55,7 +55,8 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Desactiva una opción.
 ❒ #staff
 > Mira los admins del grupo.
-
+❒ #leave
+> Saca al bot de tu grupo.
 
  ╭ֹ┈ ⵿❀⵿ ┈╮JADI - BOTS
 > Comandos para los bots.
@@ -70,7 +71,8 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Cambia la foto del bot.
 ❒ #setprimary [@Bot]
 > Pon un bot como principal en el grupo.
-
+❒ #join
+> Únete a un grupo. 
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮ANIME
 > Comandos de anime.
@@ -440,14 +442,14 @@ Mira la información junto al ID de un grupo.
 > Mira enlaces oficiales del bot.
 ❏ #script
 > Mira el repositorio oficial del Bot.
-❏ #reportar
+❏ #report
 > Reporta algún error del bot.
 
 ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮FIX
 > Comando para restaurar las sesiones.
 
-❏ #dsowner
+❏ #ds
 > Elimina las sesiones para que el bot siga más rápido.
 
 ㅤ
@@ -491,17 +493,6 @@ Mira la información junto al ID de un grupo.
 > Mira una caja misteriosa. 
 ❏ #transferirmonedas *@user cantidad*
 > Transfiere tus monedas.
-
-
- ╭ֹ┈ ⵿❀⵿ ┈╮RANKING
-> Comandos para jugadores de fútbol.
-
-❏ #jugadores
-> Mira cuantos jugadores has reclamado.
-❏ #soccer
-> opten un jugador para luego reclamar.
-❏ #rcjugador
-> Reclama un jugador.
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮SEARCH
