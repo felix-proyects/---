@@ -12,5 +12,5 @@ return console.log(e)
 }}
 handler.command = ['leave', 'leavegc', 'salir']
 handler.group = true
-handler.
+handler.admin = true
 export default handler
