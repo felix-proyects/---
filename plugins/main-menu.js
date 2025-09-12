@@ -511,7 +511,8 @@ Mira la información junto al ID de un grupo.
 > opten una waifu.
 ❏ #rollwaifu
 > Mira el roll de una waifu.
-
+❏ #baltop
+> Mira el top de usuarios con más Diamantes.
 
  ╭ֹ┈ ⵿❀⵿ ┈╮GRUPOS
 > Comandos para información de  grupos.
