@@ -1,47 +1,29 @@
-
 import axios from 'axios'
 
 let handler = async (m, { conn, args, usedPrefix, command, text }) => {
-    if (!text) return conn.reply(m.chat, `${emoji} Ingresa el enlace de TikTok\n\nEjemplo: ${usedPrefix}${command} https://vm.tiktok.com/xxxxx`, m)
+    if (!text) return conn.reply(m.chat, `☆ Ingresa el enlace de TikTok\n\nEjemplo: ${usedPrefix}${command} https://vm.tiktok.com/xxxxx`, m, fake)
 
     if (!text.includes('tiktok.com') && !text.includes('vm.tiktok')) {
-        return conn.reply(m.chat, '❌ Por favor ingresa un enlace válido de TikTok', m)
+        return conn.reply(m.chat, '☆ Por favor ingresa un enlace válido de TikTok', m, fake)
     }
 
     await m.react('🕒')
-    conn.reply(m.chat, '✧ *Descargando video de TikTok...*', m)
+    conn.reply(m.chat, '✧ *Descargando video de TikTok...*', m, fake)
 
     try {
-        const response = await axios({
-            method: 'POST',
-            url: 'https://tikwm.com/api/',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'Cookie': 'current_language=en',
-                'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36'
-            },
-            data: {
-                url: text,
-                count: 12,
-                cursor: 0,
-                web: 1,
-                hd: 1
-            }
-        })
+        const response = await axios.get(`https://ruby-core.vercel.app/api/download/tiktok?url=${encodeURIComponent(text)}`)
+        const result = response.data
 
-        const result = response.data.data
+        if (!result.status || !result.video_no_watermark) {
+            return conn.reply(m.chat, '☆ No se pudo obtener el video', m, fake)
+        }
 
-        if (!result) return conn.reply(m.chat, '❌ No se pudo obtener el video', m)
+        let caption = `*Título:* ${result.title}
+*Autor:* ${result.author}
+*Música:* ${result.music ? 'Incluida' : 'No disponible'}
+*ID:* ${result.id}`
 
-        let caption = `❀ *Título:* ${result.title}
-👤 *Autor:* ${result.author.nickname}
-❤️ *Likes:* ${result.digg_count}
-💬 *Comentarios:* ${result.comment_count}
-🔄 *Compartidos:* ${result.share_count}
-⏱️ *Duración:* ${result.duration}s`
-
-        // Enviar video sin marca de agua
-        await conn.sendFile(m.chat, result.hdplay || result.play, 'tiktok.mp4', caption, m, null, {
+        await conn.sendFile(m.chat, result.video_no_watermark, 'tiktok.mp4', caption, m, null, {
             asDocument: false,
             mimetype: 'video/mp4'
         })
@@ -50,7 +32,7 @@ let handler = async (m, { conn, args, usedPrefix, command, text }) => {
 
     } catch (error) {
         await m.react('❌')
-        conn.reply(m.chat, `❌ Error al descargar: ${error.message}`, m)
+        conn.reply(m.chat, `☆ Error al descargar: ${error.message}`, m, fake)
     }
 }
 
