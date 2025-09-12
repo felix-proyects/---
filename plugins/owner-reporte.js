@@ -1,10 +1,10 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw '☆ *_️Ingrese el error ue desea reportar._*'
-    if (text.length < 10) throw '☆ *_Especifique bien el error, mínimo 10 caracteres._*'
-    if (text.length > 1000) throw '☆ *_Máximo 1000 caracteres para enviar el error._*'
-    const teks = `〘 *R E P O R T E* 〙\n\n╭──────────\n├ Bot: Sub-Bot\n├Usuario: Wa.me/50672110920${m.sender.split`@`[0]}\n├Reporte: \n├ ${text}\n╰──────────`
+    if (!text) throw '⚠ *_️Ingrese el error ue desea reportar._*'
+    if (text.length < 10) throw '⚠️ *_Especifique bien el error, mínimo 10 caracteres._*'
+    if (text.length > 1000) throw '⚠️ *_Máximo 1000 caracteres para enviar el error._*'
+    const teks = `╭───────────────────\n│⊷〘 *R E P O R T E* 🤍 〙⊷\n├───────────────────\n│⁖🧡꙰  *Cliente:*\n│✏️ Wa.me/525544876071${m.sender.split`@`[0]}\n│\n│⁖💚꙰  *Mensaje:*\n│📩 ${text}\n╰───────────────────`
     await conn.reply(global.owner[0][0] + '@s.whatsapp.net', m.quoted ? teks + m.quoted.text : teks, m, { mentions: conn.parseMention(teks) })
-    m.reply('☆ *_El reporte se envío a mi creador, cualquier informe falso puede ocasionar baneo._*')
+    m.reply('⚠️ *_El reporte se envío a mi creador, cualquier informe falso puede ocasionar baneo._*')
 }
 handler.help = ['reportar']
 handler.tags = ['info']
