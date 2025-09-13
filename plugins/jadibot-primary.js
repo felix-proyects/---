@@ -16,7 +16,8 @@ let handler = async (m, { text }) => {
   let isSubbot = fs.existsSync(subbotPath)
 
   if (!isSubbot && !isMainBot) {
-    return m.reply(`El número *${number}* no corresponde ni al bot principal ni a un Subbot válido.`)
+    return m.reply(`✿ El numero que mencionaste no es un bot de *Deymoon Club*
+> ✎ Puedes ver la lista de bots del grupo con el comando: *#bots*`)
   }
 
   let isInConns = isMainBot || global.conns.some(conn => conn.user && conn.user.jid === botJid)
