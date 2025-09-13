@@ -1,6 +1,6 @@
 var handler = async (m, { conn, participants, usedPrefix, command }) => {
     if (!m.mentionedJid[0] && !m.quoted) {
-        return conn.reply(m.chat, '> _Responde un mensaje o etiqueta a las persona que quieres que expulse del grupo._*', m, fake );
+        return conn.reply(m.chat, '_Responde un mensaje o etiqueta a las persona que quieres que expulse del grupo._*', m, fake );
     }
 
     let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
@@ -11,7 +11,7 @@ var handler = async (m, { conn, participants, usedPrefix, command }) => {
     //const nn = conn.getName(m.sender);
 
     if (user === conn.user.jid) {
-        return conn.reply(m.chat, 'Como crees que me voy a eliminar yo mismo, pendejo de mierda\n\nOtorino la ringologo o o o otorinolarigologo oso será león tu me la chupas y yo disfruto XDDDDDD', m, fake, );
+        return conn.reply(m.chat, 'Como crees que me voy a eliminar yo mismo, pendejo de mierda\n\nOhhh Me vengo ohhh, los peruanos me la chupan ahhh que rikooo.', m, fake, );
     }
 
     if (user === ownerGroup) {
