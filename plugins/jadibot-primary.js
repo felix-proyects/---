@@ -17,7 +17,7 @@ let handler = async (m, { text }) => {
 
   if (!isSubbot && !isMainBot) {
     return m.reply(`✿ El numero que mencionaste no es un bot de *Deymoon Club*
-> ✎ Puedes ver la lista de bots del grupo con el comando: *#bots*`)
+> ✎ Puedes ver la lista de bots del club con el comando: *#bots*`)
   }
 
   let isInConns = isMainBot || global.conns.some(conn => conn.user && conn.user.jid === botJid)
