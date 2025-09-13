@@ -5,10 +5,10 @@ import db from '../lib/database.js'
 const img = 'https://qu.ax/YDSyQ.jpg'
 
 // Canal info (personaliza aquí)
-const canalName = 'ECONOMIA DEL USUARIO'
-const canalDesc = 'Kurayami Host'
-const canalUrl = 'https://whatsapp.com/channel/120363402362088282'
-const dev = 'Deymoon Ultra Bot'
+const canalName = 'Deymoon Club'
+const canalDesc = 'Bank to user'
+const canalUrl = 'https://whatsapp.com/channel/120363402362187472813'
+const dev = 'Deymoon Club'
 
 function obtenerRango(level) {
   if (level >= 100) return 'SUPREMO'
@@ -41,14 +41,12 @@ let handler = async (m, { conn }) => {
 ╭━━━━━━━━━━━━━━━━━╮
 ┃𝗘𝗖𝗢𝗡𝗢𝗠𝗜𝗔 𝗗𝗘𝗟 𝗨𝗦𝗨𝗔𝗥𝗜𝗢: 
 ╰━─━─━─≪≪✠≫≫─━─━─━╯
-🌪𝖭𝗈𝗆𝖻𝗋𝖾: ${nombreParaMostrar}
-🌫𝖤𝗑𝗉: ${user.exp}
-🌪𝖭𝗂𝗏𝖾𝗅: ${user.level}
-🌫𝖱𝖺𝗇𝗀𝗈: ${rangoMagico}
-🌪𝖥𝖾𝖼𝗁𝖺: ${new Date().toLocaleString('es-ES')}
-╰━━━━━━━━━━━━━━━━━━
-> © Desarrollado por Félix 
-╰━━━━━━━━━━━━━━━━━━`.trim()
+
+𝖭𝗈𝗆𝖻𝗋𝖾: ${nombreParaMostrar}
+𝖤𝗑𝗉: ${user.exp}
+𝖭𝗂𝗏𝖾𝗅: ${user.level}
+R𝖺𝗇𝗀𝗈: ${rangoMagico}
+> © Desarrollado en Deymoom Club.`.trim()
 
   // MENSAJE CON CONTEXTO DE CANAL/NEWSLETTER (igual que el menú)
   await conn.sendMessage(m.chat, {
@@ -58,7 +56,7 @@ let handler = async (m, { conn }) => {
     contextInfo: {
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: "120363402362088282@newsletter", // ID de tu canal
+        newsletterJid: "1203921402362088882@newsletter", // ID de tu canal
         newsletterName: canalName,
         serverMessageId: -1,
       },
