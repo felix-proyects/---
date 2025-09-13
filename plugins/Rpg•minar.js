@@ -27,8 +27,8 @@ let handler = async (m, { conn }) => {
 
   // ENVÍO DEL MENSAJE COMO REENVIADO DESDE CANAL/NEWSLETTER
   const channelRD = { 
-    id: "12036341880wsletter", // <-- Pon aquí el ID de tu canal/newsletter
-    name: "offf"              // <-- Pon aquí el nombre del canal/newsletter
+    id: "120363418808337wsletter", // <-- Pon aquí el ID de tu canal/newsletter
+    name: "Deymoon Club"              // <-- Pon aquí el nombre del canal/newsletter
   }
 
   await conn.sendMessage(m.chat, {
