@@ -52,7 +52,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
 handler.help = ['patt/acariciar @tag'];
 handler.tags = ['emox'];
-handler.command = ['patt','acariciar'];
+handler.command = ['pat','acariciar'];
 handler.group = true;
 
 export default handler;
