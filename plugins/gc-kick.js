@@ -15,11 +15,11 @@ var handler = async (m, { conn, participants, usedPrefix, command }) => {
     }
 
     if (user === ownerGroup) {
-        return conn.reply(m.chat, '☆ No puedo eliminar a este man del grupo', m, fake, );
+        return conn.reply(m.chat, '☆ No puedo eliminar a este man del grupo, el es quien me gusta. que rikoo ohhh.', m, fake, );
     }
 
     if (user === ownerBot) {
-        return conn.reply(m.chat, '☆ No puedo eliminar a este crack', m, fake );
+        return conn.reply(m.chat, '☆ No puedo eliminar a este crack.\n\nEl es el que me gusta acá aca en el grupo se la chupo ohhh que rikoo.', m, fake );
     }
 
     await conn.groupParticipantsUpdate(m.chat, [user], 'remove');
