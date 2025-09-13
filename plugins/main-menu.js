@@ -49,18 +49,12 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
  ╭ֹ┈ ⵿❀⵿ ┈╮GRUPOS
 > Comandos para grupos.
 
-❒ #enable <opción>
-> Activa una opción.
-❒ #disable <opción>
-> Desactiva una opción.
 ❒ #staff
 > Mira los admins del grupo.
 ❒ #leave
 > Saca al bot de tu grupo.
 ❏ #add
 > El bot añade a alguien al grupo. 
-❏ #group open / close
-> El bot cierra o abre el grupo.
 ❏ #delete
 > Elimina un mensaje de alguien en el grupo.
 ❏ #demote
@@ -79,8 +73,6 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Dale a alguien la administración en el grupo.
 ❏ #revoke
 > Quita a alguien de la administración del grupo.
-❏ #invocar *<mesaje>*
-> Envía una mension global a los miembros del grupo.
 ❏ #kick
 > Expulsa una persona del grupo.
 ❏ #rentar
