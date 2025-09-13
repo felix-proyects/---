@@ -33,7 +33,7 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 ╰━━━━━━━━━━
 > Crea un Sub-Bot con tu número de telefono usando #qr o #code
 
- ╭ֹ┈ ⵿❀⵿ Sistema
+ ╭ֹ┈ ⵿✎ SISTEMA
 > Herramientas para convivir.
 
 ❒ #formarpareja5
@@ -46,7 +46,7 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Mira la lista de comandos. 
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮Grupos
+ ╭ֹ┈ ⵿❀⵿ ┈╮GRUPOS
 > Comandos para grupos.
 
 ❒ #enable <opción>
@@ -57,6 +57,35 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Mira los admins del grupo.
 ❒ #leave
 > Saca al bot de tu grupo.
+❏ #add
+> El bot añade a alguien al grupo. 
+❏ #group open / close
+> El bot cierra o abre el grupo.
+❏ #delete
+> Elimina un mensaje de alguien en el grupo.
+❏ #demote
+> Quita a alguien de admin del grupo. 
+❏ #encuesta <text|text2>
+> Has una encuesta en el grupo.
+❏ #tag
+> Envía un mensaje que mensiona al grupo sin poner los @.
+❏ #gp
+> Mira la información del grupo.
+❏ #invite *<numero>*
+> Envía el enlace de invitación del grupo a alguien.
+❏ #link
+> El bot envía el enlace del grupo.
+❏ #promote
+> Dale a alguien la administración en el grupo.
+❏ #revoke
+> Quita a alguien de la administración del grupo.
+❏ #invocar *<mesaje>*
+> Envía una mension global a los miembros del grupo.
+❏ #kick
+> Expulsa una persona del grupo.
+❏ #rentar
+> Renta tu grupo.
+
 
  ╭ֹ┈ ⵿❀⵿ ┈╮JADI - BOTS
 > Comandos para los bots.
@@ -73,7 +102,16 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Pon un bot como principal en el grupo.
 ❒ #join
 > Únete a un grupo. 
- ㅤ
+❒ #sockets 
+> Mira cuantos bots hay activos. 
+❏ #token
+> Mira cual es tu token  de Subbot.
+❏ #gettoken
+> Crea un token de Subbot.
+❏ #serbottoken
+> Vuelve a activar tu Sub-Bot con un token de subbot.
+
+
  ╭ֹ┈ ⵿❀⵿ ┈╮ANIME
 > Comandos de anime.
 
@@ -185,15 +223,10 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Busca nopor.
 ❏ #imagen <query>
 > Busca imágenes.
-
-
- ╭ֹ┈ ⵿❀⵿ ┈╮IMG
 ❏ #pinterest <término>
+> Busca imágenes de Pinterest.
 ❏ #waifu
-
-
- ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮TRANSFORMADOR
+> Reclama una waifu.
 ❏ #tovideo
 > Convierte sticker en video.
 ❏ #togifaud
@@ -201,6 +234,8 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮STICKER
+> Comandos para convertir tus cosas en Stickers.
+
 ❏ #toimg (reply)
 > Convierte sticker en fotos.
 ❏ #qc
@@ -209,6 +244,8 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 > Crea Stickers de diferentes maneras.
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮TOOLS
+> Comandos para herramientas de juego.
+
 ❏ #tts <lang> <teks>
 > Convierte textos en audios.
 ❏ #fake
@@ -258,8 +295,10 @@ Mira la información junto al ID de un grupo.
 > Descarga músicas desde Mp3 En documentos.
 ❏ #tiktok
 > Descarga videos de tiktok.
+❏ #ytsearch *<texto>*
+> Busca y descarga un video de YouTube.
 
- ㅤ
+
  ╭ֹ┈ ⵿❀⵿ ┈╮FUN
 > Comandos para activar grupos.
 
@@ -390,71 +429,27 @@ Mira la información junto al ID de un grupo.
 > Folla a alguien en el grupo. 
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮GRUPO
-> Comandos para gestión de grupos.
-
-❏ #add
-> El bot añade a alguien al grupo. 
-❏ #group open / close
-> El bot cierra o abre el grupo.
-❏ #delete
-> Elimina un mensaje de alguien en el grupo.
-❏ #demote
-> Quita a alguien de admin del grupo. 
-❏ #encuesta <text|text2>
-> Has una encuesta en el grupo.
-❏ #tag
-> Envía un mensaje que mensiona al grupo sin poner los @.
-❏ #gp
-> Mira la información del grupo.
-❏ #invite *<numero>*
-> Envía el enlace de invitación del grupo a alguien.
-❏ #link
-> El bot envía el enlace del grupo.
-❏ #promote
-> Dale a alguien la administración en el grupo.
-❏ #revoke
-> Quita a alguien de la administración del grupo.
-❏ #invocar *<mesaje>*
-> Envía una mension global a los miembros del grupo.
-❏ #kick
-> Expulsa una persona del grupo.
-❏ #rentar
-> Renta tu grupo.
-
-
  ╭ֹ┈ ⵿❀⵿ ┈╮INFO
 > Información en tiempo real del bot.
 
-❏ #reglas
+❏ #botreglas
 > Mira como usar el bot de manera correcta.
 ❏ #ping
 > Mira cuanto dura el bot para responder.
-❏ #sistema
-> Mira los comandos del bot.
 ❏ #speed
 > Mira la velocidad original del bot.
-❏ #speedtest
-> Mira la velocidad de prueba del bot.
 ❏ #status
 > Mira el estado actual del bot.
-❏ #grupos
-> Mira enlaces oficiales del bot.
-❏ #script
-> Mira el repositorio oficial del Bot.
 ❏ #report
 > Reporta algún error del bot.
-
-ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮FIX
-> Comando para restaurar las sesiones.
-
+❒ #sug
+> Siguiere comandos para añadir al bot.
 ❏ #ds
 > Elimina las sesiones para que el bot siga más rápido.
 
 ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮RPG
-> Juegos RPG para disfrutar con tus amigos.
+ ╭ֹ┈ ⵿❀⵿ ┈╮RPG - ECONOMY
+> Juegos RPG y economía para disfrutar con tus amigos.
 
 ❏ #daily
 > Obtén una recompensa diaria.
@@ -474,13 +469,7 @@ Mira la información junto al ID de un grupo.
 > Mira los usuarios con más recursos en el bot.
 ❏ #banco
 > Mira cuanto tienes en el banco.
-
-
- ╭ֹ┈ ⵿❀⵿ ┈╮ECONOMÍA
 > Comandos de economía y diversión.
-
-❏ #miestatus
-> Mira tu estado en el bot.
 ❏ #wallet
 > Mira cuantas monedas tienes.
 ❏ #miexp
@@ -493,18 +482,6 @@ Mira la información junto al ID de un grupo.
 > Mira una caja misteriosa. 
 ❏ #transferirmonedas *@user cantidad*
 > Transfiere tus monedas.
-
-
- ╭ֹ┈ ⵿❀⵿ ┈╮SEARCH
-> Comando para búsquedas.
-
-❏ #ytsearch *<texto>*
-> Busca y descarga un video de YouTube.
-
-
- ╭ֹ┈ ⵿❀⵿ ┈╮GACHA
-> Comandos de Gacha.
-
 ❏ #claim
 > Reclama la waifu obtenida.
 ❏ #rw
@@ -513,25 +490,8 @@ Mira la información junto al ID de un grupo.
 > Mira el roll de una waifu.
 ❏ #baltop
 > Mira el top de usuarios con más Diamantes.
-
- ╭ֹ┈ ⵿❀⵿ ┈╮GRUPOS
-> Comandos para información de  grupos.
-
 ❏ #rentar2 *<link>*
 > Renta tu Sub-Bot o Prem-Bot a algún grupo.
-
-
- ╭ֹ┈ ⵿❀⵿ ┈╮JADIBOT
-> Comandos de información de los Bots.
-
-❏ #bots
-> Mira la lista de Bots activos.
-❏ #token
-> Mira cual es tu token  de Subbot.
-❏ #gettoken
-> Crea un token de Subbot.
-❏ #serbottoken
-> Vuelve a activar tu Sub-Bot con un token de subbot.
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮RG
@@ -540,7 +500,20 @@ Mira la información junto al ID de un grupo.
 ❏ #profile
 > Mira tu perfil.
 ❏ #unreg
-> Elimina tu registro.`
+> Elimina tu registro.
+
+
+ ╭ֹ┈ ⵿❀⵿ ┈╮CONFIGURACIÓN
+> Comandos para configurar el bot o grupos.
+
+❒ #on <opción>
+> Activa cualquier opción de tu grupo.
+❒ #off <opción>
+> Desactiva una opción en tu grupo.
+❒ #group <open>
+> Abre el grupo para que todos puedan escribir.
+❒ #group <close>
+> Cierra el grupo para que solo admins puedan escribir.`
 
     await conn.sendMessage(m.chat, {
       text: menu,
@@ -548,7 +521,7 @@ Mira la información junto al ID de un grupo.
         mentionedJid: [m.sender],
         externalAdReply: {
           title: devby,
-          sourceUrl: 'https://Deymoon.club/',
+          sourceUrl: 'https://Deymoon.club//',
           mediaType: 1,
           renderLargerThumbnail: true,
           thumbnailUrl: bannerFinal
