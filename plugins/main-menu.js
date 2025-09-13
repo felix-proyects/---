@@ -36,475 +36,474 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
  ╭ֹ┈ ⵿✎ SISTEMA
 > Herramientas para convivir.
 
-❒ #formarpareja5
+*❒ #formarpareja5*
 > Forma 5 parejas a lo random.
-❒ #afk [alasan]
+*❒ #afk [alasan]*
 > Pon un mensaje de ausencia.
-❒ #runtime
+*❒ #runtime*
 > Mira el tiempo activo del bot.
-❒ #menu
+*❒ #help*
 > Mira la lista de comandos. 
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮GRUPOS
 > Comandos para grupos.
 
-❒ #staff
+*❒ #staff*
 > Mira los admins del grupo.
-❒ #leave
+*❒ #leave*
 > Saca al bot de tu grupo.
-❏ #add
+*❏ #add*
 > El bot añade a alguien al grupo. 
-❏ #delete
+*❏ #delete*
 > Elimina un mensaje de alguien en el grupo.
-❏ #demote
+*❏ #demote*
 > Quita a alguien de admin del grupo. 
 ❏ #encuesta <text|text2>
 > Has una encuesta en el grupo.
-❏ #tag
+*❏ #tag*
 > Envía un mensaje que mensiona al grupo sin poner los @.
-❏ #gp
+*❏ #gp*
 > Mira la información del grupo.
-❏ #invite *<numero>*
+*❏ #invite <numero>*
 > Envía el enlace de invitación del grupo a alguien.
-❏ #link
+*❏ #link*
 > El bot envía el enlace del grupo.
-❏ #promote
+*❏ #promote*
 > Dale a alguien la administración en el grupo.
-❏ #revoke
+*❏ #demote*
 > Quita a alguien de la administración del grupo.
-❏ #kick
+*❏ #kick*
 > Expulsa una persona del grupo.
-❏ #rentar
+*❏ #rentar*
 > Renta tu grupo.
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮JADI - BOTS
+*╭ֹ┈ ⵿❀⵿ ┈╮JADI - BOTS*
 > Comandos para los bots.
 
-❒ #qr
+*❒ #qr*
 > Conectate como Sub-Bot mediante codigo qr.
-❒ #code
+*❒ #code*
 > Conectate como Sub-Bot mediante código de  8 dígitos.
-❒ #setname [nombre]
+*❒ #setname [nombre]*
 > Cambia el nombre del bot.
-❒ #setbanner [link]
+*❒ #setbanner [link]*
 > Cambia la foto del bot.
-❒ #setprimary [@Bot]
+*❒ #setprimary [@Bot]*
 > Pon un bot como principal en el grupo.
-❒ #join
-> Únete a un grupo. 
-❒ #sockets 
+*❒ #sockets*
 > Mira cuantos bots hay activos. 
-❏ #token
+*❏ #token*
 > Mira cual es tu token  de Subbot.
-❏ #gettoken
+*❏ #gettoken*
 > Crea un token de Subbot.
-❏ #serbottoken
+*❏ #serbottoken*
 > Vuelve a activar tu Sub-Bot con un token de subbot.
 
 
  ╭ֹ┈ ⵿❀⵿ ┈╮ANIME
 > Comandos de anime.
 
-❒ #animelink
+*❒ #animelink*
 > Mira diferentes links de animes.
-❒ #infoanime
+*❒ #infoanime*
 > Mira información de animes.
-❒ #topwaifus [página]
+*❒ #topwaifus [página]*
 > Mira el top de las waifus más usadas.
-❒ #wvideo <nombre del personaje>
+*❒ #wvideo <nombre del personaje>*
 > Mira videos de algún personaje de anime.
-❒ #wimage <nombre del personaje>
+*❒ #wimage <nombre del personaje>*
 < Convierte algunas waifus en imagen.
-❒ #charinfo <nombre del personaje>
+*❒ #charinfo <nombre del personaje>*
 > Mira información de charangas.
-❒ #winfo <nombre del personaje>
+*❒ #winfo <nombre del personaje>*
 > Mira más información de waifus.
-❒ #waifuinfo <nombre del personaje>
+*❒ #waifuinfo <nombre del personaje>*
 > Mira información de un anime en especifico.
-❒ #alisa
+*❒ #alisa*
 > Mira fotos de este anime.
-❒ #aihoshino
+*❒ #aihoshino*
 > Mira fotos de este anime.
-❒ #remcham
+*❒ #remcham*
 > Mira fotos de este anime.
-❒ #akira
+*❒ #akira*
 > Mira fotos de este anime.
-❒ #akiyama
+*❒ #akiyama*
 > Mira fotos de este anime.
-❒ #anna
+*❒ #anna*
 > Mira fotos de este anime.
 ❒ #asuna
 > Mira fotos de este anime.
-❒ #ayuzawa
+*❒ #ayuzawa*
 > Mira fotos de este anime.
-❒ #boruto
+*❒ #boruto*
 > Mira fotos de este anime
-❒ #chiho
+*❒ #chiho*
 > Mira fotos de este anime.
-❒ #chitoge
+*❒ #chitoge*
 > Mira fotos de este anime.
-❒ #deidara
+*❒ #deidara*
 > Mira fotos de este anime.
-❒ #erza
+*❒ #erza*
 > Mira fotos de este anime.
-❒ #elaina
+*❒ #elaina*
 > Mira fotos de este anime.
-❒ #eba
+*❒ #eba*
 > Mira fotos de este anime.
-❒ #emilia
+*❒ #emilia*
 > Mira fotos de este anime.
-❒ #hestia
+*❒ #hestia*
 > Mira fotos de este anime.
-❒ #hinata
+*❒ #hinata*
 > Mira fotos de este anime.
-❒ #inori
+*❒ #inori*
 > Mira fotos de este anime.
-❒ #isuzu
+*❒ #isuzu*
 > Mira fotos de este anime.
-❒ #itachi
+*❒ #itachi*
 > Mira fotos de este anime.
-❒ #itori
+*❒ #itori*
 > Mira fotos de este anime.
-❒ #kaga
+*❒ #kaga*
 > Mira fotos de este anime.
-❒ #kagura
+*❒ #kagura*
 > Mira fotos de este anime.
-❒ #kaori
+*❒ #kaori*
 > Mira fotos de este anime.
-❒ #keneki
+*❒ #keneki*
 > Mira fotos de este anime.
-❒ #kotori
+*❒ #kotori*
 > Mira fotos de este anime.
-❒ #kurumitokisaki
+*❒ #kurumitokisaki*
 > Mira fotos de este anime.#madara
-❒ #mikasa
+*❒ #mikasa*
 > Mira fotos de este anime.
-❒ #miku
+*❒ #miku*
 > Mira fotos de este anime.
-❒ #minato
+*❒ #minato*
 > Mira fotos de este anime.
-❒ #naruto
+*❒ #naruto*
 > Mira fotos de este anime.
-❒ #nezuko
+*❒ #nezuko*
 > Mira fotos de este anime.
-❒ #sagiri 
+*❒ #sagiri *
 > Mira fotos de este anime.
-❒ #sasuke
+*❒ #sasuke*
 > Mira fotos de este anime.
-❒ #sakura
+*❒ #sakura*
 
  ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮BUSCADOR
+*╭ֹ┈ ⵿❀⵿ ┈╮BUSCADOR*
 > Comandos de búsquedas.
 
-❏ #githubsearch
+*❏ #githubsearch*
 > Busca repositorios de github.
-❏ #google <búsqueda>
+*❏ #google <búsqueda>*
 > Has búsquedas en Google.
-❏ #mercadolibre <búsqueda>
+*❏ #mercadolibre <búsqueda>*
 > Has búsquedas del mercado libre.
-❏ #npmjs
+*❏ #npmjs*
 > Busca librerías.
-❏ #tweetposts
+*❏ #tweetposts*
 > Busca desde esta app.
-❏ #tiktoksearch <txt>
+*❏ #tiktoksearch <txt>*
 > Busca a lo random en tiktok.
-❏ #xnxxsearch <query>
+*❏ #xnxxsearch <query>*
 > Busca nopor.
-❏ #imagen <query>
+*❏ #imagen <query>*
 > Busca imágenes.
-❏ #pinterest <término>
+*❏ #pinterest <término>*
 > Busca imágenes de Pinterest.
-❏ #waifu
+*❏ #waifu*
 > Reclama una waifu.
-❏ #tovideo
+*❏ #tovideo*
 > Convierte sticker en video.
-❏ #togifaud
+*❏ #togifaud*
 > Convierte sticker en fouds.
 
  ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮STICKER
+*╭ֹ┈ ⵿❀⵿ ┈╮STICKER*
 > Comandos para convertir tus cosas en Stickers.
 
-❏ #toimg (reply)
+*❏ #toimg (reply)*
 > Convierte sticker en fotos.
-❏ #qc
+*❏ #qc*
 > Crea Stickers con letras.
-❏ #s <imagen|video|url>
+*❏ #s <imagen|video|url>*
 > Crea Stickers de diferentes maneras.
  ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮TOOLS
+*╭ֹ┈ ⵿❀⵿ ┈╮TOOLS*
 > Comandos para herramientas de juego.
 
-❏ #tts <lang> <teks>
+*❏ #tts <lang> <teks>*
 > Convierte textos en audios.
-❏ #fake
+*❏ #fake*
 > Crea textos falsos.
-❏ #hd
+*❏ #hd*
 > Mejora la calidad de una imagen.
-❏ #ssweb
+*❏ #ssweb*
 > Busca la información de una web.
-❏ #spamwa <number>|<mesage>|<no of messages>
+*❏ #spamwa <number>|<mesage>|<no of messages>*
 > Hasle spam al privado de un usuario.
-❏ #inspect
+*❏ #inspect*
 > Mira la información junto al ID de un canal.
-❏ #inspeccionar
+*❏ #inspeccionar*
 Mira la información junto al ID de un grupo.
-❏ #tourl
+*❏ #tourl*
 > Convierte videos en link.
-❏ #catbox
+*❏ #catbox*
 > Convierte fotos en link.
 
  ㅤ
  ╭ֹ┈ ⵿❀⵿ ┈╮DESCARGAS
 > Comandos de descargas.
 
-❏ #hentai
+*❏ #hentai*
 > Descarga hentai.
-❏ #mediafire
+*❏ #mediafire*
 > Descarga cosas de mediafire.
-❏ #ytmp4 <url>
+*❏ #ytmp4 <url>*
 > Descarga desde Mp4 de YouTube.
-❏ #fb
+*❏ #fb¿
 > Descarga videos de Facebook.
-❏ #gitclone *<url git>*
+*❏ #gitclone <url git>*
 > Descarga un repositorio de github.
-❏ #ig
+*❏ #ig*
 > Descarga videos de instagram.
-❏ #apkmod
+*❏ #apkmod*
 > Descarga desde apk.
-❏ #spotify *<nombre>*
+*❏ #spotify <nombre>*
 > Descarga música de Spotify.
-❏ #imagen <query>
+*❏ #imagen <query>*
 > Has una búsqueda random de imágenes de Google.
-❏ #musica *<búsqueda>*
+*❏ #musica <búsqueda>*
 > Descarga una música.
-❏ #ytmp3
+*❏ #ytmp3*
 > Descarga música desde Mp3 YouTube.
-❏ #ytmp3doc
+*❏ #ytmp3doc*
 > Descarga músicas desde Mp3 En documentos.
-❏ #tiktok
+*❏ #tiktok*
 > Descarga videos de tiktok.
-❏ #ytsearch *<texto>*
+*❏ #ytsearch <texto>*
 > Busca y descarga un video de YouTube.
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮FUN
-> Comandos para activar grupos.
+*╭ֹ┈ ⵿❀⵿ ┈╮N-S-F-W*
+> Comandos de contenido personalizado.
 
-❏ #acertijo
-> Juega adivinando acertijos.
-❏ #gay <@tag> | <nombre>
-> Mira el porcentaje de que alguien es femboy.
-❏ #lesbiana <@tag> | <nombre>
-> Mira el porcentaje de que alguien sea lesbiana.
-❏ #pajero <@tag> | <nombre>
-> Mira el porcentaje de que alguien sea pajero.
-❏ #pajera <@tag> | <nombre>
-> Mira el porcentaje de de alguien sea Pajera.
-❏ #puto <@tag> | <nombre>
-> Di a todos quien es un puto.
-❏ #puta <@tag> | <nombre>
-> Di a todos quien es una puta.
-❏ #manco <@tag> | <nombre>
-> Di a todos que alguien es un manco.
-❏ #manca <@tag> | <nombre>
-> Di a todos quien es una manca.
-❏ #rata <@tag> | <nombre>
-> Di a todos que alguien es una rata.
-❏ #prostituta <@tag> | <nombre>
-> Has que alguien sea prostituta.
-❏ #prostituto <@tag> | <nombre>
-> Has que alguien sea prostituto.
-❏ #apostar *<cantidad>*
-> Apuesta recursos.
-❏ #consejo
-> El bot envía un consejo.
-❏ #dance *<@user>*
-> Has una danza.
-❏ #doxear
-> Doxea a alguien.
-❏ #personalidad
-> Mira la personalidad de alguien.
-❏ #piropo
-> Lanza un piropo a Alguien.
-❏ #pokedex *<pokemon>*
-> Mira la descripción de un pokemon.
-❏ #pregunta
-> Has una pregunta al bot.
-❏ #reto
-> Has un reto.
-❏ #ruleta *<cantidad> <color>*
-> Has una ruleta para ganar o perder contra un usuario a lo random.
-❏ #ship
-> Undefined
-❏ #love
-> Mira que porcentaje hay de que tu crosh  se enamoré de ti.
-❏ #simi
-> Habla con simisimi
-❏ #bot
-> Habla con el bot.
-❏ #top *<texto>*
-> Has un top 10 opcional.
-❏ #amistad
-> Pide ser amigo de alguien.
-❏ #facto
-> Has que el bot tire un facto.
-❏ #meme
-> Has que el bot envíe un meme.
-❏ #pajeame
-> Haste una paja good.
-❏ #formartrio @usuario1 @usuario2
-> Forma un trío con dos usuarios más.
-❏ #verdad
-> Di una verdad al grupo.
+*❒ #agarrarnalgas <@user>*
+> Agarra las nalgas a alguien del grupo.
+*❒ #blowjob <@user>*
+> Hasle una mmada a alguien.
+*❒ #grabboobs <@user>*
+> Agarra las tetas de alguien.
+*❒ #follar <@user>*
+> Folla a alguien del grupo. 
+*❒ #kiss2*
+> Dale un beso con pasión a alguien.
+*❒ #penetrar*
+> Penetra a alguien del grupo.
+*❒ #sexo* 
+> Has el amor con alguien.
+*❒ #violar*
+> Viola a alguien del grupo.
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮EMOX
-> Comandos de Simulaciones. 
+*╭ֹ┈ ⵿❀⵿ ┈╮GACHA*
+> Comandos de Gacha.
 
-❏ #agarrarnalgas @tag
-> Agarra las nalgas a una mamasita rika.
-❏ #anal/culiar @tag
-> Has un anál con alguien.
-❏ #angry/enojado @tag
-> Simulación de estar enojado.
-❏ #bath/bañarse @tag
-> Simulación de bañarse.
-❏ #blowjob/mamada @tag
-> Mamar el pitó a alguien.
-❏ #blush/sonrojarse @tag
-> Simulación de estar sonrojado.
-❏ #chuparpata @tag
-> Chupa la tetas a alguien.
-❏ #cry/llorar @tag
+*❒ #cry/llorar @tag*
 > Simulación de que alguien esta llorando.
-❏ #cuddle/acurrucarse @tag
+*❏ #cuddle/acurrucarse @tag*
 > Acurrucate en alguien.
 ❏ #drunk/borracho @tag
 > Simulación de estar borracho.
-❏ #grabboobs/agarrartetas @tag
+*❏ #grabboobs/agarrartetas @tag*
 > Agarra las tetas a alguien.
-❏ #hello/hola @tag
+*❏ #hello/hola @tag*
 > Di hola al grupo. 
-❏ #hug/abrazar @tag
+*❏ #hug/abrazar @tag*
 > Abraza a alguien del grupo.
-❏ #kill/matar @tag
+*❏ #kill/matar @tag*
 > Mata a alguien del grupo. 
-❏ #kiss/besar @tag
+*❏ #kiss/besar @tag*
 > Besar a alguien del grupo. 
-❏ #kiss2/besar2 @tag
-> Besar dos veces. 
-❏ #love2/enamorada @tag
-> Alguien esta enamorada.
-❏ #patt/acariciar @tag
+*❏ #patt/acariciar @tag*
 > Acaricia a alguien del grupo. 
-❏ #penetrar @user
+*❏ #penetrar @user*
 > Penetra a alguien en el grupo. 
-❏ #punch/golpear @tag
+*❏ #punch/golpear @tag*
 > Golpea a alguien del grupo. 
-❏ #sad/triste @tag
+*❏ #sad/triste @tag*
 > Has que estas triste.
-❏ #scared/asustada @tag
+*❏ #scared/asustada @tag*
 > Has que alguien esta asustada.
-❏ #seduce/seducir @tag
+*❏ #seduce/seducir @tag*
 > Seduce a alguien en el grupo. 
-❏ #sexo/sex @tag
-> Has sexo con alguien del grupo.
-❏ #sleep/dormir @tag
-> Hecha una siesta.
-❏ #violar/perra @tag
-> Viola a alguien del grupo. 
-❏ #follar @tag
-> Folla a alguien en el grupo. 
+❒ *#angry*
+> Simulación de que estas enojado.
+❒ *#bath*
+> Simulación de que te estás tomando un baño.
+❒ *#blush*
+> Simulación de que estas sonrojado.
+❒ *#consejo* 
+> Pide un consejo al bot.
+❒ *#drunk*
+> Simulación de que estas borracho.
+❒ *#hello*
+> Dile hola a todos.
+❒ *#abrazar <@user>*
+> Abraza a alguien.
+❒ *#love <@user>*
+> Di que estas enamorado de alguien.
+❒ *#ppt*
+> Juega a piedra, papel o tijeras.
+❒ *#pokedex* 
+> Busca un pokemon a lo random. 
+*❏ #acertijo*
+> Juega adivinando acertijos.
+*❏ #gay <@tag> | <nombre>*
+> Mira el porcentaje de que alguien es femboy.
+*❏ #lesbiana <@tag> | <nombre>*
+> Mira el porcentaje de que alguien sea lesbiana.
+*❏ #pajero <@tag> | <nombre>*
+> Mira el porcentaje de que alguien sea pajero.
+*❏ #pajera <@tag> | <nombre>*
+> Mira el porcentaje de de alguien sea Pajera.
+*❏ #puto <@tag> | <nombre>*
+> Di a todos quien es un puto.
+*❏ #puta <@tag> | <nombre>*
+> Di a todos quien es una puta.
+*❏ #manco <@tag> | <nombre>*
+> Di a todos que alguien es un manco.
+*❏ #manca <@tag> | <nombre>*
+> Di a todos quien es una manca.
+*❏ #rata <@tag> | <nombre>*
+> Di a todos que alguien es una rata.
+*❏ #prostituta <@tag> | <nombre>*
+> Has que alguien sea prostituta.
+*❏ #prostituto <@tag> | <nombre>*
+> Has que alguien sea prostituto.
+*❏ #apostar <cantidad>*
+> Apuesta recursos.
+*❏ #consejo*
+> El bot envía un consejo.
+*❏ #dance <@user>*
+> Has una danza.
+*❏ #doxear*
+> Doxea a alguien.
+*❏ #personalidad
+> Mira la persona*lidad de alguien.
+*❏ #piropo*
+> Lanza un piropo a Alguien.
+*❏ #pregunta*
+> Has una pregunta al bot.
+*❏ #reto*
+> Has un reto.
+*❏ #ruleta <cantidad> <color>*
+> Has una ruleta para ganar o perder contra un usuario a lo random.
+*❏ #ship*
+> Mira que porcentaje hay de que tu crosh  se enamoré de ti.
+*❏ #top <texto>*
+> Has un top 10 opcional.
+*❏ #amistad*
+> Pide ser amigo de alguien.
+*❏ #facto*
+> Has que el bot tire un facto.
+*❏ #meme*
+> Has que el bot envíe un meme.
+*❏ #pajeame*
+> Haste una paja good.
+*❏ #formartrio @usuario1 @usuario2*
+> Forma un trío con dos usuarios más.
+*❏ #verdad*
+> Di una verdad al grupo.
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮INFO
+*╭ֹ┈ ⵿❀⵿ ┈╮INFO*
 > Información en tiempo real del bot.
 
-❏ #botreglas
+*❏ #botreglas*
 > Mira como usar el bot de manera correcta.
-❏ #ping
+*❏ #ping*
 > Mira cuanto dura el bot para responder.
-❏ #speed
+*❏ #speed*
 > Mira la velocidad original del bot.
-❏ #status
+*❏ #status*
 > Mira el estado actual del bot.
-❏ #report
+*❏ #report*
 > Reporta algún error del bot.
-❒ #sug
+*❒ #sug*
 > Siguiere comandos para añadir al bot.
-❏ #ds
+*❏ #ds*
 > Elimina las sesiones para que el bot siga más rápido.
 
 ㅤ
- ╭ֹ┈ ⵿❀⵿ ┈╮RPG - ECONOMY
+*╭ֹ┈ ⵿❀⵿ ┈╮RPG - ECONOMY*
 > Juegos RPG y economía para disfrutar con tus amigos.
 
-❏ #daily
+*❏ #daily*
 > Obtén una recompensa diaria.
-❏ #levelup
+*❏ #levelup*
 > Sube de nivel en el bot.
-❏ #minar
+*❏ #minar*
 > Mina para obtener recursos.
-❏ #comprarpersonaje <nombre>
+*❏ #comprarpersonaje <nombre>*
 > Conpra algun personaje.
-❏ #repeat <texto>
+*❏ #repeat <texto>*
 > Has que el bot repita lo que sea.
-❏ #rob2
+*❏ #rob2*
 > Roba Sus recursos a algún usuario.
-❏ #rob
+*❏ #rob*
 > Roba su EXP a algún usuario.
-❏ #lb [página]
+*❏ #lb [página]*
 > Mira los usuarios con más recursos en el bot.
-❏ #banco
+*❏ #banco*
 > Mira cuanto tienes en el banco.
 > Comandos de economía y diversión.
-❏ #wallet
+*❏ #wallet*
 > Mira cuantas monedas tienes.
-❏ #miexp
-> Mira cuanto tienes de XP.
-❏#bal
+*❏#bal*
 > Mira tus recursos.
-❏#trabajar
+*❏#trabajar*
 > Trabaja para conseguir recursos en el bot.
-❏#cajamisteriosa
+*❏#cajamisteriosa*
 > Mira una caja misteriosa. 
-❏ #transferirmonedas *@user cantidad*
+*❏ #transferirmonedas @user cantidad*
 > Transfiere tus monedas.
-❏ #claim
+*❏ #claim*
 > Reclama la waifu obtenida.
-❏ #rw
+*❏ #rw*
 > opten una waifu.
-❏ #rollwaifu
+*❏ #rollwaifu*
 > Mira el roll de una waifu.
-❏ #baltop
+*❏ #baltop*
 > Mira el top de usuarios con más Diamantes.
-❏ #rentar2 *<link>*
+*❏ #rentar2 <link>*
 > Renta tu Sub-Bot o Prem-Bot a algún grupo.
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮RG
+*╭ֹ┈ ⵿❀⵿ ┈╮RG*
 > Comandos de registros.
 
-❏ #profile
+*❏ #profile*
 > Mira tu perfil.
-❏ #unreg
+*❏ #unreg*
 > Elimina tu registro.
+*❒ #reg <nombre + edad>*
 
 
- ╭ֹ┈ ⵿❀⵿ ┈╮CONFIGURACIÓN
+*╭ֹ┈ ⵿❀⵿ ┈╮CONFIGURACIÓN*
 > Comandos para configurar el bot o grupos.
 
-❒ #on <opción>
+*❒ #on <opción>*
 > Activa cualquier opción de tu grupo.
-❒ #off <opción>
+*❒ #off <opción>*
 > Desactiva una opción en tu grupo.
-❒ #group <open>
+*❒ #group <open>*
 > Abre el grupo para que todos puedan escribir.
-❒ #group <close>
+*❒ #group <close>*
 > Cierra el grupo para que solo admins puedan escribir.`
 
     await conn.sendMessage(m.chat, {
