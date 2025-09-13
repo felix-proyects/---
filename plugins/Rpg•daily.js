@@ -30,12 +30,8 @@ var handler = async (m, {conn, isPrems }) => {
     return conn.reply(m.chat, `*Vuelve en ${msToTime(time - new Date())}*`, m, fake)
   global.db.data.users[m.sender].exp += isPrems ? exppremium : exp
 
-  let str = `🎁 *Recompensa (cada 2 minutos)*
-
-Recursos:
-♡ Xp : *+${isPrems ? exppremium : exp}*
-♧ Diamantes : *+${d}*
-☆ ${moneda} : *+${coin}*`
+  let str = `「✿」Has reclamado tu recompensa de cada 2 minutos de *+${isPrems ? exppremium : exp} * XP y *+${coin}* Coins
+> Próxima recompensa: *${d}*`
   conn.reply(m.chat, str, m, fake)
   global.db.data.users[m.sender].lastclaim = new Date * 1
 }
