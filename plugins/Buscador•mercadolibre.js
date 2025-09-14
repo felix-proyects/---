@@ -3,9 +3,9 @@ import cheerio from 'cheerio';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 try {
-if (!text) throw conn.reply(m.chat, `🚩 *Formato incorrecto*\n*Ejemplo:*\n\n${usedPrefix + command}  TV Pantalla plana`, m, rcanal);
+if (!text) throw conn.reply(m.chat, `✿ *Formato incorrecto*\n*Ejemplo:*\n\n${usedPrefix + command}  TV Pantalla plana`, m, fake);
 let res = await mercado(text);
-let libre = '`🚩 M E R C A D O - L I B R E 🚩`\n\n';
+let libre = '`✿ M E R C A D O - L I B R E ✿`\n\n';
 const limit = 15;
 for (let i = 0; i < limit && i < res.length; i++) {
 let link = res[i].link.length > 30 ? res[i].link.substring(0, 30) + '...' : res[i].link;
@@ -17,9 +17,8 @@ conn.reply(m.chat, libre, m, rcanal)
 }};
 handler.help = ['mercadolibre <búsqueda>']
 handler.tags = ['buscador']
-handler.command = ['mercadolibre']
+handler.command = ['mercadolibre', 'mcl']
 handler.estrellas = 2
-handler.register = true
 export default handler;
 
 async function mercado(query) {
