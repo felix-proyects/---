@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
    let who = texto.length > 0 ? texto[0] : (m.quoted ? await m.quoted.sender : false)
 
   if (!who) {
-    return m.reply('*ꕤ* Por favor, *menciona* al usuario que deseas ver *su foto de perfil.*', m, fake);
+    return m.reply('*ꕤ* Por favor, *menciona* al usuario que deseas ver *su foto de perfil.*', m);
   }
 
   try {
