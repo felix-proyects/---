@@ -1,35 +1,36 @@
-var handler = async (m, { conn,usedPrefix, command, text }) => {
+const handler = async (m, { conn }) => {
+  try {
+    // let who = m?.message?.extendedTextMessage?.contextInfo?.participant || m?.mentionedJid[0] || await m?.quoted?.sender;
+   let texto = await m.mentionedJid
+   let who = texto.length > 0 ? texto[0] : (m.quoted ? await m.quoted.sender : false)
+    if (!who) return m.reply('✿ Menciona al usuario que deseas degradar de administrador.');
 
-if (isNaN(text) && !text.match(/@/g)){
+    const groupMetadata = await conn.groupMetadata(m.chat);
+    const participant = groupMetadata.participants.find(participant => participant.jid === who);
 
-} else if (isNaN(text)) {
-var number = text.split`@`[1]
-} else if (!isNaN(text)) {
-var number = text
-}
+    if (!participant || !participant.admin) {
+    return conn.reply(m.chat, `✿ *@${who.split('@')[0]}* no es administrador del grupo!`, m, { mentions: [who] });
+    }
 
-if (!text && !m.quoted) return conn.reply(m.chat, `✿ *Debes mensionar al usuario  para usar este comando.*`, m, fake)
-if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `✿ *Debes mensionar a un usuario.*`, m, fake)
+    if (who === groupMetadata.owner) {
+      return m.reply('✿ No puedes degradar al creador del grupo.');
+    }
 
-try {
-if (text) {
-var user = number + '@s.whatsapp.net'
-} else if (m.quoted.sender) {
-var user = m.quoted.sender
-} else if (m.mentionedJid) {
-var user = number + '@s.whatsapp.net'
-} 
-} catch (e) {
-} finally {
-conn.groupParticipantsUpdate(m.chat, [user], 'demote')
-conn.reply(m.chat, `✿ El usuario ha sido degradado de administrador!`, m, fake)
-}
+    if (who === conn.user.jid) {
+      return m.reply('✿ No puedo degradarme a mi mismo/a.');
+    }
 
-}
-handler.help = ['demote']
-handler.tags = ['grupo']
-handler.command = ['demote','quitarpija', 'degradar']
-handler.admin = true
-handler.botAdmin = true
+    await conn.groupParticipantsUpdate(m.chat, [who], 'demote');
+    await conn.reply(m.chat, `✿ *@${who.split('@')[0]}* ha sido degradado de administrador del grupo!`, m, { mentions: [who] });
+  } catch (e) {
+    await m.reply(`Error`);
+  }
+};
 
-export default handler
+handler.help = ['demote'];
+handler.tags = ['grupo'];
+handler.command = ['demote'];
+handler.admin = true;
+handler.botAdmin = true;
+
+export default handler;
