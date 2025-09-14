@@ -3,29 +3,25 @@ import path from 'path'
 
 var handler = async (m, { conn, isPrems }) => {
   let text = `「✿」El codigo va bien`
-  conn.reply(m.chat, text, m, fake)
-}
-
-    const buttons = [
-        {
+  const buttons = [
+    {
       buttonId: `#memev`,
       buttonText: {
         displayText: "✿ Ver más ✿"
       },
       type: 1
     }
+  ];
 
-    ];
-
-    await conn.sendMessage(
-        m.chat,
-        {
-            text: { text },
-            buttons: buttons,
-            viewOnce: true
-        },
-        { quoted: m }
-    );
+  await conn.sendMessage(
+    m.chat,
+    {
+      text,
+      buttons,
+      viewOnce: true
+    },
+    { quoted: m }
+  );
 };
 
 handler.help = ['prueba2']
