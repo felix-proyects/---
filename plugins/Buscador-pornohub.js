@@ -4,8 +4,8 @@ import path from 'path'
   let str = `「✿」El codigo va bien`
   conn.reply(m.chat, str, m, fake)
 
-handler.help = ['prueba']
+handler.help = ['prueba2']
 handler.tags = ['main']
-handler.command = ['prueba']
+handler.command = ['prueba2']
 
 export default handler
