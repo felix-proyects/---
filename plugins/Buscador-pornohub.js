@@ -17,6 +17,17 @@ var handler = async (m, { conn, isPrems }) => {
 
     ];
 
+    await conn.sendMessage(
+        m.chat,
+        {
+            text: { text },
+            buttons: buttons,
+            viewOnce: true
+        },
+        { quoted: m }
+    );
+};
+
 handler.help = ['prueba2']
 handler.tags = ['main']
 handler.command = ['dev']
