@@ -25,7 +25,7 @@ async function loadClaimMessages() {
 
 async function getCustomClaimMessage(userId, username, characterName) {
     const messages = await loadClaimMessages();
-    const template = messages[userId] || '✿ *$character* ha sido reclamado por *$user*!';
+    const template = messages[userId] || '✿ *$character* ha sido reclamado por *${taguser}*!';
 
     return template
         .replace(/\$user/g, username)
