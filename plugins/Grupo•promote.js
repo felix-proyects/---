@@ -22,7 +22,7 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-conn.reply(m.chat, `✿ El usuario ha sido promovido a administrador del grupo.`, m, fake)
+conn.reply(m.chat, `✿ El usuario ha sido promovido a administrador del grupo!`, m, fake)
 }
 
 }
