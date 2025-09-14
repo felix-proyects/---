@@ -1,40 +1,35 @@
-import fs from 'fs'
-import path from 'path'
+import ws from 'ws'
 
-let handler = async (m, { text }) => {
-  let number = (m.mentionedJid && m.mentionedJid[0]?.replace('@s.whatsapp.net', '')) || text?.replace(/[^0-9]/g, '')
+const handler = async (m, { conn }) => {
+  const subBots = [...new Set([...globalThis.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn.user.jid)])]
 
-  if (!number) {
-    return m.reply('Debes etiquetar al bot que quieres hacer principal en este grupo.')
+  if (!subBots.includes(globalThis.conn.user.jid)) {
+    subBots.push(globalThis.conn.user.jid)
   }
 
-  let botJid = number + '@s.whatsapp.net'
+   let texto = await m.mentionedJid
+   let who = texto.length > 0 ? texto[0] : (m.quoted ? await m.quoted.sender : false)
+  const chat = globalThis.db.data.chats[m.chat]
+  if (!who) return conn.reply(m.chat, `✿ Debes mencionar a un bot del grupo para establecerlo como primario de este grupo.
+> ❀ Puedes ver la lista de bots del club con el comando: *#bots*`, m, fake)
 
-  let isMainBot = global.conn.user && global.conn.user.jid === botJid
+  if (!subBots.includes(who)) return conn.reply(m.chat, `✿ El numero que mencionaste no es un bot de *Deymoon Club*
+> ✎ Puedes ver la lista de bots del club con el comando: *#bots*`, m, fake)
 
-  let subbotPath = path.join('./JadiBots', number, 'creds.json')
-  let isSubbot = fs.existsSync(subbotPath)
-
-  if (!isSubbot && !isMainBot) {
-    return m.reply(`✿ El numero que mencionaste no es un bot de *Deymoon Club*
-> ✎ Puedes ver la lista de bots del club con el comando: *#bots*`)
+  if (chat.primaryBot === who) {
+    return conn.reply(m.chat, `✿ @${who.split`@`[0]} ya es el Bot principal del Grupo.`, m, { mentions: [who] });
   }
 
-  let isInConns = isMainBot || global.conns.some(conn => conn.user && conn.user.jid === botJid)
-  if (!isInConns) {
-    return m.reply(`☆ El bot *${botJid}* no está conectado actualmente y no se puede poner como primario.`)
+  try {
+    chat.primaryBot = who
+    conn.reply(m.chat, `*ꕤ* Se ha establecido a @${who.split`@`[0]} como bot primario de este grupo.\n> Ahora todos los comandos de este grupo serán ejecutados por @${who.split`@`[0]}.`, m, { mentions: [who] })
+  } catch (e) {
+    await m.reply(`${e}`);
   }
-
-  if (!global.db.data.chats[m.chat]) global.db.data.chats[m.chat] = {}
-  global.db.data.chats[m.chat].primaryBot = botJid
-
-  if (global.db.write) await global.db.write()
-
-  m.reply(`☆ El bot principal para este grupo ahora es:\n*${botJid}*`)
 }
 
-handler.help = ['setprimary @bot']
-handler.tags = ['serbot']
+handler.help = ['setprimary']
+handler.tags = ['group']
 handler.command = ['setprimary']
 handler.admin = true
 
