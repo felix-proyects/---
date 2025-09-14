@@ -2,14 +2,14 @@ import fs from 'fs'
 import path from 'path'
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) return m.reply(`☆ Formato incorrecto.\n\n◇ Usa asi: *${usedPrefix + command} nombre nuevo*`)
+  if (!text) return m.reply(`ꕤ Uso Correcto: *${usedPrefix + command}* nombre nuevo*`)
 
   const senderNumber = m.sender.replace(/[^0-9]/g, '')
   const botPath = path.join('./JadiBots', senderNumber)
   const configPath = path.join(botPath, 'config.json')
 
   if (!fs.existsSync(botPath)) {
-    return m.reply('✧ Este comando es sólo para los sub bots.')
+    return m.reply('❖ El comando *setname* solo puede ser usado por el dueño del número del *bot.*')
   }
 
   let config = {}
@@ -19,7 +19,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     try {
       config = JSON.parse(fs.readFileSync(configPath))
     } catch (e) {
-      return m.reply('☆ Error al leer el nombre.')
+      return m.reply('ꕤ *Error* al leer el nombre.')
     }
   }
 
@@ -28,10 +28,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
   try {
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2))
-    m.reply(`☆ El nombre del socket fue actualizado a: *${text.trim()}*`)
+    m.reply(`⊹ El nombre del Bot ahora es *${text.trim()}*`)
   } catch (err) {
     console.error(err)
-    m.reply('☆ Ocurrió un error al guardar el nombre.')
+    m.reply('ꕤ Ocurrió un error al guardar el nombre.')
   }
 }
 
