@@ -1,11 +1,11 @@
-const handler = async (m, {conn}) => {
-  m.reply(const.message);
-};
+import fs from 'fs'
+import path from 'path'
 
-const.message = 'Bot Premium', m, fake);
+  let str = `「✿」El codigo va bien`
+  conn.reply(m.chat, str, m, fake)
 
-handler.help = 'comprarbot';
-handler.tags = 'main';
-handler.command = ['prueba2'];
+handler.help = ['prueba']
+handler.tags = ['main']
+handler.command = ['prueba']
 
-export default handler;
+export default handler
