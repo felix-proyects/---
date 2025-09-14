@@ -23,7 +23,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             }
         }
         
-        const usuario = m.pushName || 'Tamjiro Kamado';
+        const usuario = m.pushName || 'Tamjiro';
 
         const authorDinamico = `⊹ 👑Bot:\n⊹ ↳ ${nombreBot}\n\n👑 Usuario:\n⊹ ↳ ${usuario}`;
 
