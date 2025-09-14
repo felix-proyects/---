@@ -16,29 +16,7 @@ const handler = async (m, { conn }) => {
     ['Imagen 4', 'Deymoon Club', await res.getRandom(), [], [], [], []]
   ];
 
-  const buttons = [
-    {
-      buttonId: '#imagen',
-      buttonText: { displayText: 'Buscar otra imagen' },
-      type: 1
-    },
-    {
-      buttonId: '#ayuda',
-      buttonText: { displayText: 'Ayuda' },
-      type: 1
-    }
-  ];
-
-  await conn.sendCarousel(
-    m.chat,
-    `✿ Resultados de: ${text}`,
-    'Deymoon Club',
-    null,
-    messages,
-    m,
-    fake,
-    buttons
-  );
+  await conn.sendCarousel(m.chat, `✿ Resultados de: ${text}`, 'Deymoon Club', null, messages, m, fake);
 };
 
 handler.help = ['imagen <texto>'];
