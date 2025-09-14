@@ -27,7 +27,7 @@ const handler = async (m, { conn, command }) => {
   const configPath = path.join(botPath, 'config.json')
 
   if (!fs.existsSync(botPath)) {
-    return m.reply('☆ El comando *Setbanner* Sólo puede ser ejecutado por el socket.')
+    return m.reply('❖ El comando *setbanner* solo puede ser usado por el dueño del número del *bot*.')
   }
 
   try {
@@ -36,18 +36,18 @@ const handler = async (m, { conn, command }) => {
 
     if (!mime || !/image\/(jpe?g|png|webp)/.test(mime)) {
       return conn.sendMessage(m.chat, {
-        text: `☆ Responde a una imagen válida (JPG, PNG, WEBP) usando *.${command}*`,
+        text: `ꕤ Responde a una imagen.`,
       }, { quoted: m })
     }
 
     // Reacción de carga
     await conn.sendMessage(m.chat, {
-      react: { text: '⏳', key: m.key }
+      react: { text: '🕣', key: m.key }
     })
 
     // Descargar imagen
     const media = await q.download()
-    if (!media) throw new Error('☆ No fue posible guardar la imagen.')
+    if (!media) throw new Error('⊹ No fue posible cambiar la imagen del socket.')
 
     // Guardar temporal
     const tempDir = './tmp'
@@ -68,7 +68,7 @@ const handler = async (m, { conn, command }) => {
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2))
 
     await conn.sendMessage(m.chat, {
-      text: `☆ La foto del socket fue actualizada con exito:\n\n${uploadedUrl}`,
+      text: `ꕤ La foto del bot fue cambiada!`,
     }, { quoted: m })
 
     await conn.sendMessage(m.chat, {
@@ -81,7 +81,7 @@ const handler = async (m, { conn, command }) => {
   } catch (err) {
     console.error(err)
     await conn.sendMessage(m.chat, {
-      text: '☆ No se pudo subir la foto, inténtalo más tarde.',
+      text: '⊹ No se pudo subir la foto, inténtalo más tarde.',
     }, { quoted: m })
     await conn.sendMessage(m.chat, {
       react: { text: '✖️', key: m.key }
