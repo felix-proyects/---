@@ -1,65 +1,41 @@
-import fs from 'fs'
-import path from 'path'
+let handler = async (m, { conn }) => {
+   let texto = await m.mentionedJid
+   let who = texto.length > 0 ? texto[0] : (m.quoted ? await m.quoted.sender : false)
 
-const menu = {
-  text: `「✿」Elige una opción`,
-  buttons: [
-    {
-      buttonId: `#opcion1`,
-      buttonText: {
-        displayText: "Opción 1"
-      },
-      type: 1
-    },
-    {
-      buttonId: `#opcion2`,
-      buttonText: {
-        displayText: "Opción 2"
-      },
-      type: 1
-    },
-    {
-      buttonId: `#opcion3`,
-      buttonText: {
-        displayText: "Opción 3"
-      },
-      type: 1
+  if (!who) {
+    return m.reply('*ꕤ* Por favor, *menciona* al usuario que deseas ver *su foto de perfil.*', m, fake);
+  }
+
+  try {
+    const img = await conn.profilePictureUrl(who, 'image').catch(() => null);
+
+    if (!img) {
+      return conn.sendMessage(
+        m.chat,
+        {
+          text: `*ꕤ* No se pudo obtener la *foto de perfil* de *@${who.split('@')[0]}.*`,
+          mentions: [who],
+        },
+        { quoted: m }
+      );
     }
-  ]
-};
 
-const opciones = {
-  '#opcion1': async (m, { conn }) => {
-    await conn.reply(m.chat, 'Has elegido la opción 1')
-  },
-  '#opcion2': async (m, { conn }) => {
-    await conn.reply(m.chat, 'Has elegido la opción 2')
-  },
-  '#opcion3': async (m, { conn }) => {
-    await conn.reply(m.chat, 'Has elegido la opción 3')
+    await conn.sendMessage(
+      m.chat,
+      {
+        image: { url: img },
+        mentions: [who],
+      },
+      { quoted: m }
+    );
+  } catch (error) {
+    console.error(error);
+    await m.reply('*ꕤ* No se pudo obtener la imagen. Intenta nuevamente.');
   }
 };
 
-var handler = async (m, { conn, isPrems }) => {
-  await conn.sendMessage(
-    m.chat,
-    {
-      text: menu.text,
-      buttons: menu.buttons,
-      viewOnce: true
-    },
-    { quoted: m }
-  );
-};
+handler.help = ['pfp', 'getpic'];
+handler.tags = ['utils'];
+handler.command = ['pfp', 'getpic'];
 
-handler.help = ['menu']
-handler.tags = ['main']
-handler.command = ['boton']
-
-handler.before = async (m, { conn }) => {
-  if (opciones[m.text]) {
-    await opciones[m.text](m, { conn })
-  }
-}
-
-export default handler
+export default handler;
