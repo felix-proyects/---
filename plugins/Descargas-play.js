@@ -130,7 +130,7 @@ const handler = async (m, { conn, text, command }) => {
     }
 
     user.chocolates -= 2
-    conn.reply(m.chat, `☆ Utilizaste 2 *Diamantes*`, m)
+    conn.reply(m.chat, `☆ Utilizaste 2 *Diamantes*`, m, fake)
   } catch (error) {
     console.error("[ERROR YOUTUBE]", error)
     return m.reply(`⚠︎ Ocurrió un error: ${error.message || error}`)
