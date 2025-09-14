@@ -502,9 +502,9 @@ Mira la información junto al ID de un grupo.
 > Activa cualquier opción de tu grupo.
 *❒ #off <opción>*
 > Desactiva una opción en tu grupo.
-*❒ #group <open>*
+*❒ #open*
 > Abre el grupo para que todos puedan escribir.
-*❒ #group <close>*
+*❏ #close*
 > Cierra el grupo para que solo admins puedan escribir.
 ╰──────────────`
 
