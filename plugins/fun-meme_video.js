@@ -13,8 +13,8 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     const buttons = [
         {
-            buttonId: `#memev`,
-            buttonText: { displayText: "🔄 Ver más" },
+            buttonId: `#code`,
+            buttonText: { displayText: "Ser Sub-Bot" },
             type: 1
         }
     ];
