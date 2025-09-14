@@ -16,10 +16,10 @@ const handler = async (m, { conn }) => {
     ['Imagen 4', 'Deymoon Club', await res.getRandom(), [], [], [], []]
   ];
 
-  await conn.sendCarousel(m.chat, `✿ Resultados de: ${text}`, 'Deymoon Club', null, messages, m);
+  await conn.sendCarousel(m.chat, `✿ Resultados de: ${text}`, 'Deymoon Club', null, messages, m, fake);
 };
 
-handler.help = ['imagen <query>'];
+handler.help = ['imagen <texto>'];
 handler.tags = ['buscador', 'descargas'];
 handler.command = ['image', 'imagen'];
 
