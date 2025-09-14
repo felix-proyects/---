@@ -1,27 +1,39 @@
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => icons) 
-let isClose = { // Switch Case Like :v
-'open': 'not_announcement',
-'close': 'announcement',
-'abierto': 'not_announcement',
-'cerrado': 'announcement',
-'abrir': 'not_announcement',
-'cerrar': 'announcement',
-}[(args[0] || '')]
-if (isClose === undefined)
-return conn.reply(m.chat, `*Elija una opción para configurar el grupo*\n\nEjemplo:\n*○ !${command} abrir*\n*○ !${command} cerrar*\n*○ !${command} bloquear*\n*○ !${command} desbloquear*`, m, fake)
-await conn.groupSettingUpdate(m.chat, isClose)
+let handler = async (m, { conn, command }) => {
+  try {
+    let groupMetadata = await conn.groupMetadata(m.chat);
+    let groupAnnouncement = groupMetadata.announce;
 
-if (isClose === 'not_announcement'){
-m.reply(`🔓 *YA PUEDEN ESCRIBIR EN ESTE GRUPO.*`)
-}
+    if (command === 'close') {
+      if (groupAnnouncement === true) {
+        return conn.reply(m.chat, `✿ El grupo ya está cerrado.`, m, fake);
+      }
+      await conn.groupSettingUpdate(m.chat, 'announcement')
+        .then(() => {
+          conn.reply(m.chat, `✿ El grupo ha sido cerrado correctamente.`, m, fake);
+        })
+        .catch((err) => conn.reply(m.chat, `✿ Error al cerrar el grupo: ${err.message}`, m, fake));
+    } else if (command === 'open') {
+      if (groupAnnouncement === false) {
+        return conn.reply(m.chat, `✿ El grupo ya está abierto.`, m, fake);
+      }
+      await conn.groupSettingUpdate(m.chat, 'not_announcement')
+        .then(() => {
+          conn.reply(m.chat, `✿ El grupo ha sido abierto correctamente.`, m, fake);
+        })
+        .catch((err) => conn.reply(m.chat, `✿ Error al abrir el grupo: ${err.message}`, m, fake));
+    } else {
+      return conn.reply(m.chat, `✿ *Error, reportelo en el grupo de Soporte.*`, m, fake);
+    }
+  } catch (e) {
+    console.error(e);
+    conn.reply(m.chat, `✿ *Error al realizar la configuración del grupo:* ${e.message}.`, m, fake);
+  }
+};
 
-if (isClose === 'announcement'){
-m.reply(`🔐 *SOLOS LOS ADMINS PUEDEN ESCRIBIR EN ESTE GRUPO.*`)
-}}
-handler.help = ['group open / close', 'grupo abrir / cerrar']
-handler.tags = ['grupo']
-handler.command = ['group', 'grupo']
-handler.admin = true
-handler.botAdmin = true
-export default handler
+handler.help = ['close', 'open'];
+handler.tags = ['group'];
+handler.command = ['close', 'open'];
+handler.admin = true;
+handler.botAdmin = true;
+
+export default handler;
