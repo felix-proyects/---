@@ -1,36 +1,28 @@
-var handler = async (m, { conn,usedPrefix, command, text }) => {
+const handler = async (m, { conn }) => {
+  try {
+    // let who = m?.message?.extendedTextMessage?.contextInfo?.participant || m?.mentionedJid[0] || await m?.quoted?.sender;
+   let texto = await m.mentionedJid
+   let who = texto.length > 0 ? texto[0] : (m.quoted ? await m.quoted.sender : false)
+    if (!who) return m.reply('✿ Menciona al usuario que deseas promover a administrador.');
 
-if (isNaN(text) && !text.match(/@/g)){
+    const groupMetadata = await conn.groupMetadata(m.chat);
+    const participant = groupMetadata.participants.find(participant => participant.jid === who);
 
-} else if (isNaN(text)) {
-var number = text.split`@`[1]
-} else if (!isNaN(text)) {
-var number = text
-}
+    if (participant && participant.admin) {
+    return conn.reply(m.chat, `✿ *@${who.split('@')[0]}* ya es administrador del grupo!`, m, { mentions: [who] });
+    }
 
-if (!text && !m.quoted) return conn.reply(m.chat, `✿ *Mensiona a un miembro del grupo para darle admin.*`, m, fake)
-if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `✿ *Debes de responder o mensionar a un miembro para usar este comando.*`, m, fake)
+    await conn.groupParticipantsUpdate(m.chat, [who], 'promote');
+    await conn.reply(m.chat, `✿ *@${who.split('@')[0]}* ha sido promovido a administrador del grupo!`, m, { mentions: [who] });
+  } catch (e) {
+    await m.reply(`Error`);
+  }
+};
 
-try {
-if (text) {
-var user = number + '@s.whatsapp.net'
-} else if (m.quoted.sender) {
-var user = m.quoted.sender
-} else if (m.mentionedJid) {
-var user = number + '@s.whatsapp.net'
-} 
-} catch (e) {
-} finally {
-conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-conn.reply(m.chat, `✿ El usuario ha sido promovido a administrador del grupo!`, m, fake)
-}
+handler.help = ['promote'];
+handler.tags = ['grupo'];
+handler.command = ['promote'];
+handler.admin = true;
+handler.botAdmin = true;
 
-}
-handler.help = ['promote']
-handler.tags = ['grupo']
-handler.command = ['promote','darpija', 'promover']
-
-handler.admin = true
-handler.botAdmin = true
-
-export default handler
+export default handler;
