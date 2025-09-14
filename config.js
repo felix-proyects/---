@@ -33,7 +33,7 @@ global.makiJadibts = true
 
 global.packsticker = `⊹ 🐬 Deymoon🧠 Club\n↳ Deymoon.club/\n\n👹 Info:\n deymoon-club.vercel.app/`
 global.packname = `Deymoon`
-global.author = `⊹ 👑Bot:\n⊹ ↳ Tanjiro Kamado\n👑 Usuario:\n⊹ ↳ @Desconocido`;
+global.author = `⊹ 👑Bot:\n⊹ ↳ Tanjiro Kamado\n\n👑 Usuario:\n⊹ ↳ @Desconocido`;
 global.wm = '⍴᥆ᥕᥱrᥱძ ᑲᥡ ძᥱᥡm᥆᥆ᥒ ᥆𝖿ᥴ';
 global.titulowm = '⏤͟͞ू⃪𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐔𝐥𝐭𝐫𝐚 𝐁𝐨𝐭𑁯ᰍ';
 global.igfg = 'Deymoon Club'
