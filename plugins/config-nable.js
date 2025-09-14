@@ -2,36 +2,33 @@ const handler = async (m, {conn, usedPrefix, command, args, isOwner, isAdmin, is
 
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
-const miniopcion = `CONFIGURACIÓN PARA GRUPOS 
+const miniopcion = `*✿ CONFIGURACIONES DE DEYMOON CLUB ✿*
 
-${usedPrefix + command} welcome
-${usedPrefix + command} autoresponder
-${usedPrefix + command} autoaceptar
-${usedPrefix + command} autorechazar
-${usedPrefix + command} detect
-${usedPrefix + command} antidelete
-${usedPrefix + command} antilink
-${usedPrefix + command} antilink2
-${usedPrefix + command} nsfw
-${usedPrefix + command} autolevelup
-${usedPrefix + command} autosticker
-${usedPrefix + command} reaction
-${usedPrefix + command} antitoxic
-${usedPrefix + command} audios
-${usedPrefix + command} modoadmin
-${usedPrefix + command} antifake
-${usedPrefix + command} antibot
-
-OPCIONES PARA MI CREADOR 
-
-${usedPrefix + command} antisubots
-${usedPrefix + command} public
-${usedPrefix + command} status
-${usedPrefix + command} serbot
-${usedPrefix + command} restrict
-${usedPrefix + command} autoread
-${usedPrefix + command} antispam
-${usedPrefix + command} antiprivado`
+*ꕤ ${usedPrefix + command} welcome*
+*ꕤ ${usedPrefix + command} autoresponder*
+*ꕤ ${usedPrefix + command} autoaceptar*
+*ꕤ ${usedPrefix + command} autorechazar*
+*ꕤ ${usedPrefix + command} detect*
+*ꕤ ${usedPrefix + command} antidelete*
+*ꕤ ${usedPrefix + command} antilink*
+*ꕤ ${usedPrefix + command} antilink2*
+*ꕤ ${usedPrefix + command} nsfw*
+*ꕤ ${usedPrefix + command} autolevelup*
+*ꕤ ${usedPrefix + command} autosticker*
+*ꕤ ${usedPrefix + command} reaction*
+*ꕤ ${usedPrefix + command} antitoxic*
+*ꕤ ${usedPrefix + command} audios*
+*ꕤ ${usedPrefix + command} modoadmin*
+*ꕤ ${usedPrefix + command} antifake*
+*ꕤ ${usedPrefix + command} antibot*
+*ꕤ ${usedPrefix + command} antisubots*
+*ꕤ ${usedPrefix + command} public*
+*ꕤ ${usedPrefix + command} status*
+*ꕤ ${usedPrefix + command} serbot*
+*ꕤ ${usedPrefix + command} restrict*
+*ꕤ ${usedPrefix + command} autoread*
+*ꕤ ${usedPrefix + command} antispam*
+*ꕤ ${usedPrefix + command} antiprivado*`
 
 const isEnable = /true|enable|(turn)?on|1/i.test(command);
 const chat = global.db.data.chats[m.chat];
@@ -466,7 +463,7 @@ default:
 if (!/[01]/.test(command)) return await conn.reply(m.chat, miniopcion, m, fake);
 throw false;
 }
-conn.reply(m.chat, `☆ *La función ${type} fue ${isEnable ? 'Activada' : 'Desactivada'} en este ${isAll ? 'Bot' : isUser ? '' : 'Chat.'}*`, m, fake, )
+conn.reply(m.chat, `ꕤ *La función ${type} fue ${isEnable ? 'Activada' : 'Desactivada'} en este ${isAll ? 'Bot' : isUser ? '' : 'Chat.'}*`, m, fake, )
 
 }
 handler.help = ['en', 'dis'].map((v) => v + 'able <option>');
