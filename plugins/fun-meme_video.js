@@ -13,10 +13,34 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     const buttons = [
         {
-            buttonId: `#code`,
-            buttonText: { displayText: "Ser Sub-Bot" },
-            type: 1
-        }
+                  buttonId: `#code`, 
+      buttonText: { 
+        displayText: "✿ Ser Sub-Bot ✿" 
+      }, 
+      type: 1 
+    },
+    { 
+      buttonId: `#menu`, 
+      buttonText: { 
+        displayText: "✿ Lista de comandos ✿" 
+      }, 
+      type: 1 
+    },
+    { 
+      buttonId: `#sockets`, 
+      buttonText: { 
+        displayText: "✿ Bots activos ✿" 
+      }, 
+      type: 1 
+    },
+    { 
+      buttonId: `#memev`,
+      buttonText: {
+        displayText: "✿ Ver más ✿"
+      },
+      type: 1
+    }
+
     ];
 
     await conn.sendMessage(
