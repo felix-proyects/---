@@ -20,9 +20,9 @@ let handler = async (m, { conn, usedPrefix }) => {
       type: 1 
     },
     { 
-      buttonId: `#menu`, 
+      buttonId: `#reg autoregistro.14`, 
       buttonText: { 
-        displayText: "✿ Lista de comandos ✿" 
+        displayText: "✿ Auto Registrarme ✿" 
       }, 
       type: 1 
     },
