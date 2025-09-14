@@ -2,12 +2,12 @@ import fs from 'fs'
 import path from 'path'
 
 var handler = async (m, { conn, isPrems }) => {
-  let text = `「✿」El codigo va bien`
+  let text = `Botones Del Bot`
   const buttons = [
     {
-      buttonId: `#memev`,
+      buttonId: `#reg Deymoon.18`,
       buttonText: {
-        displayText: "✿ Ver más ✿"
+        displayText: "✿ Auto Registrar ✿"
       },
       type: 1
     }
@@ -24,8 +24,8 @@ var handler = async (m, { conn, isPrems }) => {
   );
 };
 
-handler.help = ['prueba2']
+handler.help = ['boton <opción>']
 handler.tags = ['main']
-handler.command = ['dev']
+handler.command = ['buttons', 'botones']
 
 export default handler
