@@ -7,8 +7,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/AJnMl.jpg')
   let img = await (await fetch(`${pp}`)).buffer()
   let chat = global.db.data.chats[m.chat]
-  let txt = '𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 |  ${groupMetadata.subject}'
-  let txt1 = '𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 | ${groupMetadata.subject}'
+  let txt = '𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 | Chat grupal'
+  let txt1 = '𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 | Chat grupal'
   let groupSize = participants.length
   if (m.messageStubType == 27) {
     groupSize++;
