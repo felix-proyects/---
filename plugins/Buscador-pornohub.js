@@ -1,22 +1,41 @@
-export async function toggleBot(m, usedPrefix) {
-  // Extraer comando principal y opción
-  const commandArgs = m.text.slice(usedPrefix.length).trim().split(' ');
-  const mainCommand = commandArgs[0]?.toLowerCase();
-  const option = commandArgs[1]?.toLowerCase();
-
-  // Solo ejecutar si el comando es "bot" y existe opción
-  if (mainCommand === 'bot' && option) {
-    const chat = global.db.data.chats[m.chat];
-    if (option === 'off') {
-      chat.isBanned = true;
-      await m.reply(`Bot dn este grupo.\n\n> ✦ Un *administrador* puede volver a activar con:\n> » *${usedPrefix}bot on*`);
-      return true; // Ya procesado, no seguir lógica normal
-    }
-    if (option === 'on') {
-      chat.isBanned = false;
-      await m.reply(`El bot ha sido activado en este grupo.\n\n> Ya puedes usar mis comandos!`);
-      return true;
-    }
+export async function before(m) {
+  if (!m.text || !global.prefix.test(m.text)) {
+    return;
   }
-  return false; // No es comando de activar/desactivar, sigue normal
+
+  const usedPrefix = global.prefix.exec(m.text)[0];
+  const command = m.text.slice(usedPrefix.length).trim().split(' ')[0].toLowerCase();
+
+  const validCommand = (command, plugins) => {
+    for (let plugin of Object.values(plugins)) {
+      if (plugin.command && (Array.isArray(plugin.command) ? plugin.command : [plugin.command]).includes(command)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  if (!command) return;
+
+  if (command === "bot") {
+    return;
+    }
+  if (validCommand(command, global.plugins)) {
+    let chat = global.db.data.chats[m.chat];
+    let user = global.db.data.users[m.sender];
+
+    if (chat.isBanned) {
+      const avisoDesactivado = `🩵 La bot *MAKIMA* está desactivada en este grupo.\n\n> ✦ Un *administrador* puede volver a activarla con el comando:\n> » *${usedPrefix}bot on*`;
+      await m.reply(avisoDesactivado);
+      return;
+    }
+
+    if (!user.commands) {
+      user.commands = 0;
+    }
+    user.commands += 1;
+  } else {
+    const comando = m.text.trim().split(' ')[0];
+    await m.reply(`🩵 El comando *${comando}* no existe.\nPara ver mi lista de comandos usa:\n» *#menu*`);
+  }
 }
