@@ -12,7 +12,7 @@ let link = res[i].link.length > 30 ? res[i].link.substring(0, 30) + '...' : res[
 libre += `*• Nombre:* ${res[i].title}\n*• Estado:* ${res[i].state}\n*• Link:* ${res[i].link}\n`;
 libre += '\n' + '••••••••••••••••••••••••' + '\n';
 }
-conn.reply(m.chat, libre, m, rcanal)
+conn.reply(m.chat, libre, m, fake)
 } catch (error) {
 }};
 handler.help = ['mercadolibre <búsqueda>']
