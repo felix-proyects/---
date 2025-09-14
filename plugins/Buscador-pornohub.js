@@ -13,8 +13,8 @@ var handler = async (m, { conn, isPrems }) => {
       forwardingScore: 999,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: 'tuNewsletterJid', // Reemplaza con el JID de tu newsletter
-        newsletterName: 'tuNombreDeNewsletter', // Reemplaza con el nombre de tu newsletter
+        newsletterJid: '18293478038@s.whatsapp.net', // Reemplaza con el JID de tu newsletter
+        newsletterName: 'tufj', // Reemplaza con el nombre de tu newsletter
         serverMessageId: ''
       }
     }
@@ -23,6 +23,6 @@ var handler = async (m, { conn, isPrems }) => {
 
 handler.help = ['prueba2']
 handler.tags = ['main']
-handler.command = ['exito']
+handler.command = ['dev']
 
 export default handler
