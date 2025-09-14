@@ -1,16 +1,26 @@
-let handler = async (m, { conn, text, command }) => {
-let id = text ? text : m.chat  
-let chat = global.db.data.chats[m.chat]
-chat.welcome = false
-await conn.reply(id, `*BYE A TODOS*`) 
-await conn.groupLeave(id)
-try {  
-chat.welcome = true
-} catch (e) {
-await m.reply(`${fg}`) 
-return console.log(e)
-}}
-handler.command = ['leave', 'leavegc', 'salir']
-handler.group = true
-handler.admin = true
-export default handler
+let handler = async (m, { conn, args }) => {
+  const isSocketOwner = [
+    conn.user.jid,
+    ...(global.owner || []).map(n => n + '@s.whatsapp.net'),
+  ].includes(m.sender);
+
+  if (!isSocketOwner) {
+    return m.reply('❖ El comando *leave* solo puede ser usado por el dueño del número del *bot*.');
+  }
+
+  const groupId = args[0] || m.chat;
+
+  try {
+    // await conn.sendMessage(m.chat, { text: `Bye` }, { quoted: m });
+    await conn.groupLeave(groupId);
+  } catch (error) {
+    console.error(error);
+    m.reply('*ꕤ No se pudo abandonar el grupo. Intenta nuevamente.*');
+  }
+};
+
+handler.help = ['leave'];
+handler.tags = ['jadibot'];
+handler.command = ['leave'];
+
+export default handler;
