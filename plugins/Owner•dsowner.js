@@ -27,11 +27,11 @@ filesDeleted++;
 }
 }
 if (filesDeleted === 0) {
-await conn.reply(m.chat, '☆ *La carpeta esta vacía*',  m, fake, )
+await conn.reply(m.chat, '✿ *La carpeta esta vacía*',  m, fake, )
 } else {
 m.react(done)
-await conn.reply(m.chat, `☆ *Se eliminaron ${filesDeleted} archivos de sesión, excepto el archivo creds.json*`,  m, rcanal, )
-conn.reply(m.chat, `☆ *¡Hola! Soy ${botname}*`, m, fake, )
+await conn.reply(m.chat, `✿ *Se eliminaron ${filesDeleted} archivos de sesión, excepto el archivo creds.json*`,  m, fake, )
+conn.reply(m.chat, `*✿ Archivos eliminados con éxito.*`, m, fake, )
 
 }
 } catch (err) {
