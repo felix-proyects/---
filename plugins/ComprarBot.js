@@ -6,6 +6,6 @@ const.message = 'Bot Premium', m, fake);
 
 handler.help = 'comprarbot';
 handler.tags = 'main';
-handler.command = ['comprarbot'];
+handler.command = ['prueba2'];
 
 export default handler;
