@@ -19,7 +19,6 @@ const handler = async (m, {conn, command, args}) => {
 };
 handler.help = ['Buy', 'Buyall'];
 handler.tags = ['xp'];
-handler.register = true
 handler.command = ['buy', 'buyall'];
 
 handler.disabled = false;
