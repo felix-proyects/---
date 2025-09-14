@@ -1,16 +1,22 @@
-export async function desactivarBot(m, command, usedPrefix) {
-  let chat = global.db.data.chats[m.chat];
-  let user = global.db.data.users[m.sender];
+export async function toggleBot(m, usedPrefix) {
+  // Extraer comando principal y opción
+  const commandArgs = m.text.slice(usedPrefix.length).trim().split(' ');
+  const mainCommand = commandArgs[0]?.toLowerCase();
+  const option = commandArgs[1]?.toLowerCase();
 
-  if (chat.isBanned) {
-    const avisoDesactivado = `☆ El bot *Deymoon Club* está desactivado en este grupo.\n\n> ✦ Un *administrador* puede volver a activarlo con el comando:\n> » *${usedPrefix}bot on*`;
-    await m.reply(avisoDesactivado);
-    return true; // Para indicar que ya respondió y no seguir procesando
+  // Solo ejecutar si el comando es "bot" y existe opción
+  if (mainCommand === 'bot' && option) {
+    const chat = global.db.data.chats[m.chat];
+    if (option === 'off') {
+      chat.isBanned = true;
+      await m.reply(`Bot dn este grupo.\n\n> ✦ Un *administrador* puede volver a activar con:\n> » *${usedPrefix}bot on*`);
+      return true; // Ya procesado, no seguir lógica normal
+    }
+    if (option === 'on') {
+      chat.isBanned = false;
+      await m.reply(`El bot ha sido activado en este grupo.\n\n> Ya puedes usar mis comandos!`);
+      return true;
+    }
   }
-
-  if (!user.commands) {
-    user.commands = 0;
-  }
-  user.commands += 1;
-  return false; // Para indicar que puede seguir procesando
+  return false; // No es comando de activar/desactivar, sigue normal
 }
