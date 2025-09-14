@@ -8,6 +8,6 @@ var handler = async (m, { conn, isPrems }) => {
 
 handler.help = ['prueba2']
 handler.tags = ['main']
-handler.command = ['dev']
+handler.command = ['prueba']
 
 export default handler
