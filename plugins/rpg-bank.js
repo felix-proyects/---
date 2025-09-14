@@ -38,14 +38,16 @@ let handler = async (m, { conn }) => {
   let nombreParaMostrar = who === m.sender ? name : '@' + who.split('@')[0]
 
   let txt = `
-╭━━━━━━━━━━━━━━━━━╮
-┃𝗘𝗖𝗢𝗡𝗢𝗠𝗜𝗔 𝗗𝗘𝗟 𝗨𝗦𝗨𝗔𝗥𝗜𝗢: 
-╰━─━─━─≪≪✠≫≫─━─━─━╯
+𝗘𝗖𝗢𝗡𝗢𝗠𝗜𝗔 𝗗𝗘𝗟 𝗨𝗦𝗨𝗔𝗥𝗜𝗢: 
 
 𝖭𝗈𝗆𝖻𝗋𝖾: ${nombreParaMostrar}
+
 𝖤𝗑𝗉: ${user.exp}
+
 𝖭𝗂𝗏𝖾𝗅: ${user.level}
+
 R𝖺𝗇𝗀𝗈: ${rangoMagico}
+
 > © Desarrollado en Deymoom Club.`.trim()
 
   // MENSAJE CON CONTEXTO DE CANAL/NEWSLETTER (igual que el menú)
@@ -56,7 +58,7 @@ R𝖺𝗇𝗀𝗈: ${rangoMagico}
     contextInfo: {
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: "1203921402362088882@newsletter", // ID de tu canal
+        newsletterJid: "12288882@newsletter", // ID de tu canal
         newsletterName: canalName,
         serverMessageId: -1,
       },
@@ -76,6 +78,5 @@ R𝖺𝗇𝗀𝗈: ${rangoMagico}
 handler.help = ['bank', 'banco']
 handler.tags = ['rpg']
 handler.command = ['bank', 'banco']
-handler.register = true
 
 export default handler
