@@ -1,30 +1,23 @@
 const handler = async (m, {conn}) => {
-  m.reply(global.ComprarBot);
+  m.reply(const.message);
 };
-handler.command ='comprarbot',/^(ComprarBot|Comprar|comprar|ComprarBot)$/i;
-export default handler;
 
-global.ComprarBot = `
-〔 *Bot premium* 〕
-
-Gratis
-`;
+const.message = 'Bot Premium', m, fake)
 
     const buttons = [
         {
       
-      buttonId: `#sockets`, 
-      buttonText: { 
-        displayText: "✿ Bots activos ✿" 
-      }, 
-      type: 1 
-    },
-    { 
-      buttonId: `#memev`,
+      buttonId: `#code`,
       buttonText: {
-        displayText: "✿ Ver más ✿"
+        displayText: "✿ Ser Sub-Bot ✿"
       },
       type: 1
     }
 
     ];
+
+handler.help = 'comprarbot';
+handler.tags = 'main';
+handler.command = ['comprarbot'];
+
+export default handler;
