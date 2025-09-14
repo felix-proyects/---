@@ -51,7 +51,6 @@ let handler = async function (m, { args, command, usedPrefix, conn }) {
 handler.help = ['repite', 'repeat', 'copiame'].map(v => v + ' <texto>');
 handler.tags = ['tools'];
 handler.command = /^(repite|repeat|copiame)$/i;
-handler.register = false;
 handler.group = false;
 
 export default handler;
