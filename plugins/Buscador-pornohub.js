@@ -2,11 +2,11 @@ import fs from 'fs'
 import path from 'path'
 
 var handler = async (m, {conn, isPrems }) => {
-  let str = `「✿」El codigo va bien`
-  conn.reply(m.chat, str, m, fake)
+  let text = `「✿」El codigo va bien`
+  conn.reply(m.chat, text, m, fake)
 
 handler.help = ['prueba2']
 handler.tags = ['main']
-handler.command = ['prueba2']
+handler.command = ['dev']
 
 export default handler
