@@ -2,13 +2,30 @@ import { sticker } from '../lib/sticker.js';
 import uploadFile from '../lib/uploadFile.js';
 import uploadImage from '../lib/uploadImage.js';
 import { webp2png } from '../lib/webp2mp4.js';
+import fs from 'fs';
+import { join } from 'path';
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     let stiker = false;
     try {
-        const usuario = m.pushName || 'Miku uwu';
+        let nombreBot = 'Tanjiro Kamado'; 
+        const botActual = conn.user?.jid?.split('@')[0]?.replace(/\D/g, '');
+        const configPath = join('./JadiBots', botActual || '', 'config.json');
 
-        const authorDinamico = `⊹ 👑Bot:\n⊹ ↳ Tanjiro Kamado\n\n👑 Usuario:\n⊹ ↳ ${usuario}`;
+        if (botActual && fs.existsSync(configPath)) {
+            try {
+                const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+                if (config.name) {
+                    nombreBot = config.name;
+                }
+            } catch (e) {
+                console.error('Error al leer la configuración del sub-bot:', e);
+            }
+        }
+        
+        const usuario = m.pushName || 'Tamjiro Kamado';
+
+        const authorDinamico = `⊹ 👑Bot:\n⊹ ↳ ${nombreBot}\n\n👑 Usuario:\n⊹ ↳ ${usuario}`;
 
         let q = m.quoted ? m.quoted : m;
         let mime = (q.msg || q).mimetype || q.mediaType || '';
@@ -55,7 +72,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         if (stiker) {
             conn.sendFile(m.chat, stiker, 'sticker.webp', '', m);
         } else {
-            conn.reply(m.chat, '✿ *_Debes responder a un Video, Foto o Gif, para generar su sticker._*', m);
+            conn.reply(m.chat, '✿ *_Debes responder a un Video, Foto o Gif, para generar su sticker._*', m, fake);
         }
     }
 };
