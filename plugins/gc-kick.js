@@ -1,50 +1,72 @@
-var handler = async (m, { conn, participants, usedPrefix, command }) => {
+const fs = require("fs");
+const path = require("path");
 
-    // let user = m?.message?.extendedTextMessage?.contextInfo?.participant || m?.mentionedJid[0] || await m?.quoted?.sender;
+const handler = async (msg, { conn }) => {
+  const rawID = conn.user?.id || "";
+  const subbotID = rawID.split(":")[0] + "@s.whatsapp.net";
 
-   let texto = await m.mentionedJid
-   let user = texto.length > 0 ? texto[0] : (m.quoted ? await m.quoted.sender : false)
-    if (!user) {
-        return conn.reply(m.chat, '✿ Etiqueta o menciona al usuario que quieras expulsar.', m, fake);
+  const prefixPath = path.resolve("prefixes.json");
+  let prefixes = {};
+  if (fs.existsSync(prefixPath)) {
+    prefixes = JSON.parse(fs.readFileSync(prefixPath, "utf-8"));
+  }
+  const usedPrefix = prefixes[subbotID] || ".";
+
+  if (!msg.key.remoteJid.includes("@g.us")) {
+    return await conn.sendMessage(msg.key.remoteJid, {
+      text: "✿ *Este comando solo está disposible para grupos.*"
+    }, { quoted: msg });
+  }
+
+  const chat = await conn.groupMetadata(msg.key.remoteJid);
+  const senderId = msg.key.participant.replace(/@s\.whatsapp\.net/, "");
+  const groupAdmins = chat.participants.filter(p => p.admin);
+  const isAdmin = groupAdmins.some(admin => admin.id === msg.key.participant);
+
+  let isOwner = false;
+  try {
+    const ownerFile = path.join(__dirname, "../../../config.js");
+    if (fs.existsSync(ownerFile)) {
+      const config = require(ownerFile);
+      if (config.owner) isOwner = config.owner.some(o => o[0] === senderId);
     }
+  } catch {}
 
-    const groupInfo = await conn.groupMetadata(m.chat);
-    const ownerGroup = groupInfo.owner || m.chat.split`-`[0] + '@s.whatsapp.net';
-    const ownerBot = globalThis.owner[0][0] + '@s.whatsapp.net';
-    //const nn = conn.getName(m.sender);
+  if (!isAdmin && !isOwner) {
+    return await conn.sendMessage(msg.key.remoteJid, {
+      text: "*✿ Este comando solo puede ser usado por admins o por el dueño del número del bot.*"
+    }, { quoted: msg });
+  }
 
-    if (user === m.sender) {
-        return conn.reply(m.chat, '✿ No puedes automencionarte, menciona a otro usuario.', m, fake);
-    }
+  let userToKick = null;
+  const mention = msg.message?.extendedTextMessage?.contextInfo?.mentionedJid;
+  if (mention?.length > 0) userToKick = mention[0];
 
-    if (user === conn.user.jid) {
-        return conn.reply(m.chat, '✿ Yo como bot no puedo autoeliminarme del grupo.', m, fake);
-    }
+  if (!userToKick && msg.message?.extendedTextMessage?.contextInfo?.participant) {
+    userToKick = msg.message.extendedTextMessage.contextInfo.participant;
+  }
 
-    if (user === ownerGroup) {
-        return conn.reply(m.chat, '✿ No puedo eliminar al propietario del grupo', m, fake);
-    }
+  if (!userToKick) {
+    return await conn.sendMessage(msg.key.remoteJid, {
+      text: "*✿ Responde o mensiona a un usuario.*"
+    }, { quoted: msg });
+  }
 
-    if (user === ownerBot) {
-        return conn.reply(m.chat, '✿ No puedo eliminar al propietario del bot', m, fake);
-    }
+  // ⚠️ Verificar si el objetivo también es admin
+  const isTargetAdmin = groupAdmins.some(admin => admin.id === userToKick);
+  if (isTargetAdmin) {
+    return await conn.sendMessage(msg.key.remoteJid, {
+      text: "✿ No puedo eliminar a un administrador del grupo."
+    }, { quoted: msg });
+  }
 
-    const participant = groupInfo.participants.find(participant => participant.jid === user);
+  await conn.groupParticipantsUpdate(msg.key.remoteJid, [userToKick], "remove");
 
-    if (!participant) {
-        return conn.reply(m.chat, `✿ El usuario *${globalThis.db.data.users[user].name}* ya no está en el grupo.`, m, fake);
-    }
-
-    await conn.groupParticipantsUpdate(m.chat, [user], 'remove');
-
-    await conn.reply(m.chat, `✿ El usuario *${globalThis.db.data.users[user].name}* ha sido expulsado del grupo correctamente.`, m, fake);
-
+  return await conn.sendMessage(msg.key.remoteJid, {
+    text: `✿ *El usuario @${userToKick.split("@")[0]} ha sido expulsado del grupo.*`,
+    mentions: [userToKick]
+  }, { quoted: msg });
 };
 
-handler.help = ['kick'];
-handler.tags = ['group'];
-handler.command = ['kick'];
-handler.admin = true;
-handler.botAdmin = true;
-
-export default handler;
+handler.command = ["kick"];
+module.exports = handler;
