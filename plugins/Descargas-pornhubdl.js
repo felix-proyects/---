@@ -1,33 +1,19 @@
-// ❀ Código By JTxs
+import fetch from "node-fetch"
+let handler = async (m, { conn }) => {
 
-import fetch from 'node-fetch'
+  let data = await (await fetch('https://raw.githubusercontent.com/ShirokamiRyzen/WAbot-DB/main/fitur_db/ppcp.json')).json()
+  let cita = data[Math.floor(Math.random() * data.length)]
 
-let handler = async (m, { conn, command, text, usedPrefix }) => {
+  let cowi = await(await fetch(cita.cowo)).buffer()
+  await conn.sendFile(m.chat, cowi, '', '*Masculino* ♂️', m)
+  let ciwi = await(await fetch(cita.cewe)).buffer()
+  await conn.sendFile(m.chat, ciwi, '', '*Femenina* ♀️', m)
+}
 
-if (!text) return conn.reply(m.chat, '❀ Ingresa un link de Pornhub Para Descargar Su Video 🍭', m)
-try {
-let api = `https://www.dark-yasiya-api.site/download/phub?url=${text}`
-let res = await fetch(api);
-let json = await res.json()
-let resu = json.result.format[0];
+handler.help = ['ppcouple']
+handler.tags = ['anime']
+handler.command = ['ppcp', 'ppcouple']
+handler.limit = false
+handler.register = true
 
-let { video_title, video_uploader } = json.result
-let { resolution, } = json.result.format[1]
-
-let url = resu.download_url;
-
-m.react('🕑');
-await conn.sendMessage(m.chat, { video: { url: url }, caption: video_title }, { quoted: m });
-m.react('✅');
-
-} catch (error) {
-m.reply(`Error: ${error.message}`);
-console.error(error)
-}}
-
-handler.command = ['pornhubdl', 'phdl'];
-handler.tag = ['descargas'];
-handler.help = ['pornohubdl'];
-handler.estrellas = 9;
-
-export default handler;
+export default handler
