@@ -36,7 +36,7 @@ let handler = async (m, { conn, args }) => {
 
   const inicio = (page - 1) * pageSize;
   const waifusPagina = ventas.slice(inicio, inicio + pageSize);
-  let texto = `❏ Personajes en venta.\n\n`;
+  let texto = `*☆ HaremShop ≧◠ᴥ◠≦*\n❏ Personajes en venta.\n\n`;
   let mencionados = [];
 
   for (let i = 0; i < waifusPagina.length; i++) {
@@ -54,7 +54,7 @@ let handler = async (m, { conn, args }) => {
         username = `@${(vendedor || '').split('@')[0] || 'desconocido'}`;
       }
 
-      texto += `❀ ${inicio + i + 1} » *${name}* (*${valorOriginal.toLocaleString()})*\n  ⛁ Precio » *¥${(precio || 0).toLocaleString()}* Coins*\n  ❖ Vendedor  » *${username}*\n  ✿ ID » *${idPersonaje}*\n\n`;
+      texto += `❀ *${inicio + i + 1} » ${name}* (*${valorOriginal.toLocaleString()})*\n  ⛁ Precio » *¥${(precio || 0).toLocaleString()}* Coins\n  ❖ Vendedor  » *${username}*\n  ✿ ID » *${idPersonaje}*\n\n`;
 
       if (vendedor) mencionados.push(vendedor);
     } catch (err) {
