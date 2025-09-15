@@ -43,7 +43,7 @@ global.textbot = '𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝗗𝙚𝙮𝙢
 global.gt = '͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧';
 global.namechannel = '=͟͟͞𝐃𝐞𝐲𝐦𝐨𝐨𝐧 𝐂𝐥𝐮𝐛 - 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥⏤͟͟͞͞★'
 
-global.moneda = '𝐃𝐞𝐲𝐦𝐦𝐨𝐧𝐬Coins'
+global.moneda = 'Coins'
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺  𝑫𝑬𝒀𝑴𝑶𝑶𝑵 𝑪𝑳𝑼𝑩◞ • 🌪️
 
