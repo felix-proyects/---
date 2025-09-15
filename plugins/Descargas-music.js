@@ -55,7 +55,6 @@ handler.help = ['baltop', 'eboard'];
 handler.tags = ['rpg', 'economy'];
 handler.command = ['baltop', 'eboard'];
 handler.group = true;
-handler.register = true;
 handler.exp = 0;
 
 export default handler;
