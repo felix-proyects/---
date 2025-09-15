@@ -33,7 +33,7 @@ let handler = async (m, { conn, args }) => {
   const venta = ventas.find(w => w.name.toLowerCase() === nombre);
   if (!venta) return m.reply('✿ El personaje no esta en venta. Especifica uno válido.');
 
-  if (venta.vendedor === userId) return m.reply('✘ No puedes comprar tu propia waifu.');
+  if (venta.vendedor === userId) return m.reply('✿ No puedes comprar tu propio personaje.');
 
   const precio = parseInt(venta.precio);
 
