@@ -365,10 +365,6 @@ Aǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs:
 
 *❏ #githubsearch*
 > Busca repositorios de github.
-*❏ #google <búsqueda>*
-> Has búsquedas en Google.
-*❏ #mercadolibre <búsqueda>*
-> Has búsquedas del mercado libre.
 *❏ #npmjs*
 > Busca librerías.
 *❏ #tweetposts*
