@@ -41,7 +41,7 @@ let handler = async (m, { conn, args }) => {
     const userId = m.sender
 
     if (args.length < 2) {
-        await conn.reply(m.chat, '✿ Especifica el nombre del personaje y mensiona a quien deseas regalarlo., m, fake)
+        await conn.reply(m.chat, '✿ Especifica el nombre del personaje y mensiona a quien deseas regalarlo.', m, fake)
         return
     }
 
