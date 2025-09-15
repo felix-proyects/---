@@ -62,7 +62,7 @@ let handler = async (m, { conn, args }) => {
     }
   }
 
-  texto += `> Página *${page}* de *${totalPages}*\n`;
+  texto += `> • Página *${page}* de *${totalPages}*\n`;
   if (page < totalPages) {
     texto += `> Usa *#haremshop ${page + 1}* para ver la siguiente página.\n`;
   }
