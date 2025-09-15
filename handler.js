@@ -29,9 +29,8 @@ export async function handler(chatUpdate) {
     m.exp = 0;
     m.coin = false;
 
-    // --- LÓGICA DE VERIFICACIÓN DE BOT PREMIUM MEJORADA ---
-    let isBotPrem = false; // El bot solo será premium si se verifica en el archivo.
-    if (!isBotPrem) { // Si no es el principal, revisa el archivo.
+    let isBotPrem = false;
+    if (!isBotPrem) { 
         try {
             const botJid = this.user.jid.split('@')[0];
             const premiumFilePath = path.join('./JadiBots', botJid, 'premium.json');
@@ -43,7 +42,6 @@ export async function handler(chatUpdate) {
             console.error('Error al verificar el estado premium del bot:', e);
         }
     }
-    // --- FIN DE LA LÓGICA DE VERIFICACIÓN ---
 
     try {
       let user = global.db.data.users[m.sender];
@@ -88,39 +86,9 @@ export async function handler(chatUpdate) {
         if (!isNumber(user.warn)) user.warn = 0;
       } else {
         global.db.data.users[m.sender] = {
-          exp: 0,
-          coin: 10,
-          joincount: 1,
-          diamond: 3,
-          lastadventure: 0,
-          health: 100,
-          lastclaim: 0,
-          lastcofre: 0,
-          lastdiamantes: 0,
-          lastcode: 0,
-          lastduel: 0,
-          lastpago: 0,
-          lastmining: 0,
-          lastcodereg: 0,
-          muto: false,
-          registered: false,
-          genre: '',
-          birth: '',
-          marry: '',
-          description: '',
-          packstickers: null,
-          name: m.name,
-          age: -1,
-          regTime: -1,
-          afk: -1,
-          afkReason: '',
-          banned: false,
-          useDocument: false,
-          bank: 0,
-          level: 0,
-          role: 'Nuv',
-          premium: false,
-          premiumTime: 0,                 
+          exp: 0, coin: 10, joincount: 1, diamond: 3, lastadventure: 0, health: 100, lastclaim: 0, lastcofre: 0, lastdiamantes: 0, lastcode: 0, lastduel: 0, lastpago: 0, lastmining: 0, lastcodereg: 0,
+          muto: false, registered: false, genre: '', birth: '', marry: '', description: '', packstickers: null, name: m.name, age: -1, regTime: -1, afk: -1, afkReason: '', banned: false, useDocument: false,
+          bank: 0, level: 0, role: 'Nuv', premium: false, premiumTime: 0,                 
         };
       }
       let chat = global.db.data.chats[m.chat];
@@ -146,25 +114,8 @@ export async function handler(chatUpdate) {
         if (!isNumber(chat.expired)) chat.expired = 0;
       } else {
         global.db.data.chats[m.chat] = {
-          isBanned: false,
-          sAutoresponder: '',
-          welcome: true,
-          autolevelup: false,
-          autoresponder: false,
-          delete: false,
-          autoAceptar: false,
-          autoRechazar: false,
-          detect: true,
-          antiBot: false,
-          antiBot2: false,
-          modoadmin: false,
-          antiLink: true,
-          antifake: false,
-          reaction: false,
-          nsfw: false,
-          expired: 0, 
-          antiLag: false,
-          per: [],
+          isBanned: false, sAutoresponder: '', welcome: true, autolevelup: false, autoresponder: false, delete: false, autoAceptar: false, autoRechazar: false,
+          detect: true, antiBot: false, antiBot2: false, modoadmin: false, antiLink: true, antifake: false, reaction: false, nsfw: false, expired: 0, antiLag: false, per: [],
         };
       }
       var settings = global.db.data.settings[this.user.jid];
@@ -177,24 +128,38 @@ export async function handler(chatUpdate) {
         if (!('autoread' in settings)) settings.autoread = false;
       } else {
         global.db.data.settings[this.user.jid] = {
-          self: false,
-          restrict: true,
-          jadibotmd: true,
-          antiPrivate: false,
-          autoread: false,
-          status: 0
+          self: false, restrict: true, jadibotmd: true, antiPrivate: false, autoread: false, status: 0
         };
       }
     } catch (e) {
       console.error(e);
     }
 
-    let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender];
-    const detectwhat = m.sender.includes('@lid') ? '@lid' : '@s.whatsapp.net';
-    const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender);
+    const _user = global.db.data.users[m.sender] || {};
+    const groupMetadata = (m.isGroup ? ((this.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}) || {};
+    const participants = (m.isGroup ? groupMetadata.participants : []) || [];
+    
+    const cleanJid = jid => jid?.split(':')[0] || '';
+    const normalizeJid = jid => jid?.replace(/[^0-9]/g, '') || '';
+    
+    const senderNum = normalizeJid(m.sender);
+    const botNums = [this.user.jid, this.user.lid].map(j => normalizeJid(cleanJid(j)));
+
+    const user = m.isGroup ? participants.find(u => normalizeJid(u.id) === senderNum) : {};
+    const bot = m.isGroup ? participants.find(u => botNums.includes(normalizeJid(u.id))) : {};
+
+    const isRAdmin = user?.admin === 'superadmin' || false;
+    const isAdmin = isRAdmin || user?.admin === 'admin' || false;
+    const isBotAdmin = !!bot?.admin;
+
+    const myJid = this.user?.id ? this.decodeJid(this.user.id) : '';
+    const isROwner = [myJid, ...(global.owner || []).map(([number]) => number)]
+        .filter(Boolean)
+        .map(v => v.replace(/[^0-9]/g, ''))
+        .includes(senderNum);
     const isOwner = isROwner || m.fromMe;
-    const isMods = isROwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender);
-    const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender) || _user.premium == true;
+    const isMods = isOwner || (global.mods || []).map(v => v.replace(/[^0-9]/g, '')).includes(senderNum);
+    const isPrems = isROwner || (global.prems || []).map(v => v.replace(/[^0-9]/g, '')).includes(senderNum) || _user.premium;
 
     if (m.isBaileys) return;
     if (opts['nyimak']) return;
@@ -221,22 +186,6 @@ export async function handler(chatUpdate) {
 
     m.exp += Math.ceil(Math.random() * 10);
 
-    async function getLidFromJid(id, conn) {
-      if (id.endsWith('@lid')) return id;
-      const res = await conn.onWhatsApp(id).catch(() => []);
-      return res[0]?.lid || id;
-    }
-    const senderLid = await getLidFromJid(m.sender, conn);
-    const botLid = await getLidFromJid(conn.user.jid, conn);
-    const senderJid = m.sender;
-    const botJid = conn.user.jid;
-    const groupMetadata = m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {};
-    const participants = m.isGroup ? (groupMetadata.participants || []) : [];
-    const user = participants.find(p => p.id === senderLid || p.id === senderJid) || {};
-    const bot = participants.find(p => p.id === botLid || p.id === botJid) || {};
-    const isRAdmin = user?.admin === "superadmin";
-    const isAdmin = isRAdmin || user?.admin === "admin";
-    const isBotAdmin = !!bot?.admin;
     const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins');
     let usedPrefix = '';
 
@@ -344,7 +293,6 @@ export async function handler(chatUpdate) {
           continue;
         }
 
-        // --- VERIFICACIÓN: COMANDO DISPONIBLE SOLO SI EL BOT ES PREMIUM ---
         if (plugin.botprem && !isBotPrem) {
           fail('botprem', m, this, usedPrefix, command);
           continue;
@@ -377,11 +325,11 @@ export async function handler(chatUpdate) {
         let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10;
         m.exp += xp;
         if (!isPrems && plugin.coin && global.db.data.users[m.sender].coin < plugin.coin * 1) {
-          conn.reply(m.chat, `❮✦❯ Se agotaron tus ${moneda}`, m);
+          this.reply(m.chat, `❮✦❯ Se agotaron tus ${moneda}`, m);
           continue;
         }
         if (plugin.level > _user.level) {
-          conn.reply(m.chat, `❮✦❯ Se requiere el nivel: *${plugin.level}*\n\n• Tu nivel actual es: *${_user.level}*\n\n• Usa este comando para subir de nivel:\n*${usedPrefix}levelup*`, m);
+          this.reply(m.chat, `❮✦❯ Se requiere el nivel: *${plugin.level}*\n\n• Tu nivel actual es: *${_user.level}*\n\n• Usa este comando para subir de nivel:\n*${usedPrefix}levelup*`, m);
           continue;
         }
         let extra = {
@@ -408,7 +356,7 @@ export async function handler(chatUpdate) {
               console.error(e);
             }
           }
-          if (m.coin) conn.reply(m.chat, `❮✦❯ Utilizaste ${+m.coin} ${moneda}`, m);
+          if (m.coin) this.reply(m.chat, `❮✦❯ Utilizaste ${+m.coin} ${moneda}`, m);
         }
         break; 
       }} 
@@ -425,7 +373,7 @@ export async function handler(chatUpdate) {
       if (utente.muto == true) {
         let bang = m.key.id;
         let cancellazzione = m.key.participant;
-        await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: cancellazzione }});
+        await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: cancellazzione }});
       }
       if (m.sender && (user = global.db.data.users[m.sender])) {
         user.exp += m.exp;
@@ -443,10 +391,7 @@ export async function handler(chatUpdate) {
           if (!isNumber(stat.lastSuccess)) stat.lastSuccess = m.error != null ? 0 : now;
         } else {
           stat = stats[m.plugin] = {
-            total: 1,
-            success: m.error != null ? 0 : 1,
-            last: now,
-            lastSuccess: m.error != null ? 0 : now
+            total: 1, success: m.error != null ? 0 : 1, last: now, lastSuccess: m.error != null ? 0 : now
           };
         }
         stat.total += 1;
