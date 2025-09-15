@@ -34,7 +34,6 @@ handler.help = ['daily', 'diario'];
 handler.tags = ['rpg'];
 handler.command = ['daily', 'diario'];
 handler.group = true;
-handler.register = true;
 
 export default handler;
 
