@@ -6,8 +6,8 @@ var handler = async (m, { conn, isPrems }) => {
 
   const buttons = [
     {
-      buttonId: `bb`,
-      buttonText: { displayText: "bb" },
+      buttonId: `pene`,
+      buttonText: { displayText: "dime" },
       type: 1
     }
   ];
