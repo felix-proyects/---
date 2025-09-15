@@ -45,7 +45,5 @@ var handler = async (m, { usedPrefix, command }) => {
 handler.command = ['rev']
 handler.help = ['detectarsyntax']
 handler.tags = ['tools']
-handler.rowner = true
-handler.register = true
 
 export default handler
