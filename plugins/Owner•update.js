@@ -15,6 +15,5 @@ await m.reply('🩵 Se han hecho cambios locales qué entran en conflicto con la
 handler.help = ['update', 'actualizar']
 handler.tags = ['owner']
 handler.command = ['update', 'actualizar']
-handler.rowner = true
 
 export default handler
