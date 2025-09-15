@@ -1,47 +1,71 @@
-import {unlinkSync, readFileSync} from 'fs';
-import {join} from 'path';
-import {exec} from 'child_process';
+import fs from 'fs';
 
-const handler = async (m, {conn, args, __dirname, usedPrefix, command}) => {
-  try {
-    const q = m.quoted ? m.quoted : m;
-    const mime = ((m.quoted ? m.quoted : m.msg).mimetype || '');
-    let set;
-    if (/bass/.test(command)) set = '-af equalizer=f=94:width_type=o:width=2:g=30';
-    if (/blown/.test(command)) set = '-af acrusher=.1:1:64:0:log';
-    if (/deep/.test(command)) set = '-af atempo=4/4,asetrate=44500*2/3';
-    if (/earrape/.test(command)) set = '-af volume=12';
-    if (/fast/.test(command)) set = '-filter:a "atempo=1.63,asetrate=44100"';
-    if (/fat/.test(command)) set = '-filter:a "atempo=1.6,asetrate=22100"';
-    if (/nightcore/.test(command)) set = '-filter:a atempo=1.06,asetrate=44100*1.25';
-    if (/reverse/.test(command)) set = '-filter_complex "areverse"';
-    if (/robot/.test(command)) set = '-filter_complex "afftfilt=real=\'hypot(re,im)*sin(0)\':imag=\'hypot(re,im)*cos(0)\':win_size=512:overlap=0.75"';
-    if (/slow/.test(command)) set = '-filter:a "atempo=0.7,asetrate=44100"';
-    if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"';
-    if (/tupai|squirrel|chipmunk/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"';
-    if (/audio/.test(mime)) {
-      const ran = getRandom('.mp3');
-      const filename = join(__dirname, '../tmp/' + ran);
-      const media = await q.download(true);
-      exec(`ffmpeg -i ${media} ${set} ${filename}`, async (err, stderr, stdout) => {
-        await unlinkSync(media);
-        if (err) throw `_*Error!*_`;
-        const buff = await readFileSync(filename);
-        conn.sendFile(m.chat, buff, ran, null, m, true, {
-          type: 'audioMessage',
-          ptt: true,
-        });
-      });
-    } else throw `> *𝚁𝙴𝚂𝙿𝙾𝙽𝙳𝙰 𝙰𝙻 𝙰𝚄𝙳𝙸𝙾 𝙾 𝙽𝙾𝚃𝙰 𝙳𝙴 𝚅𝙾𝚉 𝙴𝙻 𝙲𝚄𝙰𝙻 𝚂𝙴𝚁𝙰 𝙼𝙾𝙳𝙸𝙵𝙸𝙲𝙰𝙳𝙾, 𝚄𝚂𝙰𝙳𝙾 𝙴𝙻 𝙲𝙾𝙰𝙼𝙰𝙽𝙳𝙾 ${usedPrefix + command}*`;
-  } catch (e) {
-    throw e;
+const charactersFilePath = './src/database/characters.json';
+const ventaFilePath = './src/database/waifusVenta.json';
+
+async function loadCharacters() {
+  return JSON.parse(fs.readFileSync(charactersFilePath, 'utf-8'));
+}
+
+async function saveCharacters(characters) {
+  fs.writeFileSync(charactersFilePath, JSON.stringify(characters, null, 2), 'utf-8');
+}
+
+async function loadVentas() {
+  return JSON.parse(fs.readFileSync(ventaFilePath, 'utf-8'));
+}
+
+async function saveVentas(data) {
+  fs.writeFileSync(ventaFilePath, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+let handler = async (m, { conn, args }) => {
+  const userId = m.sender;
+  const user = global.db.data.users[userId];
+
+  if (!args[0]) return m.reply('✿ Especifica el personaje que deseas comprar.');
+
+  const nombre = args.join(' ').trim().toLowerCase();
+
+  const ventas = await loadVentas();
+  const characters = await loadCharacters();
+
+  const venta = ventas.find(w => w.name.toLowerCase() === nombre);
+  if (!venta) return m.reply('✿ El personaje no esta en venta. Especifica uno válido.');
+
+  if (venta.vendedor === userId) return m.reply('✘ No puedes comprar tu propia waifu.');
+
+  const precio = parseInt(venta.precio);
+
+  if (user.coin < precio) {
+    return m.reply(`✿ No tienes suficientes coins para comprar ese personaje.`);
   }
-};
-handler.help = ['bass', 'blown', 'deep', 'earrape', 'fast', 'fat', 'nightcore', 'reverse', 'robot', 'slow', 'smooth', 'tupai'].map((v) => v + ' [vn]');
-handler.tags = ['audio'];
-handler.command = ['bass', 'blown', 'deep', 'earrape', 'nightcore', 'reverse', 'robot', 'slow', 'smooth', 'fat', 'tupai', 'squirrel', 'chipmunk'];
-export default handler;
 
-const getRandom = (ext) => {
-  return `${Math.floor(Math.random() * 10000)}${ext}`;
+  const waifu = characters.find(c => c.name.toLowerCase() === nombre);
+  if (!waifu) return m.reply('✿ El personaje no fue encontrado.');
+
+  user.coin -= precio;
+  const vendedorId = venta.vendedor;
+  global.db.data.users[vendedorId].coin += precio;
+
+  waifu.user = userId;
+  waifu.status = "Reclamado";
+
+  const nuevasVentas = ventas.filter(w => w.name.toLowerCase() !== nombre);
+  await saveVentas(nuevasVentas);
+  await saveCharacters(characters);
+
+  let nombreComprador = await conn.getName(userId);
+  let textoPrivado = `✿ El personaje *${waifu.name}* fue comprado por *${nombreComprador}*.\nGanaste *¥${precio.toLocaleString()} coins*.`;
+  await conn.sendMessage(vendedorId, { text: textoPrivado }, { quoted: m });
+
+  m.reply(`✿ *${waifu.name}* fue comprado por ti!`);
 };
+
+handler.help = ['comprarwaifu <nombre>'];
+handler.tags = ['waifus'];
+handler.command = ['comprarwaifu', 'buycharacter', 'buychar', 'buyc'];
+handler.group = true;
+handler.register = true;
+
+export default handler;
