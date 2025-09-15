@@ -66,6 +66,5 @@ handler.help = ['comprarwaifu <nombre>'];
 handler.tags = ['waifus'];
 handler.command = ['comprarwaifu', 'buycharacter', 'buychar', 'buyc'];
 handler.group = true;
-handler.register = true;
 
 export default handler;
