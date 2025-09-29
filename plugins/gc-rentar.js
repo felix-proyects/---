@@ -35,7 +35,6 @@ const handler = async (m, {conn, command, args}) => {
 };
 handler.help = ['rentar'];
 handler.tags = ['grupo'];
-handler.register = true;
 handler.command = ['rentar'];
 
 handler.disabled = false;
