@@ -81,6 +81,5 @@ handler.help = ['waifusventa [página]'];
 handler.tags = ['waifus'];
 handler.command = ['haremshop', 'tiendawaifus', 'wshop'];
 handler.group = true;
-handler.register = true;
 
 export default handler;
