@@ -11,7 +11,6 @@ await conn.sendFile(m.chat, json.url, 'thumbnail.jpg', null, m)
 }}
 handler.help = ['waifu']
 handler.tags = ['img']
-handler.command = ['waifu']
-handler.register = true 
+handler.command = ['waifu'] 
 //handler.limit = 1
 export default handler
